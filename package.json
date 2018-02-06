@@ -17,5 +17,6 @@
   },
   "homepage": "https://github.com/0918nobita/Rider-S#readme",
   "devDependencies": {
+    "webpack": "^3.10.0"
   }
 }
