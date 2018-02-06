@@ -1,0 +1,23 @@
+{
+	"extends": ["eslint:recommended"],
+	"plugins": ["flowtype"],
+	"parser": "babel-eslint",
+	"parserOptions": {
+		"sourceType": "module"
+	},
+	"env": {
+		"browser": true,
+		"node": true,
+		"es6": true
+	},
+	"globals": {},
+	"rules": {
+		"semi": "error",
+		"no-console": "off"
+	},
+	"settings": {
+		"flowtype": {
+			"onlyFilesWithFlowAnnotation": true
+		}
+	}
+}
