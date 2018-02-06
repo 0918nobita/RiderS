@@ -1,5 +1,7 @@
 # Rider-S
 
+[![CircleCI](https://circleci.com/gh/0918nobita/Rider-S.svg?style=svg)](https://circleci.com/gh/0918nobita/Rider-S) [![apm](https://img.shields.io/apm/l/vim-mode.svg)]()
+
 安全なサイクリングをサポートする AMP 対応 Web サービス
 
 - スマホで Rider-S の Web ページを表示して、ホルダー等でハンドルに固定して使う。
