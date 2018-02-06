@@ -17,6 +17,9 @@
   },
   "homepage": "https://github.com/0918nobita/Rider-S#readme",
   "devDependencies": {
+    "babel-core": "^6.26.0",
+    "babel-loader": "^7.1.2",
+    "babel-preset-env": "^1.6.1",
     "eslint": "^4.17.0",
     "eslint-loader": "^1.9.0",
     "uglifyjs-webpack-plugin": "^1.1.8",
