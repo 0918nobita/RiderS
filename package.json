@@ -1,0 +1,21 @@
+{
+  "name": "rider-s",
+  "version": "1.0.0",
+  "description": "安全なサイクリングをサポートする AMP 対応 Web サービス",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/0918nobita/Rider-S.git"
+  },
+  "author": "0918nobita",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/0918nobita/Rider-S/issues"
+  },
+  "homepage": "https://github.com/0918nobita/Rider-S#readme",
+  "devDependencies": {
+  }
+}
