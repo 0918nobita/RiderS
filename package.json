@@ -34,6 +34,7 @@
     "flow-babel-webpack-plugin": "^1.1.1",
     "flow-bin": "^0.64.0",
     "flow-typed": "^2.3.0",
+    "mocha": "^5.0.0",
     "uglifyjs-webpack-plugin": "^1.1.8",
     "webpack": "^3.10.0"
   }
