@@ -4,6 +4,12 @@
   "description": "安全なサイクリングをサポートする AMP 対応 Web サービス",
   "main": "index.js",
   "scripts": {
+	"eslint": "./node_modules/.bin/eslint ./src/js/*.js ./src/js/modules/*.js",
+    "flow": "./node_modules/.bin/flow",
+    "flow-typed": "./node_modules/.bin/flow-typed install",
+    "debug": "./node_modules/.bin/webpack",
+    "release": "./node_modules/.bin/webpack --env.production",
+    "watch": "./node_modules/.bin/webpack --watch",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
