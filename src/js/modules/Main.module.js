@@ -1,9 +1,21 @@
 // @flow
-export default class Main {
-	config: {};
-	constructor(config: {}) {
-		this.config = config;
+import type { Config } from "../types/Config.type";
+
+class PrivateFields {
+	config: Config;
+	
+	constructor(param: {config: Config}) {
+		this.config = param.config;
 	}
+}
+
+const privates : WeakMap<Object, PrivateFields> = new WeakMap();
+
+export default class Main {
+	constructor(param: {config: Config}) {
+		privates.set(this, new PrivateFields(param));
+	}
+
 	main(): void {
 		const w : ?EventTarget = window;
 		const body : ?HTMLElement = document.body;
