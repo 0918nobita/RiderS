@@ -324,22 +324,10 @@ window.esdocSearchIndex = [
     "file"
   ],
   [
-    "js/modules/io.module.js~io#body",
-    "class/js/modules/io.module.js~IO.html#instance-member-body",
-    "js/modules/io.module.js~IO#body",
-    "member"
-  ],
-  [
     "js/modules/io.module.js~io#constructor",
     "class/js/modules/io.module.js~IO.html#instance-constructor-constructor",
     "js/modules/io.module.js~IO#constructor",
     "method"
-  ],
-  [
-    "js/modules/io.module.js~io#first",
-    "class/js/modules/io.module.js~IO.html#instance-member-first",
-    "js/modules/io.module.js~IO#first",
-    "member"
   ],
   [
     "js/modules/io.module.js~io#output",

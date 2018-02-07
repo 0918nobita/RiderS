@@ -578,7 +578,7 @@
     "__docId__": 49,
     "kind": "file",
     "name": "js/modules/io.module.js",
-    "content": "// @flow\nexport default class IO {\n\tbody: ?HTMLElement;\n\tfirst: ?HTMLElement;\n\tconstructor() {\n\t\tthis.body = document.body;\n\t}\n\toutput(str : string): void {\n\t\tconst p : ?HTMLElement = document.createElement(\"p\");\n\t\tif (p instanceof HTMLElement) {\n\t\t\tp.textContent = str;\n\t\t\tif (this.body instanceof HTMLElement) {\n\t\t\t\tif (this.first instanceof HTMLElement)\n\t\t\t\t\tthis.body.insertBefore(p, this.first);\n\t\t\t\telse this.first = this.body.appendChild(p);\n\t\t\t}\n\t\t}\n\t}\n}\n",
+    "content": "// @flow\n/**\n * @access public\n * @desc the class in charge of Input/Output\n */\nexport default class IO {\n\t/**\n\t * @access private\n\t * @type {?Node}\n\t * @desc the last added node\n\t */\n\t_first : ?Node;\n\n\t/**\n\t * @access private\n\t * @type {Node}\n\t * @desc body element\n\t */\n\t_body : Node;\n\n\t/**\n\t * @access public\n\t * @desc create IO instance\n\t * @throws {Error} throw error when document.body object cannot be found.\n\t */\n\tconstructor() {\n\t\tthis._first = null;\n\t\tif (document.body instanceof Node) this._body = document.body;\n\t\telse throw new Error(\"document.body cannnot be found.\");\n\t}\n\n\t/**\n\t * @desc output passed string\n\t * @param {string} str - the output string\n\t */\n\toutput(str : string): void {\n\t\tconst p : ?Node = document.createElement(\"p\");\n\t\tif (p == null) return;\n\t\t\n\t\tp.textContent = str;\n\t\t\n\t\tthis._first = (this._first != null) ?\n\t\t\tthis._body.insertBefore(p, this._first) :\n\t\t\tthis._body.appendChild(p);\n\t}\n}\n",
     "static": true,
     "longname": "C:/Users/kodai/Documents/GitHub/Rider-S/src/js/modules/io.module.js",
     "access": "public",
@@ -596,21 +596,20 @@
     "export": true,
     "importPath": "rider-s/js/modules/io.module.js",
     "importStyle": "IO",
-    "description": null,
-    "lineNumber": 2,
-    "undocument": true,
+    "description": "the class in charge of Input/Output",
+    "lineNumber": 6,
     "interface": false
   },
   {
     "__docId__": 51,
     "kind": "member",
-    "name": "body",
+    "name": "_first",
     "memberof": "js/modules/io.module.js~IO",
     "static": false,
-    "longname": "js/modules/io.module.js~IO#body",
-    "access": "public",
-    "description": "",
-    "lineNumber": 3,
+    "longname": "js/modules/io.module.js~IO#_first",
+    "access": "private ",
+    "description": "the last added node ",
+    "lineNumber": 12,
     "type": {
       "nullable": null,
       "types": [
@@ -618,26 +617,28 @@
       ],
       "spread": false,
       "description": null
-    }
+    },
+    "ignore": true
   },
   {
     "__docId__": 52,
     "kind": "member",
-    "name": "first",
+    "name": "_body",
     "memberof": "js/modules/io.module.js~IO",
     "static": false,
-    "longname": "js/modules/io.module.js~IO#first",
-    "access": "public",
-    "description": "",
-    "lineNumber": 4,
+    "longname": "js/modules/io.module.js~IO#_body",
+    "access": "private ",
+    "description": "body element ",
+    "lineNumber": 19,
     "type": {
       "nullable": null,
       "types": [
-        "nullable"
+        "Node"
       ],
       "spread": false,
       "description": null
-    }
+    },
+    "ignore": true
   },
   {
     "__docId__": 53,
@@ -649,12 +650,19 @@
     "static": false,
     "longname": "js/modules/io.module.js~IO#constructor",
     "access": "public",
-    "description": null,
-    "lineNumber": 5,
-    "undocument": true
+    "description": "create IO instance",
+    "lineNumber": 26,
+    "throws": [
+      {
+        "types": [
+          "Error"
+        ],
+        "description": "throw error when document.body object cannot be found."
+      }
+    ]
   },
   {
-    "__docId__": 55,
+    "__docId__": 56,
     "kind": "method",
     "name": "output",
     "memberof": "js/modules/io.module.js~IO",
@@ -663,8 +671,8 @@
     "static": false,
     "longname": "js/modules/io.module.js~IO#output",
     "access": "public",
-    "description": " ",
-    "lineNumber": 8,
+    "description": "output passed string  ",
+    "lineNumber": 36,
     "params": [
       {
         "nullable": null,
@@ -674,7 +682,7 @@
         "spread": false,
         "optional": false,
         "name": "str",
-        "description": ""
+        "description": "the output string"
       }
     ],
     "return": {
@@ -687,7 +695,7 @@
     }
   },
   {
-    "__docId__": 57,
+    "__docId__": 58,
     "kind": "file",
     "name": "js/modules/Main.module.js",
     "content": "// @flow\nimport type { Config } from \"../types/Config.type\";\n\nclass PrivateFields {\n\tconfig: Config;\n\t\n\tconstructor(param: {config: Config}) {\n\t\tthis.config = param.config;\n\t}\n}\n\nconst privates : WeakMap<Object, PrivateFields> = new WeakMap();\n\nexport default class Main {\n\tconstructor(param: {config: Config}) {\n\t\tprivates.set(this, new PrivateFields(param));\n\t}\n\n\tmain(): void {\n\t\tconst w : ?EventTarget = window;\n\t\tconst body : ?HTMLElement = document.body;\n\t\tconst alpha: ?HTMLElement = document.createElement(\"p\");\n\t\tconst beta: ?HTMLElement = document.createElement(\"p\");\n\t\tconst gamma: ?HTMLElement = document.createElement(\"p\");\n\n\t\tif (body instanceof HTMLElement) {\n\t\t\tif (alpha instanceof HTMLElement) body.appendChild(alpha);\n\t\t\tif (beta instanceof HTMLElement) body.appendChild(beta);\n\t\t\tif (gamma instanceof HTMLElement) body.appendChild(gamma);\n\t\t}\n\n\t\tif (w instanceof EventTarget) w.addEventListener(\"deviceorientation\", (e: any) => {\n\t\t\tif (alpha instanceof HTMLElement && beta instanceof HTMLElement && gamma instanceof HTMLElement) {\n\t\t\t\talpha.textContent = \"alpha: \" + e.alpha;\n\t\t\t\tbeta.textContent = \"beta: \" + e.beta;\n\t\t\t\tgamma.textContent = \"gamma: \" + e.gamma;\n\t\t\t}\n\t\t});\n\t}\n}\n",
@@ -698,7 +706,7 @@
     "lineNumber": 1
   },
   {
-    "__docId__": 58,
+    "__docId__": 59,
     "kind": "class",
     "name": "PrivateFields",
     "memberof": "js/modules/Main.module.js",
@@ -715,7 +723,7 @@
     "ignore": true
   },
   {
-    "__docId__": 59,
+    "__docId__": 60,
     "kind": "member",
     "name": "config",
     "memberof": "js/modules/Main.module.js~PrivateFields",
@@ -734,7 +742,7 @@
     }
   },
   {
-    "__docId__": 60,
+    "__docId__": 61,
     "kind": "constructor",
     "name": "constructor",
     "memberof": "js/modules/Main.module.js~PrivateFields",
@@ -748,7 +756,7 @@
     "undocument": true
   },
   {
-    "__docId__": 62,
+    "__docId__": 63,
     "kind": "variable",
     "name": "privates",
     "memberof": "js/modules/Main.module.js",
@@ -769,7 +777,7 @@
     "ignore": true
   },
   {
-    "__docId__": 63,
+    "__docId__": 64,
     "kind": "class",
     "name": "Main",
     "memberof": "js/modules/Main.module.js",
@@ -785,7 +793,7 @@
     "interface": false
   },
   {
-    "__docId__": 64,
+    "__docId__": 65,
     "kind": "constructor",
     "name": "constructor",
     "memberof": "js/modules/Main.module.js~Main",
@@ -799,7 +807,7 @@
     "undocument": true
   },
   {
-    "__docId__": 65,
+    "__docId__": 66,
     "kind": "method",
     "name": "main",
     "memberof": "js/modules/Main.module.js~Main",
@@ -821,7 +829,7 @@
     "params": []
   },
   {
-    "__docId__": 66,
+    "__docId__": 67,
     "kind": "file",
     "name": "js/types/Config.type.js",
     "content": "// @flow\nexport type Config = {\n\tAPI_KEY: string,\n\tAPI_SECRET: string\n};\n",
