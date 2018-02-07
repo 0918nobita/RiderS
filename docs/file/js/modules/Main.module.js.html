@@ -56,8 +56,8 @@ export default class Main extends DOMController {
 
 	/**
 	 * @access public
-	 * @param {!Config} config - unpublicized settings
 	 * @desc create Main instance.
+	 * @param {!Config} config - unpublicized settings
 	 */
 	constructor(config: Config) {
 		super();
@@ -69,20 +69,18 @@ export default class Main extends DOMController {
 	 * @desc execute the main procedure.
 	 */
 	main(): void {
-		const alpha: ?Node = document.createElement(&quot;p&quot;);
-		const beta: ?Node = document.createElement(&quot;p&quot;);
-		const gamma: ?Node = document.createElement(&quot;p&quot;);
+		const alpha: Node = this.createElement(&quot;p&quot;);
+		const beta: Node = this.createElement(&quot;p&quot;);
+		const gamma: Node = this.createElement(&quot;p&quot;);
 
-		if (alpha instanceof Node) this.body.appendChild(alpha);
-		if (beta instanceof Node) this.body.appendChild(beta);
-		if (gamma instanceof Node) this.body.appendChild(gamma);
+		this.body.appendChild(alpha);
+		this.body.appendChild(beta);
+		this.body.appendChild(gamma);
 
-		this.window.addEventListener(&quot;deviceorientation&quot;, (e: DeviceOrientationEvent) =&gt; {
-			if (alpha instanceof HTMLElement &amp;&amp; beta instanceof HTMLElement &amp;&amp; gamma instanceof HTMLElement) {
-				alpha.textContent = &quot;alpha: &quot; + e.alpha;
-				beta.textContent = &quot;beta: &quot; + e.beta;
-				gamma.textContent = &quot;gamma: &quot; + e.gamma;
-			}
+		this.window.addEventListener(&quot;deviceorientation&quot;, (e: any) =&gt; {
+			alpha.textContent = &quot;alpha: &quot; + e.alpha;
+			beta.textContent = &quot;beta: &quot; + e.beta;
+			gamma.textContent = &quot;gamma: &quot; + e.gamma;
 		});
 	}
 }
