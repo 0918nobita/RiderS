@@ -17,7 +17,7 @@ export default class Main extends DOMController {
 	/**
 	 * @access public
 	 * @param {!Config} config - unpublicized settings
-	 * @desc create Main instance
+	 * @desc create Main instance.
 	 */
 	constructor(config: Config) {
 		super();
@@ -26,7 +26,7 @@ export default class Main extends DOMController {
 
 	/**
 	 * @access public
-	 * @desc execute the main procedure
+	 * @desc execute the main procedure.
 	 */
 	main(): void {
 		const alpha: ?Node = document.createElement("p");

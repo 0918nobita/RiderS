@@ -20,7 +20,8 @@ export default class DOMController {
 
 	/**
 	 * @access public
-	 * @desc create DOMController instance
+	 * @desc create DOMController instance.
+	 * @throws {Error} throw error when required DOM element cannot be found.
 	 */
 	constructor() {
 		if (document.body instanceof Node) this.body = document.body;

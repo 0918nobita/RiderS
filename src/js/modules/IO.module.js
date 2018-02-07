@@ -16,8 +16,7 @@ export default class IO extends DOMController {
 
 	/**
 	 * @access public
-	 * @desc create IO instance
-	 * @throws {Error} throw error when document.body object cannot be found.
+	 * @desc create IO instance.
 	 */
 	constructor() {
 		super();
@@ -25,7 +24,7 @@ export default class IO extends DOMController {
 	}
 
 	/**
-	 * @desc output passed string
+	 * @desc output passed string.
 	 * @param {!string} str - the output string
 	 */
 	output(str : string): void {
