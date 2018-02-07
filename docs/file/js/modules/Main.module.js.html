@@ -29,8 +29,9 @@
 <nav class="navigation" data-ice="nav"><div>
   <ul>
     
-  <li data-ice="doc"><a data-ice="dirPath" class="nav-dir-path" href="identifiers.html#modules">modules</a><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/js/modules/Main.module.js~Main.html">Main</a></span></span></li>
-<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/js/modules/io.module.js~IO.html">IO</a></span></span></li>
+  <li data-ice="doc"><a data-ice="dirPath" class="nav-dir-path" href="identifiers.html#modules">modules</a><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/js/modules/DOMController.module.js~DOMController.html">DOMController</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/js/modules/IO.module.js~IO.html">IO</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/js/modules/Main.module.js~Main.html">Main</a></span></span></li>
 </ul>
 </div>
 </nav>
@@ -38,36 +39,43 @@
 <div class="content" data-ice="content"><h1 data-ice="title">js/modules/Main.module.js</h1>
 <pre class="source-code line-number raw-source-code"><code class="prettyprint linenums" data-ice="content">// @flow
 import type { Config } from &quot;../types/Config.type&quot;;
+import DOMController from &quot;./DOMController.module&quot;;
 
-class PrivateFields {
-	config: Config;
-	
-	constructor(param: {config: Config}) {
-		this.config = param.config;
+/**
+ * @access public
+ * @desc the main class
+ */
+export default class Main extends DOMController {
+	/**
+	 * @access private
+	 * @type {Config}
+	 */
+	_config: Config;
+
+	/**
+	 * @access public
+	 * @param {!Config} config - unpublicized settings
+	 * @desc create Main instance
+	 */
+	constructor(config: Config) {
+		super();
+		this._config = config;
 	}
-}
 
-const privates : WeakMap&lt;Object, PrivateFields&gt; = new WeakMap();
-
-export default class Main {
-	constructor(param: {config: Config}) {
-		privates.set(this, new PrivateFields(param));
-	}
-
+	/**
+	 * @access public
+	 * @desc execute the main procedure
+	 */
 	main(): void {
-		const w : ?EventTarget = window;
-		const body : ?HTMLElement = document.body;
-		const alpha: ?HTMLElement = document.createElement(&quot;p&quot;);
-		const beta: ?HTMLElement = document.createElement(&quot;p&quot;);
-		const gamma: ?HTMLElement = document.createElement(&quot;p&quot;);
+		const alpha: ?Node = document.createElement(&quot;p&quot;);
+		const beta: ?Node = document.createElement(&quot;p&quot;);
+		const gamma: ?Node = document.createElement(&quot;p&quot;);
 
-		if (body instanceof HTMLElement) {
-			if (alpha instanceof HTMLElement) body.appendChild(alpha);
-			if (beta instanceof HTMLElement) body.appendChild(beta);
-			if (gamma instanceof HTMLElement) body.appendChild(gamma);
-		}
+		if (alpha instanceof Node) this.body.appendChild(alpha);
+		if (beta instanceof Node) this.body.appendChild(beta);
+		if (gamma instanceof Node) this.body.appendChild(gamma);
 
-		if (w instanceof EventTarget) w.addEventListener(&quot;deviceorientation&quot;, (e: any) =&gt; {
+		this.window.addEventListener(&quot;deviceorientation&quot;, (e: DeviceOrientationEvent) =&gt; {
 			if (alpha instanceof HTMLElement &amp;&amp; beta instanceof HTMLElement &amp;&amp; gamma instanceof HTMLElement) {
 				alpha.textContent = &quot;alpha: &quot; + e.alpha;
 				beta.textContent = &quot;beta: &quot; + e.beta;

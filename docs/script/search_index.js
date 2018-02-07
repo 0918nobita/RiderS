@@ -1,8 +1,14 @@
 window.esdocSearchIndex = [
   [
+    "rider-s/js/modules/domcontroller.module.js~domcontroller",
+    "class/js/modules/DOMController.module.js~DOMController.html",
+    "<span>DOMController</span> <span class=\"search-result-import-path\">rider-s/js/modules/DOMController.module.js</span>",
+    "class"
+  ],
+  [
     "rider-s/js/modules/io.module.js~io",
-    "class/js/modules/io.module.js~IO.html",
-    "<span>IO</span> <span class=\"search-result-import-path\">rider-s/js/modules/io.module.js</span>",
+    "class/js/modules/IO.module.js~IO.html",
+    "<span>IO</span> <span class=\"search-result-import-path\">rider-s/js/modules/IO.module.js</span>",
     "class"
   ],
   [
@@ -300,6 +306,36 @@ window.esdocSearchIndex = [
     "file"
   ],
   [
+    "js/modules/domcontroller.module.js",
+    "file/js/modules/DOMController.module.js.html",
+    "js/modules/DOMController.module.js",
+    "file"
+  ],
+  [
+    "js/modules/domcontroller.module.js~domcontroller#constructor",
+    "class/js/modules/DOMController.module.js~DOMController.html#instance-constructor-constructor",
+    "js/modules/DOMController.module.js~DOMController#constructor",
+    "method"
+  ],
+  [
+    "js/modules/io.module.js",
+    "file/js/modules/IO.module.js.html",
+    "js/modules/IO.module.js",
+    "file"
+  ],
+  [
+    "js/modules/io.module.js~io#constructor",
+    "class/js/modules/IO.module.js~IO.html#instance-constructor-constructor",
+    "js/modules/IO.module.js~IO#constructor",
+    "method"
+  ],
+  [
+    "js/modules/io.module.js~io#output",
+    "class/js/modules/IO.module.js~IO.html#instance-method-output",
+    "js/modules/IO.module.js~IO#output",
+    "method"
+  ],
+  [
     "js/modules/main.module.js",
     "file/js/modules/Main.module.js.html",
     "js/modules/Main.module.js",
@@ -309,30 +345,6 @@ window.esdocSearchIndex = [
     "js/modules/main.module.js~main#constructor",
     "class/js/modules/Main.module.js~Main.html#instance-constructor-constructor",
     "js/modules/Main.module.js~Main#constructor",
-    "method"
-  ],
-  [
-    "js/modules/main.module.js~main#main",
-    "class/js/modules/Main.module.js~Main.html#instance-method-main",
-    "js/modules/Main.module.js~Main#main",
-    "method"
-  ],
-  [
-    "js/modules/io.module.js",
-    "file/js/modules/io.module.js.html",
-    "js/modules/io.module.js",
-    "file"
-  ],
-  [
-    "js/modules/io.module.js~io#constructor",
-    "class/js/modules/io.module.js~IO.html#instance-constructor-constructor",
-    "js/modules/io.module.js~IO#constructor",
-    "method"
-  ],
-  [
-    "js/modules/io.module.js~io#output",
-    "class/js/modules/io.module.js~IO.html#instance-method-output",
-    "js/modules/io.module.js~IO#output",
     "method"
   ],
   [

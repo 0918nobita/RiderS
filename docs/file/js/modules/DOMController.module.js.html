@@ -2,8 +2,8 @@
 <html>
 <head>
   <meta charset="utf-8">
-  <base data-ice="baseUrl" href="../../">
-  <title data-ice="title">js/app.js | rider-s</title>
+  <base data-ice="baseUrl" href="../../../">
+  <title data-ice="title">js/modules/DOMController.module.js | rider-s</title>
   <link type="text/css" rel="stylesheet" href="css/style.css">
   <link type="text/css" rel="stylesheet" href="css/prettify-tomorrow.css">
   <script src="script/prettify/prettify.js"></script>
@@ -36,12 +36,34 @@
 </div>
 </nav>
 
-<div class="content" data-ice="content"><h1 data-ice="title">js/app.js</h1>
+<div class="content" data-ice="content"><h1 data-ice="title">js/modules/DOMController.module.js</h1>
 <pre class="source-code line-number raw-source-code"><code class="prettyprint linenums" data-ice="content">// @flow
-import Main from &quot;./modules/Main.module&quot;;
-import config from &quot;./config&quot;;
+export default class DOMController {
+	/**
+	 * @access public
+	 * @type {Node}
+	 * @desc document.body element
+	 */
+	body: Node;
 
-new Main(config).main();
+	/**
+	 * @access public
+	 * @type {EventTarget}
+	 * @desc window object
+	 */
+	window: EventTarget;
+
+	/**
+	 * @access public
+	 * @desc create DOMController instance
+	 */
+	constructor() {
+		if (document.body instanceof Node) this.body = document.body;
+		else throw new Error(&quot;document.body cannnot be found.&quot;);
+		if (window instanceof EventTarget) this.window = window;
+		else throw new Error(&quot;window object cannot be found.&quot;);
+	}
+}
 </code></pre>
 
 </div>

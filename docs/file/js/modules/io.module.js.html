@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <base data-ice="baseUrl" href="../../../">
-  <title data-ice="title">js/modules/io.module.js | rider-s</title>
+  <title data-ice="title">js/modules/IO.module.js | rider-s</title>
   <link type="text/css" rel="stylesheet" href="css/style.css">
   <link type="text/css" rel="stylesheet" href="css/prettify-tomorrow.css">
   <script src="script/prettify/prettify.js"></script>
@@ -29,19 +29,22 @@
 <nav class="navigation" data-ice="nav"><div>
   <ul>
     
-  <li data-ice="doc"><a data-ice="dirPath" class="nav-dir-path" href="identifiers.html#modules">modules</a><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/js/modules/Main.module.js~Main.html">Main</a></span></span></li>
-<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/js/modules/io.module.js~IO.html">IO</a></span></span></li>
+  <li data-ice="doc"><a data-ice="dirPath" class="nav-dir-path" href="identifiers.html#modules">modules</a><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/js/modules/DOMController.module.js~DOMController.html">DOMController</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/js/modules/IO.module.js~IO.html">IO</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/js/modules/Main.module.js~Main.html">Main</a></span></span></li>
 </ul>
 </div>
 </nav>
 
-<div class="content" data-ice="content"><h1 data-ice="title">js/modules/io.module.js</h1>
+<div class="content" data-ice="content"><h1 data-ice="title">js/modules/IO.module.js</h1>
 <pre class="source-code line-number raw-source-code"><code class="prettyprint linenums" data-ice="content">// @flow
+import DOMController from &quot;./DOMController.module&quot;;
+
 /**
  * @access public
  * @desc the class in charge of Input/Output
  */
-export default class IO {
+export default class IO extends DOMController {
 	/**
 	 * @access private
 	 * @type {?Node}
@@ -50,21 +53,13 @@ export default class IO {
 	_first : ?Node;
 
 	/**
-	 * @access private
-	 * @type {Node}
-	 * @desc body element
-	 */
-	_body : Node;
-
-	/**
 	 * @access public
 	 * @desc create IO instance
 	 * @throws {Error} throw error when document.body object cannot be found.
 	 */
 	constructor() {
+		super();
 		this._first = null;
-		if (document.body instanceof Node) this._body = document.body;
-		else throw new Error(&quot;document.body cannnot be found.&quot;);
 	}
 
 	/**
@@ -78,8 +73,8 @@ export default class IO {
 		p.textContent = str;
 		
 		this._first = (this._first != null) ?
-			this._body.insertBefore(p, this._first) :
-			this._body.appendChild(p);
+			this.body.insertBefore(p, this._first) :
+			this.body.appendChild(p);
 	}
 }
 </code></pre>
