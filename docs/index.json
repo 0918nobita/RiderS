@@ -658,7 +658,7 @@
     "__docId__": 56,
     "kind": "file",
     "name": "js/modules/IO.module.js",
-    "content": "// @flow\nimport DOMController from \"./DOMController.module\";\n\n/**\n * @access public\n * @desc the class in charge of Input/Output\n */\nexport default class IO extends DOMController {\n\t/**\n\t * @access private\n\t * @type {?Node}\n\t * @desc the last added node\n\t */\n\t_first : ?Node;\n\n\t/**\n\t * @access public\n\t * @desc create IO instance\n\t * @throws {Error} throw error when document.body object cannot be found.\n\t */\n\tconstructor() {\n\t\tsuper();\n\t\tthis._first = null;\n\t}\n\n\t/**\n\t * @desc output passed string\n\t * @param {string} str - the output string\n\t */\n\toutput(str : string): void {\n\t\tconst p : ?Node = document.createElement(\"p\");\n\t\tif (p == null) return;\n\t\t\n\t\tp.textContent = str;\n\t\t\n\t\tthis._first = (this._first != null) ?\n\t\t\tthis.body.insertBefore(p, this._first) :\n\t\t\tthis.body.appendChild(p);\n\t}\n}\n",
+    "content": "// @flow\nimport DOMController from \"./DOMController.module\";\n\n/**\n * @access public\n * @desc the class in charge of Input/Output\n */\nexport default class IO extends DOMController {\n\t/**\n\t * @access private\n\t * @type {?Node}\n\t * @desc the last added node\n\t */\n\t_first : ?Node;\n\n\t/**\n\t * @access public\n\t * @desc create IO instance\n\t * @throws {Error} throw error when document.body object cannot be found.\n\t */\n\tconstructor() {\n\t\tsuper();\n\t\tthis._first = null;\n\t}\n\n\t/**\n\t * @desc output passed string\n\t * @param {!string} str - the output string\n\t */\n\toutput(str : string): void {\n\t\tconst p : ?Node = document.createElement(\"p\");\n\t\tif (p == null) return;\n\t\t\n\t\tp.textContent = str;\n\t\t\n\t\tthis._first = (this._first != null) ?\n\t\t\tthis.body.insertBefore(p, this._first) :\n\t\t\tthis.body.appendChild(p);\n\t}\n}\n",
     "static": true,
     "longname": "C:/Users/kodai/Documents/GitHub/Rider-S/src/js/modules/IO.module.js",
     "access": "public",
@@ -738,7 +738,7 @@
     "lineNumber": 30,
     "params": [
       {
-        "nullable": null,
+        "nullable": false,
         "types": [
           "string"
         ],
