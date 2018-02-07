@@ -1,6 +1,7 @@
 {
 	"source": "./src/js",
 	"destination": "./docs",
+	"excludes": ["^config.js$"],
 	"plugins": [
 		{"name": "esdoc-standard-plugin"},
 		{"name": "esdoc-flow-type-plugin"}
