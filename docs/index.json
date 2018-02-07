@@ -567,7 +567,7 @@
     "__docId__": 48,
     "kind": "file",
     "name": "js/app.js",
-    "content": "// @flow\nconst w : ?EventTarget = window;\nconst body : ?HTMLElement = document.body;\nconst alpha: ?HTMLElement = document.createElement(\"p\");\nconst beta: ?HTMLElement = document.createElement(\"p\");\nconst gamma: ?HTMLElement = document.createElement(\"p\");\n\nif (body instanceof HTMLElement) {\n\tif (alpha instanceof HTMLElement) body.appendChild(alpha);\n\tif (beta instanceof HTMLElement) body.appendChild(beta);\n\tif (gamma instanceof HTMLElement) body.appendChild(gamma);\n}\n\nif (w instanceof EventTarget) w.addEventListener(\"deviceorientation\", (e: any) => {\n\tif (alpha instanceof HTMLElement && beta instanceof HTMLElement && gamma instanceof HTMLElement) {\n\t\talpha.textContent = \"alpha: \" + e.alpha;\n\t\tbeta.textContent = \"beta: \" + e.beta;\n\t\tgamma.textContent = \"gamma: \" + e.gamma;\n\t}\n});\n",
+    "content": "// @flow\nimport Main from \"./modules/Main.module\";\nimport config from \"./config\";\n\nnew Main(config).main();\n",
     "static": true,
     "longname": "C:/Users/kodai/Documents/GitHub/Rider-S/src/js/app.js",
     "access": "public",
@@ -576,111 +576,17 @@
   },
   {
     "__docId__": 49,
-    "kind": "variable",
-    "name": "w",
-    "memberof": "js/app.js",
+    "kind": "file",
+    "name": "js/config.js",
+    "content": "export default {\n\t\"API_KEY\": \"xxxxx\",\n\t\"API_SECRET\": \"xxxxx\"\n};\n",
     "static": true,
-    "longname": "js/app.js~w",
+    "longname": "C:/Users/kodai/Documents/GitHub/Rider-S/src/js/config.js",
     "access": "public",
-    "export": false,
-    "importPath": "rider-s/js/app.js",
-    "importStyle": null,
     "description": null,
-    "lineNumber": 2,
-    "undocument": true,
-    "type": {
-      "types": [
-        "*"
-      ]
-    },
-    "ignore": true
+    "lineNumber": 1
   },
   {
     "__docId__": 50,
-    "kind": "variable",
-    "name": "body",
-    "memberof": "js/app.js",
-    "static": true,
-    "longname": "js/app.js~body",
-    "access": "public",
-    "export": false,
-    "importPath": "rider-s/js/app.js",
-    "importStyle": null,
-    "description": null,
-    "lineNumber": 3,
-    "undocument": true,
-    "type": {
-      "types": [
-        "*"
-      ]
-    },
-    "ignore": true
-  },
-  {
-    "__docId__": 51,
-    "kind": "variable",
-    "name": "alpha",
-    "memberof": "js/app.js",
-    "static": true,
-    "longname": "js/app.js~alpha",
-    "access": "public",
-    "export": false,
-    "importPath": "rider-s/js/app.js",
-    "importStyle": null,
-    "description": null,
-    "lineNumber": 4,
-    "undocument": true,
-    "type": {
-      "types": [
-        "*"
-      ]
-    },
-    "ignore": true
-  },
-  {
-    "__docId__": 52,
-    "kind": "variable",
-    "name": "beta",
-    "memberof": "js/app.js",
-    "static": true,
-    "longname": "js/app.js~beta",
-    "access": "public",
-    "export": false,
-    "importPath": "rider-s/js/app.js",
-    "importStyle": null,
-    "description": null,
-    "lineNumber": 5,
-    "undocument": true,
-    "type": {
-      "types": [
-        "*"
-      ]
-    },
-    "ignore": true
-  },
-  {
-    "__docId__": 53,
-    "kind": "variable",
-    "name": "gamma",
-    "memberof": "js/app.js",
-    "static": true,
-    "longname": "js/app.js~gamma",
-    "access": "public",
-    "export": false,
-    "importPath": "rider-s/js/app.js",
-    "importStyle": null,
-    "description": null,
-    "lineNumber": 6,
-    "undocument": true,
-    "type": {
-      "types": [
-        "*"
-      ]
-    },
-    "ignore": true
-  },
-  {
-    "__docId__": 54,
     "kind": "file",
     "name": "js/modules/io.module.js",
     "content": "// @flow\nexport default class IO {\n\tbody: ?HTMLElement;\n\tfirst: ?HTMLElement;\n\tconstructor(): void {\n\t\tthis.body = document.body;\n\t}\n\toutput(str : string): void {\n\t\tconst p : ?HTMLElement = document.createElement(\"p\");\n\t\tif (p instanceof HTMLElement) {\n\t\t\tp.textContent = str;\n\t\t\tif (this.body instanceof HTMLElement) {\n\t\t\t\tif (this.first instanceof HTMLElement)\n\t\t\t\t\tthis.body.insertBefore(p, this.first);\n\t\t\t\telse this.first = this.body.appendChild(p);\n\t\t\t}\n\t\t}\n\t}\n}\n",
@@ -691,7 +597,7 @@
     "lineNumber": 1
   },
   {
-    "__docId__": 55,
+    "__docId__": 51,
     "kind": "class",
     "name": "IO",
     "memberof": "js/modules/io.module.js",
@@ -707,7 +613,7 @@
     "interface": false
   },
   {
-    "__docId__": 56,
+    "__docId__": 52,
     "kind": "member",
     "name": "body",
     "memberof": "js/modules/io.module.js~IO",
@@ -726,7 +632,7 @@
     }
   },
   {
-    "__docId__": 57,
+    "__docId__": 53,
     "kind": "member",
     "name": "first",
     "memberof": "js/modules/io.module.js~IO",
@@ -745,7 +651,7 @@
     }
   },
   {
-    "__docId__": 58,
+    "__docId__": 54,
     "kind": "constructor",
     "name": "constructor",
     "memberof": "js/modules/io.module.js~IO",
@@ -759,7 +665,7 @@
     "undocument": true
   },
   {
-    "__docId__": 60,
+    "__docId__": 56,
     "kind": "method",
     "name": "output",
     "memberof": "js/modules/io.module.js~IO",
@@ -790,6 +696,88 @@
       "spread": false,
       "description": ""
     }
+  },
+  {
+    "__docId__": 58,
+    "kind": "file",
+    "name": "js/modules/Main.module.js",
+    "content": "// @flow\nexport default class Main {\n\tconfig: {};\n\tconstructor(config: {}) {\n\t\tthis.config = config;\n\t}\n\tmain(): void {\n\t\tconst w : ?EventTarget = window;\n\t\tconst body : ?HTMLElement = document.body;\n\t\tconst alpha: ?HTMLElement = document.createElement(\"p\");\n\t\tconst beta: ?HTMLElement = document.createElement(\"p\");\n\t\tconst gamma: ?HTMLElement = document.createElement(\"p\");\n\n\t\tif (body instanceof HTMLElement) {\n\t\t\tif (alpha instanceof HTMLElement) body.appendChild(alpha);\n\t\t\tif (beta instanceof HTMLElement) body.appendChild(beta);\n\t\t\tif (gamma instanceof HTMLElement) body.appendChild(gamma);\n\t\t}\n\n\t\tif (w instanceof EventTarget) w.addEventListener(\"deviceorientation\", (e: any) => {\n\t\t\tif (alpha instanceof HTMLElement && beta instanceof HTMLElement && gamma instanceof HTMLElement) {\n\t\t\t\talpha.textContent = \"alpha: \" + e.alpha;\n\t\t\t\tbeta.textContent = \"beta: \" + e.beta;\n\t\t\t\tgamma.textContent = \"gamma: \" + e.gamma;\n\t\t\t}\n\t\t});\n\t}\n}\n",
+    "static": true,
+    "longname": "C:/Users/kodai/Documents/GitHub/Rider-S/src/js/modules/Main.module.js",
+    "access": "public",
+    "description": null,
+    "lineNumber": 1
+  },
+  {
+    "__docId__": 59,
+    "kind": "class",
+    "name": "Main",
+    "memberof": "js/modules/Main.module.js",
+    "static": true,
+    "longname": "js/modules/Main.module.js~Main",
+    "access": "public",
+    "export": true,
+    "importPath": "rider-s/js/modules/Main.module.js",
+    "importStyle": "Main",
+    "description": null,
+    "lineNumber": 2,
+    "undocument": true,
+    "interface": false
+  },
+  {
+    "__docId__": 60,
+    "kind": "member",
+    "name": "config",
+    "memberof": "js/modules/Main.module.js~Main",
+    "static": false,
+    "longname": "js/modules/Main.module.js~Main#config",
+    "access": "public",
+    "description": "",
+    "lineNumber": 3,
+    "type": {
+      "nullable": null,
+      "types": [
+        "object"
+      ],
+      "spread": false,
+      "description": null
+    }
+  },
+  {
+    "__docId__": 61,
+    "kind": "constructor",
+    "name": "constructor",
+    "memberof": "js/modules/Main.module.js~Main",
+    "generator": false,
+    "async": false,
+    "static": false,
+    "longname": "js/modules/Main.module.js~Main#constructor",
+    "access": "public",
+    "description": null,
+    "lineNumber": 4,
+    "undocument": true
+  },
+  {
+    "__docId__": 63,
+    "kind": "method",
+    "name": "main",
+    "memberof": "js/modules/Main.module.js~Main",
+    "generator": false,
+    "async": false,
+    "static": false,
+    "longname": "js/modules/Main.module.js~Main#main",
+    "access": "public",
+    "description": " ",
+    "lineNumber": 7,
+    "return": {
+      "nullable": null,
+      "types": [
+        "void"
+      ],
+      "spread": false,
+      "description": ""
+    },
+    "params": []
   },
   {
     "kind": "index",

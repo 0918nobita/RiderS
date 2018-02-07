@@ -29,32 +29,18 @@
 <nav class="navigation" data-ice="nav"><div>
   <ul>
     
-  <li data-ice="doc"><a data-ice="dirPath" class="nav-dir-path" href="identifiers.html#modules">modules</a><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/js/modules/io.module.js~IO.html">IO</a></span></span></li>
+  <li data-ice="doc"><a data-ice="dirPath" class="nav-dir-path" href="identifiers.html#modules">modules</a><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/js/modules/Main.module.js~Main.html">Main</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/js/modules/io.module.js~IO.html">IO</a></span></span></li>
 </ul>
 </div>
 </nav>
 
 <div class="content" data-ice="content"><h1 data-ice="title">js/app.js</h1>
 <pre class="source-code line-number raw-source-code"><code class="prettyprint linenums" data-ice="content">// @flow
-const w : ?EventTarget = window;
-const body : ?HTMLElement = document.body;
-const alpha: ?HTMLElement = document.createElement(&quot;p&quot;);
-const beta: ?HTMLElement = document.createElement(&quot;p&quot;);
-const gamma: ?HTMLElement = document.createElement(&quot;p&quot;);
+import Main from &quot;./modules/Main.module&quot;;
+import config from &quot;./config&quot;;
 
-if (body instanceof HTMLElement) {
-	if (alpha instanceof HTMLElement) body.appendChild(alpha);
-	if (beta instanceof HTMLElement) body.appendChild(beta);
-	if (gamma instanceof HTMLElement) body.appendChild(gamma);
-}
-
-if (w instanceof EventTarget) w.addEventListener(&quot;deviceorientation&quot;, (e: any) =&gt; {
-	if (alpha instanceof HTMLElement &amp;&amp; beta instanceof HTMLElement &amp;&amp; gamma instanceof HTMLElement) {
-		alpha.textContent = &quot;alpha: &quot; + e.alpha;
-		beta.textContent = &quot;beta: &quot; + e.beta;
-		gamma.textContent = &quot;gamma: &quot; + e.gamma;
-	}
-});
+new Main(config).main();
 </code></pre>
 
 </div>

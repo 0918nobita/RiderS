@@ -6,6 +6,12 @@ window.esdocSearchIndex = [
     "class"
   ],
   [
+    "rider-s/js/modules/main.module.js~main",
+    "class/js/modules/Main.module.js~Main.html",
+    "<span>Main</span> <span class=\"search-result-import-path\">rider-s/js/modules/Main.module.js</span>",
+    "class"
+  ],
+  [
     "js/.external-ecmascript.js~array",
     "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array",
     "js/.external-ecmascript.js~Array",
@@ -292,6 +298,36 @@ window.esdocSearchIndex = [
     "file/js/app.js.html",
     "js/app.js",
     "file"
+  ],
+  [
+    "js/config.js",
+    "file/js/config.js.html",
+    "js/config.js",
+    "file"
+  ],
+  [
+    "js/modules/main.module.js",
+    "file/js/modules/Main.module.js.html",
+    "js/modules/Main.module.js",
+    "file"
+  ],
+  [
+    "js/modules/main.module.js~main#config",
+    "class/js/modules/Main.module.js~Main.html#instance-member-config",
+    "js/modules/Main.module.js~Main#config",
+    "member"
+  ],
+  [
+    "js/modules/main.module.js~main#constructor",
+    "class/js/modules/Main.module.js~Main.html#instance-constructor-constructor",
+    "js/modules/Main.module.js~Main#constructor",
+    "method"
+  ],
+  [
+    "js/modules/main.module.js~main#main",
+    "class/js/modules/Main.module.js~Main.html#instance-method-main",
+    "js/modules/Main.module.js~Main#main",
+    "method"
   ],
   [
     "js/modules/io.module.js",
