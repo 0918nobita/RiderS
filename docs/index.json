@@ -567,7 +567,7 @@
     "__docId__": 48,
     "kind": "file",
     "name": "js/app.js",
-    "content": "// @flow\nimport Main from \"./modules/Main.module\";\nimport config from \"./config\";\n\nnew Main(config).main();\n",
+    "content": "// @flow\nimport Main from \"./modules/Main.module\";\nimport config from \"./config\";\n\nnew Main({config: config}).main();\n",
     "static": true,
     "longname": "C:/Users/kodai/Documents/GitHub/Rider-S/src/js/app.js",
     "access": "public",
@@ -577,19 +577,8 @@
   {
     "__docId__": 49,
     "kind": "file",
-    "name": "js/config.js",
-    "content": "export default {\n\t\"API_KEY\": \"xxxxx\",\n\t\"API_SECRET\": \"xxxxx\"\n};\n",
-    "static": true,
-    "longname": "C:/Users/kodai/Documents/GitHub/Rider-S/src/js/config.js",
-    "access": "public",
-    "description": null,
-    "lineNumber": 1
-  },
-  {
-    "__docId__": 50,
-    "kind": "file",
     "name": "js/modules/io.module.js",
-    "content": "// @flow\nexport default class IO {\n\tbody: ?HTMLElement;\n\tfirst: ?HTMLElement;\n\tconstructor(): void {\n\t\tthis.body = document.body;\n\t}\n\toutput(str : string): void {\n\t\tconst p : ?HTMLElement = document.createElement(\"p\");\n\t\tif (p instanceof HTMLElement) {\n\t\t\tp.textContent = str;\n\t\t\tif (this.body instanceof HTMLElement) {\n\t\t\t\tif (this.first instanceof HTMLElement)\n\t\t\t\t\tthis.body.insertBefore(p, this.first);\n\t\t\t\telse this.first = this.body.appendChild(p);\n\t\t\t}\n\t\t}\n\t}\n}\n",
+    "content": "// @flow\nexport default class IO {\n\tbody: ?HTMLElement;\n\tfirst: ?HTMLElement;\n\tconstructor() {\n\t\tthis.body = document.body;\n\t}\n\toutput(str : string): void {\n\t\tconst p : ?HTMLElement = document.createElement(\"p\");\n\t\tif (p instanceof HTMLElement) {\n\t\t\tp.textContent = str;\n\t\t\tif (this.body instanceof HTMLElement) {\n\t\t\t\tif (this.first instanceof HTMLElement)\n\t\t\t\t\tthis.body.insertBefore(p, this.first);\n\t\t\t\telse this.first = this.body.appendChild(p);\n\t\t\t}\n\t\t}\n\t}\n}\n",
     "static": true,
     "longname": "C:/Users/kodai/Documents/GitHub/Rider-S/src/js/modules/io.module.js",
     "access": "public",
@@ -597,7 +586,7 @@
     "lineNumber": 1
   },
   {
-    "__docId__": 51,
+    "__docId__": 50,
     "kind": "class",
     "name": "IO",
     "memberof": "js/modules/io.module.js",
@@ -613,7 +602,7 @@
     "interface": false
   },
   {
-    "__docId__": 52,
+    "__docId__": 51,
     "kind": "member",
     "name": "body",
     "memberof": "js/modules/io.module.js~IO",
@@ -632,7 +621,7 @@
     }
   },
   {
-    "__docId__": 53,
+    "__docId__": 52,
     "kind": "member",
     "name": "first",
     "memberof": "js/modules/io.module.js~IO",
@@ -651,7 +640,7 @@
     }
   },
   {
-    "__docId__": 54,
+    "__docId__": 53,
     "kind": "constructor",
     "name": "constructor",
     "memberof": "js/modules/io.module.js~IO",
@@ -665,7 +654,7 @@
     "undocument": true
   },
   {
-    "__docId__": 56,
+    "__docId__": 55,
     "kind": "method",
     "name": "output",
     "memberof": "js/modules/io.module.js~IO",
@@ -698,10 +687,10 @@
     }
   },
   {
-    "__docId__": 58,
+    "__docId__": 57,
     "kind": "file",
     "name": "js/modules/Main.module.js",
-    "content": "// @flow\nexport default class Main {\n\tconfig: {};\n\tconstructor(config: {}) {\n\t\tthis.config = config;\n\t}\n\tmain(): void {\n\t\tconst w : ?EventTarget = window;\n\t\tconst body : ?HTMLElement = document.body;\n\t\tconst alpha: ?HTMLElement = document.createElement(\"p\");\n\t\tconst beta: ?HTMLElement = document.createElement(\"p\");\n\t\tconst gamma: ?HTMLElement = document.createElement(\"p\");\n\n\t\tif (body instanceof HTMLElement) {\n\t\t\tif (alpha instanceof HTMLElement) body.appendChild(alpha);\n\t\t\tif (beta instanceof HTMLElement) body.appendChild(beta);\n\t\t\tif (gamma instanceof HTMLElement) body.appendChild(gamma);\n\t\t}\n\n\t\tif (w instanceof EventTarget) w.addEventListener(\"deviceorientation\", (e: any) => {\n\t\t\tif (alpha instanceof HTMLElement && beta instanceof HTMLElement && gamma instanceof HTMLElement) {\n\t\t\t\talpha.textContent = \"alpha: \" + e.alpha;\n\t\t\t\tbeta.textContent = \"beta: \" + e.beta;\n\t\t\t\tgamma.textContent = \"gamma: \" + e.gamma;\n\t\t\t}\n\t\t});\n\t}\n}\n",
+    "content": "// @flow\nimport type { Config } from \"../types/Config.type\";\n\nclass PrivateFields {\n\tconfig: Config;\n\t\n\tconstructor(param: {config: Config}) {\n\t\tthis.config = param.config;\n\t}\n}\n\nconst privates : WeakMap<Object, PrivateFields> = new WeakMap();\n\nexport default class Main {\n\tconstructor(param: {config: Config}) {\n\t\tprivates.set(this, new PrivateFields(param));\n\t}\n\n\tmain(): void {\n\t\tconst w : ?EventTarget = window;\n\t\tconst body : ?HTMLElement = document.body;\n\t\tconst alpha: ?HTMLElement = document.createElement(\"p\");\n\t\tconst beta: ?HTMLElement = document.createElement(\"p\");\n\t\tconst gamma: ?HTMLElement = document.createElement(\"p\");\n\n\t\tif (body instanceof HTMLElement) {\n\t\t\tif (alpha instanceof HTMLElement) body.appendChild(alpha);\n\t\t\tif (beta instanceof HTMLElement) body.appendChild(beta);\n\t\t\tif (gamma instanceof HTMLElement) body.appendChild(gamma);\n\t\t}\n\n\t\tif (w instanceof EventTarget) w.addEventListener(\"deviceorientation\", (e: any) => {\n\t\t\tif (alpha instanceof HTMLElement && beta instanceof HTMLElement && gamma instanceof HTMLElement) {\n\t\t\t\talpha.textContent = \"alpha: \" + e.alpha;\n\t\t\t\tbeta.textContent = \"beta: \" + e.beta;\n\t\t\t\tgamma.textContent = \"gamma: \" + e.gamma;\n\t\t\t}\n\t\t});\n\t}\n}\n",
     "static": true,
     "longname": "C:/Users/kodai/Documents/GitHub/Rider-S/src/js/modules/Main.module.js",
     "access": "public",
@@ -709,7 +698,78 @@
     "lineNumber": 1
   },
   {
+    "__docId__": 58,
+    "kind": "class",
+    "name": "PrivateFields",
+    "memberof": "js/modules/Main.module.js",
+    "static": true,
+    "longname": "js/modules/Main.module.js~PrivateFields",
+    "access": "public",
+    "export": false,
+    "importPath": "rider-s/js/modules/Main.module.js",
+    "importStyle": null,
+    "description": null,
+    "lineNumber": 4,
+    "undocument": true,
+    "interface": false,
+    "ignore": true
+  },
+  {
     "__docId__": 59,
+    "kind": "member",
+    "name": "config",
+    "memberof": "js/modules/Main.module.js~PrivateFields",
+    "static": false,
+    "longname": "js/modules/Main.module.js~PrivateFields#config",
+    "access": "public",
+    "description": "",
+    "lineNumber": 5,
+    "type": {
+      "nullable": null,
+      "types": [
+        "Config"
+      ],
+      "spread": false,
+      "description": null
+    }
+  },
+  {
+    "__docId__": 60,
+    "kind": "constructor",
+    "name": "constructor",
+    "memberof": "js/modules/Main.module.js~PrivateFields",
+    "generator": false,
+    "async": false,
+    "static": false,
+    "longname": "js/modules/Main.module.js~PrivateFields#constructor",
+    "access": "public",
+    "description": null,
+    "lineNumber": 7,
+    "undocument": true
+  },
+  {
+    "__docId__": 62,
+    "kind": "variable",
+    "name": "privates",
+    "memberof": "js/modules/Main.module.js",
+    "static": true,
+    "longname": "js/modules/Main.module.js~privates",
+    "access": "public",
+    "export": false,
+    "importPath": "rider-s/js/modules/Main.module.js",
+    "importStyle": null,
+    "description": null,
+    "lineNumber": 12,
+    "undocument": true,
+    "type": {
+      "types": [
+        "*"
+      ]
+    },
+    "ignore": true
+  },
+  {
+    "__docId__": 63,
     "kind": "class",
     "name": "Main",
     "memberof": "js/modules/Main.module.js",
@@ -720,31 +780,12 @@
     "importPath": "rider-s/js/modules/Main.module.js",
     "importStyle": "Main",
     "description": null,
-    "lineNumber": 2,
+    "lineNumber": 14,
     "undocument": true,
     "interface": false
   },
   {
-    "__docId__": 60,
-    "kind": "member",
-    "name": "config",
-    "memberof": "js/modules/Main.module.js~Main",
-    "static": false,
-    "longname": "js/modules/Main.module.js~Main#config",
-    "access": "public",
-    "description": "",
-    "lineNumber": 3,
-    "type": {
-      "nullable": null,
-      "types": [
-        "object"
-      ],
-      "spread": false,
-      "description": null
-    }
-  },
-  {
-    "__docId__": 61,
+    "__docId__": 64,
     "kind": "constructor",
     "name": "constructor",
     "memberof": "js/modules/Main.module.js~Main",
@@ -754,11 +795,11 @@
     "longname": "js/modules/Main.module.js~Main#constructor",
     "access": "public",
     "description": null,
-    "lineNumber": 4,
+    "lineNumber": 15,
     "undocument": true
   },
   {
-    "__docId__": 63,
+    "__docId__": 65,
     "kind": "method",
     "name": "main",
     "memberof": "js/modules/Main.module.js~Main",
@@ -768,7 +809,7 @@
     "longname": "js/modules/Main.module.js~Main#main",
     "access": "public",
     "description": " ",
-    "lineNumber": 7,
+    "lineNumber": 19,
     "return": {
       "nullable": null,
       "types": [
@@ -778,6 +819,17 @@
       "description": ""
     },
     "params": []
+  },
+  {
+    "__docId__": 66,
+    "kind": "file",
+    "name": "js/types/Config.type.js",
+    "content": "// @flow\nexport type Config = {\n\tAPI_KEY: string,\n\tAPI_SECRET: string\n};\n",
+    "static": true,
+    "longname": "C:/Users/kodai/Documents/GitHub/Rider-S/src/js/types/Config.type.js",
+    "access": "public",
+    "description": null,
+    "lineNumber": 1
   },
   {
     "kind": "index",

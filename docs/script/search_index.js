@@ -300,22 +300,10 @@ window.esdocSearchIndex = [
     "file"
   ],
   [
-    "js/config.js",
-    "file/js/config.js.html",
-    "js/config.js",
-    "file"
-  ],
-  [
     "js/modules/main.module.js",
     "file/js/modules/Main.module.js.html",
     "js/modules/Main.module.js",
     "file"
-  ],
-  [
-    "js/modules/main.module.js~main#config",
-    "class/js/modules/Main.module.js~Main.html#instance-member-config",
-    "js/modules/Main.module.js~Main#config",
-    "member"
   ],
   [
     "js/modules/main.module.js~main#constructor",
@@ -358,5 +346,11 @@ window.esdocSearchIndex = [
     "class/js/modules/io.module.js~IO.html#instance-method-output",
     "js/modules/io.module.js~IO#output",
     "method"
+  ],
+  [
+    "js/types/config.type.js",
+    "file/js/types/Config.type.js.html",
+    "js/types/Config.type.js",
+    "file"
   ]
 ]

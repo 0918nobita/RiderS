@@ -1,6 +1,6 @@
 {
-  "coverage": "55.55%",
-  "expectCount": 9,
+  "coverage": "41.66%",
+  "expectCount": 12,
   "actualCount": 5,
   "files": {
     "js/modules/io.module.js": {
@@ -12,11 +12,14 @@
       ]
     },
     "js/modules/Main.module.js": {
-      "expectCount": 4,
+      "expectCount": 7,
       "actualCount": 2,
       "undocumentLines": [
-        2,
-        4
+        4,
+        7,
+        12,
+        14,
+        15
       ]
     }
   }
