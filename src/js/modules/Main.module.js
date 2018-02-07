@@ -4,6 +4,7 @@ import DOMController from "./DOMController.module";
 
 /**
  * @access public
+ * @extends {DOMController}
  * @desc the main class
  */
 export default class Main extends DOMController {

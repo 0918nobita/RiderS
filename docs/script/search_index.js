@@ -352,5 +352,11 @@ window.esdocSearchIndex = [
     "file/js/types/Config.type.js.html",
     "js/types/Config.type.js",
     "file"
+  ],
+  [
+    "js/types/config.type.js~config",
+    "typedef/index.html#static-typedef-Config",
+    "js/types/Config.type.js~Config",
+    "typedef"
   ]
 ]

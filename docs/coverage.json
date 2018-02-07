@@ -1,14 +1,12 @@
 {
-  "coverage": "91.66%",
+  "coverage": "100%",
   "expectCount": 12,
-  "actualCount": 11,
+  "actualCount": 12,
   "files": {
     "js/modules/DOMController.module.js": {
       "expectCount": 4,
-      "actualCount": 3,
-      "undocumentLines": [
-        2
-      ]
+      "actualCount": 4,
+      "undocumentLines": []
     },
     "js/modules/IO.module.js": {
       "expectCount": 4,

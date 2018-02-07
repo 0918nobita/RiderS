@@ -3,6 +3,7 @@ import DOMController from "./DOMController.module";
 
 /**
  * @access public
+ * @extends {DOMController}
  * @desc the class in charge of Input/Output
  */
 export default class IO extends DOMController {

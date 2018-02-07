@@ -2,8 +2,8 @@
 <html>
 <head>
   <meta charset="utf-8">
-  <base data-ice="baseUrl" href="../../../">
-  <title data-ice="title">js/modules/Main.module.js | rider-s</title>
+  <base data-ice="baseUrl" href="../">
+  <title data-ice="title">Typedef | rider-s</title>
   <link type="text/css" rel="stylesheet" href="css/style.css">
   <link type="text/css" rel="stylesheet" href="css/prettify-tomorrow.css">
   <script src="script/prettify/prettify.js"></script>
@@ -37,57 +37,90 @@
 </div>
 </nav>
 
-<div class="content" data-ice="content"><h1 data-ice="title">js/modules/Main.module.js</h1>
-<pre class="source-code line-number raw-source-code"><code class="prettyprint linenums" data-ice="content">// @flow
-import type { Config } from &quot;../types/Config.type&quot;;
-import DOMController from &quot;./DOMController.module&quot;;
+<div class="content" data-ice="content"><h1 data-ice="title">Typedef</h1>
+<div data-ice="summaries"><table class="summary" data-ice="summary">
+  <thead><tr><td data-ice="title" colspan="3">Static Public Summary</td></tr></thead>
+  <tbody>
+  
+  <tr data-ice="target">
+    <td>
+      <span class="access" data-ice="access">public</span>
+      
+      
+      
+      <span class="override" data-ice="override"></span>
+    </td>
+    <td>
+      <div>
+        <p>
+          
+          
+          
+          <span class="code" data-ice="name"><span><a href="typedef/index.html#static-typedef-Config">Config</a></span></span><span class="code" data-ice="signature">: {API_KEY: <span>!string</span>, API_SECRET: <span>!string</span>}</span>
+        </p>
+      </div>
+      <div>
+        
+        
+        <div data-ice="description"><p>unpublicized settings</p>
+</div>
+      </div>
+    </td>
+    <td>
+      
+      
+    </td>
+  </tr>
+</tbody>
+</table>
+</div>
+<div data-ice="details"><h2 data-ice="title">Static Public </h2>
 
-/**
- * @access public
- * @extends {DOMController}
- * @desc the main class
- */
-export default class Main extends DOMController {
-	/**
-	 * @access private
-	 * @type {Config}
-	 */
-	_config: Config;
+<div class="detail" data-ice="detail">
+  <h3 data-ice="anchor" id="static-typedef-Config">
+    <span class="access" data-ice="access">public</span>
+    
+    
+    
+    
+    
+    <span class="code" data-ice="name">Config</span><span class="code" data-ice="signature">: {API_KEY: <span>!string</span>, API_SECRET: <span>!string</span>}</span>
+    <span class="right-info">
+      
+      
+      <span data-ice="source"><span><a href="file/js/types/Config.type.js.html#lineNumber6">source</a></span></span>
+    </span>
+  </h3>
 
-	/**
-	 * @access public
-	 * @param {!Config} config - unpublicized settings
-	 * @desc create Main instance
-	 */
-	constructor(config: Config) {
-		super();
-		this._config = config;
-	}
+  
+  
+  
+  <div data-ice="description"><p>unpublicized settings</p>
+</div>
 
-	/**
-	 * @access public
-	 * @desc execute the main procedure
-	 */
-	main(): void {
-		const alpha: ?Node = document.createElement(&quot;p&quot;);
-		const beta: ?Node = document.createElement(&quot;p&quot;);
-		const gamma: ?Node = document.createElement(&quot;p&quot;);
+  
 
-		if (alpha instanceof Node) this.body.appendChild(alpha);
-		if (beta instanceof Node) this.body.appendChild(beta);
-		if (gamma instanceof Node) this.body.appendChild(gamma);
+  <div data-ice="properties">
+</div>
 
-		this.window.addEventListener(&quot;deviceorientation&quot;, (e: DeviceOrientationEvent) =&gt; {
-			if (alpha instanceof HTMLElement &amp;&amp; beta instanceof HTMLElement &amp;&amp; gamma instanceof HTMLElement) {
-				alpha.textContent = &quot;alpha: &quot; + e.alpha;
-				beta.textContent = &quot;beta: &quot; + e.beta;
-				gamma.textContent = &quot;gamma: &quot; + e.gamma;
-			}
-		});
-	}
-}
-</code></pre>
+  
 
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+  
+</div>
+</div>
 </div>
 
 <footer class="footer">

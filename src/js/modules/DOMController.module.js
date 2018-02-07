@@ -1,4 +1,8 @@
 // @flow
+/**
+ * @access public
+ * @desc the utils in charge of editing the DOM
+ */
 export default class DOMController {
 	/**
 	 * @access public

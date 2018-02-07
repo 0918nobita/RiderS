@@ -578,7 +578,7 @@
     "__docId__": 49,
     "kind": "file",
     "name": "js/modules/DOMController.module.js",
-    "content": "// @flow\nexport default class DOMController {\n\t/**\n\t * @access public\n\t * @type {Node}\n\t * @desc document.body element\n\t */\n\tbody: Node;\n\n\t/**\n\t * @access public\n\t * @type {EventTarget}\n\t * @desc window object\n\t */\n\twindow: EventTarget;\n\n\t/**\n\t * @access public\n\t * @desc create DOMController instance\n\t */\n\tconstructor() {\n\t\tif (document.body instanceof Node) this.body = document.body;\n\t\telse throw new Error(\"document.body cannnot be found.\");\n\t\tif (window instanceof EventTarget) this.window = window;\n\t\telse throw new Error(\"window object cannot be found.\");\n\t}\n}\n",
+    "content": "// @flow\n/**\n * @access public\n * @desc the utils in charge of editing the DOM\n */\nexport default class DOMController {\n\t/**\n\t * @access public\n\t * @type {Node}\n\t * @desc document.body element\n\t */\n\tbody: Node;\n\n\t/**\n\t * @access public\n\t * @type {EventTarget}\n\t * @desc window object\n\t */\n\twindow: EventTarget;\n\n\t/**\n\t * @access public\n\t * @desc create DOMController instance\n\t */\n\tconstructor() {\n\t\tif (document.body instanceof Node) this.body = document.body;\n\t\telse throw new Error(\"document.body cannnot be found.\");\n\t\tif (window instanceof EventTarget) this.window = window;\n\t\telse throw new Error(\"window object cannot be found.\");\n\t}\n}\n",
     "static": true,
     "longname": "C:/Users/kodai/Documents/GitHub/Rider-S/src/js/modules/DOMController.module.js",
     "access": "public",
@@ -596,9 +596,8 @@
     "export": true,
     "importPath": "rider-s/js/modules/DOMController.module.js",
     "importStyle": "DOMController",
-    "description": null,
-    "lineNumber": 2,
-    "undocument": true,
+    "description": "the utils in charge of editing the DOM",
+    "lineNumber": 6,
     "interface": false
   },
   {
@@ -610,7 +609,7 @@
     "longname": "js/modules/DOMController.module.js~DOMController#body",
     "access": "public ",
     "description": "document.body element ",
-    "lineNumber": 8,
+    "lineNumber": 12,
     "type": {
       "nullable": null,
       "types": [
@@ -630,7 +629,7 @@
     "longname": "js/modules/DOMController.module.js~DOMController#window",
     "access": "public ",
     "description": "window object ",
-    "lineNumber": 15,
+    "lineNumber": 19,
     "type": {
       "nullable": null,
       "types": [
@@ -652,13 +651,13 @@
     "longname": "js/modules/DOMController.module.js~DOMController#constructor",
     "access": "public",
     "description": "create DOMController instance",
-    "lineNumber": 21
+    "lineNumber": 25
   },
   {
     "__docId__": 56,
     "kind": "file",
     "name": "js/modules/IO.module.js",
-    "content": "// @flow\nimport DOMController from \"./DOMController.module\";\n\n/**\n * @access public\n * @desc the class in charge of Input/Output\n */\nexport default class IO extends DOMController {\n\t/**\n\t * @access private\n\t * @type {?Node}\n\t * @desc the last added node\n\t */\n\t_first : ?Node;\n\n\t/**\n\t * @access public\n\t * @desc create IO instance\n\t * @throws {Error} throw error when document.body object cannot be found.\n\t */\n\tconstructor() {\n\t\tsuper();\n\t\tthis._first = null;\n\t}\n\n\t/**\n\t * @desc output passed string\n\t * @param {!string} str - the output string\n\t */\n\toutput(str : string): void {\n\t\tconst p : ?Node = document.createElement(\"p\");\n\t\tif (p == null) return;\n\t\t\n\t\tp.textContent = str;\n\t\t\n\t\tthis._first = (this._first != null) ?\n\t\t\tthis.body.insertBefore(p, this._first) :\n\t\t\tthis.body.appendChild(p);\n\t}\n}\n",
+    "content": "// @flow\nimport DOMController from \"./DOMController.module\";\n\n/**\n * @access public\n * @extends {DOMController}\n * @desc the class in charge of Input/Output\n */\nexport default class IO extends DOMController {\n\t/**\n\t * @access private\n\t * @type {?Node}\n\t * @desc the last added node\n\t */\n\t_first : ?Node;\n\n\t/**\n\t * @access public\n\t * @desc create IO instance\n\t * @throws {Error} throw error when document.body object cannot be found.\n\t */\n\tconstructor() {\n\t\tsuper();\n\t\tthis._first = null;\n\t}\n\n\t/**\n\t * @desc output passed string\n\t * @param {!string} str - the output string\n\t */\n\toutput(str : string): void {\n\t\tconst p : ?Node = document.createElement(\"p\");\n\t\tif (p == null) return;\n\t\t\n\t\tp.textContent = str;\n\t\t\n\t\tthis._first = (this._first != null) ?\n\t\t\tthis.body.insertBefore(p, this._first) :\n\t\t\tthis.body.appendChild(p);\n\t}\n}\n",
     "static": true,
     "longname": "C:/Users/kodai/Documents/GitHub/Rider-S/src/js/modules/IO.module.js",
     "access": "public",
@@ -677,10 +676,10 @@
     "importPath": "rider-s/js/modules/IO.module.js",
     "importStyle": "IO",
     "description": "the class in charge of Input/Output",
-    "lineNumber": 8,
+    "lineNumber": 9,
     "interface": false,
     "extends": [
-      "js/modules/DOMController.module~DOMController"
+      "DOMController"
     ]
   },
   {
@@ -692,7 +691,7 @@
     "longname": "js/modules/IO.module.js~IO#_first",
     "access": "private ",
     "description": "the last added node ",
-    "lineNumber": 14,
+    "lineNumber": 15,
     "type": {
       "nullable": null,
       "types": [
@@ -714,7 +713,7 @@
     "longname": "js/modules/IO.module.js~IO#constructor",
     "access": "public",
     "description": "create IO instance",
-    "lineNumber": 21,
+    "lineNumber": 22,
     "throws": [
       {
         "types": [
@@ -735,7 +734,7 @@
     "longname": "js/modules/IO.module.js~IO#output",
     "access": "public",
     "description": "output passed string  ",
-    "lineNumber": 30,
+    "lineNumber": 31,
     "params": [
       {
         "nullable": false,
@@ -761,7 +760,7 @@
     "__docId__": 63,
     "kind": "file",
     "name": "js/modules/Main.module.js",
-    "content": "// @flow\nimport type { Config } from \"../types/Config.type\";\nimport DOMController from \"./DOMController.module\";\n\n/**\n * @access public\n * @desc the main class\n */\nexport default class Main extends DOMController {\n\t/**\n\t * @access private\n\t * @type {Config}\n\t */\n\t_config: Config;\n\n\t/**\n\t * @access public\n\t * @param {!Config} config - unpublicized settings\n\t * @desc create Main instance\n\t */\n\tconstructor(config: Config) {\n\t\tsuper();\n\t\tthis._config = config;\n\t}\n\n\t/**\n\t * @access public\n\t * @desc execute the main procedure\n\t */\n\tmain(): void {\n\t\tconst alpha: ?Node = document.createElement(\"p\");\n\t\tconst beta: ?Node = document.createElement(\"p\");\n\t\tconst gamma: ?Node = document.createElement(\"p\");\n\n\t\tif (alpha instanceof Node) this.body.appendChild(alpha);\n\t\tif (beta instanceof Node) this.body.appendChild(beta);\n\t\tif (gamma instanceof Node) this.body.appendChild(gamma);\n\n\t\tthis.window.addEventListener(\"deviceorientation\", (e: DeviceOrientationEvent) => {\n\t\t\tif (alpha instanceof HTMLElement && beta instanceof HTMLElement && gamma instanceof HTMLElement) {\n\t\t\t\talpha.textContent = \"alpha: \" + e.alpha;\n\t\t\t\tbeta.textContent = \"beta: \" + e.beta;\n\t\t\t\tgamma.textContent = \"gamma: \" + e.gamma;\n\t\t\t}\n\t\t});\n\t}\n}\n",
+    "content": "// @flow\nimport type { Config } from \"../types/Config.type\";\nimport DOMController from \"./DOMController.module\";\n\n/**\n * @access public\n * @extends {DOMController}\n * @desc the main class\n */\nexport default class Main extends DOMController {\n\t/**\n\t * @access private\n\t * @type {Config}\n\t */\n\t_config: Config;\n\n\t/**\n\t * @access public\n\t * @param {!Config} config - unpublicized settings\n\t * @desc create Main instance\n\t */\n\tconstructor(config: Config) {\n\t\tsuper();\n\t\tthis._config = config;\n\t}\n\n\t/**\n\t * @access public\n\t * @desc execute the main procedure\n\t */\n\tmain(): void {\n\t\tconst alpha: ?Node = document.createElement(\"p\");\n\t\tconst beta: ?Node = document.createElement(\"p\");\n\t\tconst gamma: ?Node = document.createElement(\"p\");\n\n\t\tif (alpha instanceof Node) this.body.appendChild(alpha);\n\t\tif (beta instanceof Node) this.body.appendChild(beta);\n\t\tif (gamma instanceof Node) this.body.appendChild(gamma);\n\n\t\tthis.window.addEventListener(\"deviceorientation\", (e: DeviceOrientationEvent) => {\n\t\t\tif (alpha instanceof HTMLElement && beta instanceof HTMLElement && gamma instanceof HTMLElement) {\n\t\t\t\talpha.textContent = \"alpha: \" + e.alpha;\n\t\t\t\tbeta.textContent = \"beta: \" + e.beta;\n\t\t\t\tgamma.textContent = \"gamma: \" + e.gamma;\n\t\t\t}\n\t\t});\n\t}\n}\n",
     "static": true,
     "longname": "C:/Users/kodai/Documents/GitHub/Rider-S/src/js/modules/Main.module.js",
     "access": "public",
@@ -780,10 +779,10 @@
     "importPath": "rider-s/js/modules/Main.module.js",
     "importStyle": "Main",
     "description": "the main class",
-    "lineNumber": 9,
+    "lineNumber": 10,
     "interface": false,
     "extends": [
-      "js/modules/DOMController.module~DOMController"
+      "DOMController"
     ]
   },
   {
@@ -795,7 +794,7 @@
     "longname": "js/modules/Main.module.js~Main#_config",
     "access": "private ",
     "description": " ",
-    "lineNumber": 14,
+    "lineNumber": 15,
     "type": {
       "nullable": null,
       "types": [
@@ -817,7 +816,7 @@
     "longname": "js/modules/Main.module.js~Main#constructor",
     "access": "public",
     "description": "create Main instance",
-    "lineNumber": 21,
+    "lineNumber": 22,
     "params": [
       {
         "nullable": false,
@@ -842,7 +841,7 @@
     "longname": "js/modules/Main.module.js~Main#main",
     "access": "public  ",
     "description": "execute the main procedure  ",
-    "lineNumber": 30,
+    "lineNumber": 31,
     "return": {
       "nullable": null,
       "types": [
@@ -858,12 +857,30 @@
     "__docId__": 69,
     "kind": "file",
     "name": "js/types/Config.type.js",
-    "content": "// @flow\nexport type Config = {\n\tAPI_KEY: string,\n\tAPI_SECRET: string\n};\n",
+    "content": "// @flow\n/**\n * @typedef {{API_KEY: !string, API_SECRET: !string}} Config\n * @desc unpublicized settings\n */\nexport type Config = {\n\tAPI_KEY: string,\n\tAPI_SECRET: string\n};\n",
     "static": true,
     "longname": "C:/Users/kodai/Documents/GitHub/Rider-S/src/js/types/Config.type.js",
     "access": "public",
     "description": null,
     "lineNumber": 1
+  },
+  {
+    "__docId__": 70,
+    "kind": "typedef",
+    "name": "Config",
+    "memberof": "js/types/Config.type.js",
+    "static": true,
+    "longname": "js/types/Config.type.js~Config",
+    "access": "public",
+    "description": "unpublicized settings",
+    "lineNumber": 6,
+    "type": {
+      "types": [
+        "{API_KEY: !string, API_SECRET: !string}"
+      ],
+      "optional": false,
+      "name": "Config"
+    }
   },
   {
     "kind": "index",
