@@ -16,8 +16,8 @@ export default class Main extends DOMController {
 
 	/**
 	 * @access public
-	 * @param {!Config} config - unpublicized settings
 	 * @desc create Main instance.
+	 * @param {!Config} config - unpublicized settings
 	 */
 	constructor(config: Config) {
 		super();
@@ -29,20 +29,18 @@ export default class Main extends DOMController {
 	 * @desc execute the main procedure.
 	 */
 	main(): void {
-		const alpha: ?Node = document.createElement("p");
-		const beta: ?Node = document.createElement("p");
-		const gamma: ?Node = document.createElement("p");
+		const alpha: Node = this.createElement("p");
+		const beta: Node = this.createElement("p");
+		const gamma: Node = this.createElement("p");
 
-		if (alpha instanceof Node) this.body.appendChild(alpha);
-		if (beta instanceof Node) this.body.appendChild(beta);
-		if (gamma instanceof Node) this.body.appendChild(gamma);
+		this.body.appendChild(alpha);
+		this.body.appendChild(beta);
+		this.body.appendChild(gamma);
 
-		this.window.addEventListener("deviceorientation", (e: DeviceOrientationEvent) => {
-			if (alpha instanceof HTMLElement && beta instanceof HTMLElement && gamma instanceof HTMLElement) {
-				alpha.textContent = "alpha: " + e.alpha;
-				beta.textContent = "beta: " + e.beta;
-				gamma.textContent = "gamma: " + e.gamma;
-			}
+		this.window.addEventListener("deviceorientation", (e: any) => {
+			alpha.textContent = "alpha: " + e.alpha;
+			beta.textContent = "beta: " + e.beta;
+			gamma.textContent = "gamma: " + e.gamma;
 		});
 	}
 }

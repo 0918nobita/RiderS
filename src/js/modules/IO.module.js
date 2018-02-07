@@ -28,8 +28,7 @@ export default class IO extends DOMController {
 	 * @param {!string} str - the output string
 	 */
 	output(str : string): void {
-		const p : ?Node = document.createElement("p");
-		if (p == null) return;
+		const p : Node = this.createElement("p");
 		
 		p.textContent = str;
 		

@@ -6,14 +6,14 @@
 export default class DOMController {
 	/**
 	 * @access public
-	 * @type {Node}
-	 * @desc document.body element
+	 * @type {!HTMLElement}
+	 * @desc document.body object
 	 */
-	body: Node;
+	body: HTMLElement;
 
 	/**
 	 * @access public
-	 * @type {EventTarget}
+	 * @type {!EventTarget}
 	 * @desc window object
 	 */
 	window: EventTarget;
@@ -24,9 +24,22 @@ export default class DOMController {
 	 * @throws {Error} throw error when required DOM element cannot be found.
 	 */
 	constructor() {
-		if (document.body instanceof Node) this.body = document.body;
+		if (document.body instanceof HTMLElement) this.body = document.body;
 		else throw new Error("document.body cannnot be found.");
 		if (window instanceof EventTarget) this.window = window;
 		else throw new Error("window object cannot be found.");
+	}
+
+	/**
+	 * @access public
+	 * @desc create new DOM element.
+	 * @param {!string} tag_name - tag name
+	 * @return {!HTMLElement} - new DOM element
+	 * @throws {Error} throw error when failed to create new DOM element
+	 */
+	createElement(tag_name: string): HTMLElement {
+		const elem: ?HTMLElement = document.createElement(tag_name);
+		if (elem instanceof HTMLElement) return elem;
+		else throw new Error("failed to create new DOM element.");
 	}
 }
