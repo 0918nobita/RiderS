@@ -1,0 +1,8 @@
+{
+	"source": "./src/js",
+	"destination": "./docs",
+	"plugins": [
+		{"name": "esdoc-standard-plugin"},
+		{"name": "esdoc-flow-type-plugin"}
+	]
+}
