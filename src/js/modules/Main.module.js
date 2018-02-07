@@ -1,35 +1,42 @@
 // @flow
 import type { Config } from "../types/Config.type";
+import DOMController from "./DOMController.module";
 
-class PrivateFields {
-	config: Config;
-	
-	constructor(param: {config: Config}) {
-		this.config = param.config;
+/**
+ * @access public
+ * @desc the main class
+ */
+export default class Main extends DOMController {
+	/**
+	 * @access private
+	 * @type {Config}
+	 */
+	_config: Config;
+
+	/**
+	 * @access public
+	 * @param {!Config} config - unpublicized settings
+	 * @desc create Main instance
+	 */
+	constructor(config: Config) {
+		super();
+		this._config = config;
 	}
-}
 
-const privates : WeakMap<Object, PrivateFields> = new WeakMap();
-
-export default class Main {
-	constructor(param: {config: Config}) {
-		privates.set(this, new PrivateFields(param));
-	}
-
+	/**
+	 * @access public
+	 * @desc execute the main procedure
+	 */
 	main(): void {
-		const w : ?EventTarget = window;
-		const body : ?HTMLElement = document.body;
-		const alpha: ?HTMLElement = document.createElement("p");
-		const beta: ?HTMLElement = document.createElement("p");
-		const gamma: ?HTMLElement = document.createElement("p");
+		const alpha: ?Node = document.createElement("p");
+		const beta: ?Node = document.createElement("p");
+		const gamma: ?Node = document.createElement("p");
 
-		if (body instanceof HTMLElement) {
-			if (alpha instanceof HTMLElement) body.appendChild(alpha);
-			if (beta instanceof HTMLElement) body.appendChild(beta);
-			if (gamma instanceof HTMLElement) body.appendChild(gamma);
-		}
+		if (alpha instanceof Node) this.body.appendChild(alpha);
+		if (beta instanceof Node) this.body.appendChild(beta);
+		if (gamma instanceof Node) this.body.appendChild(gamma);
 
-		if (w instanceof EventTarget) w.addEventListener("deviceorientation", (e: any) => {
+		this.window.addEventListener("deviceorientation", (e: DeviceOrientationEvent) => {
 			if (alpha instanceof HTMLElement && beta instanceof HTMLElement && gamma instanceof HTMLElement) {
 				alpha.textContent = "alpha: " + e.alpha;
 				beta.textContent = "beta: " + e.beta;

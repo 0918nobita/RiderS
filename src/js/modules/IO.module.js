@@ -1,9 +1,11 @@
 // @flow
+import DOMController from "./DOMController.module";
+
 /**
  * @access public
  * @desc the class in charge of Input/Output
  */
-export default class IO {
+export default class IO extends DOMController {
 	/**
 	 * @access private
 	 * @type {?Node}
@@ -12,21 +14,13 @@ export default class IO {
 	_first : ?Node;
 
 	/**
-	 * @access private
-	 * @type {Node}
-	 * @desc body element
-	 */
-	_body : Node;
-
-	/**
 	 * @access public
 	 * @desc create IO instance
 	 * @throws {Error} throw error when document.body object cannot be found.
 	 */
 	constructor() {
+		super();
 		this._first = null;
-		if (document.body instanceof Node) this._body = document.body;
-		else throw new Error("document.body cannnot be found.");
 	}
 
 	/**
@@ -40,7 +34,7 @@ export default class IO {
 		p.textContent = str;
 		
 		this._first = (this._first != null) ?
-			this._body.insertBefore(p, this._first) :
-			this._body.appendChild(p);
+			this.body.insertBefore(p, this._first) :
+			this.body.appendChild(p);
 	}
 }
