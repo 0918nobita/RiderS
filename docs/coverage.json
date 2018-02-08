@@ -1,7 +1,7 @@
 {
   "coverage": "100%",
-  "expectCount": 20,
-  "actualCount": 20,
+  "expectCount": 13,
+  "actualCount": 13,
   "files": {
     "js/modules/DOMController.module.js": {
       "expectCount": 5,
@@ -14,16 +14,6 @@
       "undocumentLines": []
     },
     "js/modules/Main.module.js": {
-      "expectCount": 4,
-      "actualCount": 4,
-      "undocumentLines": []
-    },
-    "js/modules/XMLNode.module.js": {
-      "expectCount": 3,
-      "actualCount": 3,
-      "undocumentLines": []
-    },
-    "js/modules/XMLParser.module.js": {
       "expectCount": 4,
       "actualCount": 4,
       "undocumentLines": []

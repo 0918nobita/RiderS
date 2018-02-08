@@ -8,10 +8,6 @@ import DOMController from "./DOMController.module";
  * @desc the main class
  */
 export default class Main extends DOMController {
-	/**
-	 * @access private
-	 * @type {Config}
-	 */
 	_config: Config;
 
 	/**

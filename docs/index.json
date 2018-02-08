@@ -707,7 +707,7 @@
     "__docId__": 57,
     "kind": "file",
     "name": "js/modules/IO.module.js",
-    "content": "// @flow\nimport DOMController from \"./DOMController.module\";\n\n/**\n * @access public\n * @extends {DOMController}\n * @desc the class in charge of Input/Output\n */\nexport default class IO extends DOMController {\n\t/**\n\t * @access private\n\t * @type {?Node}\n\t * @desc the last added node\n\t */\n\t_first : ?Node;\n\n\t/**\n\t * @access public\n\t * @desc create IO instance.\n\t */\n\tconstructor() {\n\t\tsuper();\n\t\tthis._first = null;\n\t}\n\n\t/**\n\t * @desc output passed string.\n\t * @param {!string} str - the output string\n\t */\n\toutput(str : string): void {\n\t\tconst p : Node = this.createElement(\"p\");\n\t\t\n\t\tp.textContent = str;\n\t\t\n\t\tthis._first = (this._first != null) ?\n\t\t\tthis.body.insertBefore(p, this._first) :\n\t\t\tthis.body.appendChild(p);\n\t}\n}\n",
+    "content": "// @flow\nimport DOMController from \"./DOMController.module\";\n\n/**\n * @access public\n * @extends {DOMController}\n * @desc the class in charge of Input/Output\n */\nexport default class IO extends DOMController {\n\t_first : ?Node;\n\n\t/**\n\t * @access public\n\t * @desc create IO instance.\n\t */\n\tconstructor() {\n\t\tsuper();\n\t\tthis._first = null;\n\t}\n\n\t/**\n\t * @desc output passed string.\n\t * @param {!string} str - the output string\n\t */\n\toutput(str : string): void {\n\t\tconst p : Node = this.createElement(\"p\");\n\t\t\n\t\tp.textContent = str;\n\t\t\n\t\tthis._first = (this._first != null) ?\n\t\t\tthis.body.insertBefore(p, this._first) :\n\t\t\tthis.body.appendChild(p);\n\t}\n}\n",
     "static": true,
     "longname": "C:/Users/kodai/Documents/GitHub/Rider-S/src/js/modules/IO.module.js",
     "access": "public",
@@ -739,9 +739,9 @@
     "memberof": "js/modules/IO.module.js~IO",
     "static": false,
     "longname": "js/modules/IO.module.js~IO#_first",
-    "access": "private ",
-    "description": "the last added node ",
-    "lineNumber": 15,
+    "access": "private",
+    "description": "",
+    "lineNumber": 10,
     "type": {
       "nullable": null,
       "types": [
@@ -749,8 +749,7 @@
       ],
       "spread": false,
       "description": null
-    },
-    "ignore": true
+    }
   },
   {
     "__docId__": 60,
@@ -763,7 +762,7 @@
     "longname": "js/modules/IO.module.js~IO#constructor",
     "access": "public",
     "description": "create IO instance.",
-    "lineNumber": 21
+    "lineNumber": 16
   },
   {
     "__docId__": 62,
@@ -776,7 +775,7 @@
     "longname": "js/modules/IO.module.js~IO#output",
     "access": "public",
     "description": "output passed string.  ",
-    "lineNumber": 30,
+    "lineNumber": 25,
     "params": [
       {
         "nullable": false,
@@ -802,7 +801,7 @@
     "__docId__": 64,
     "kind": "file",
     "name": "js/modules/Main.module.js",
-    "content": "// @flow\nimport type { Config } from \"../types/Config.type\";\nimport DOMController from \"./DOMController.module\";\n\n/**\n * @access public\n * @extends {DOMController}\n * @desc the main class\n */\nexport default class Main extends DOMController {\n\t/**\n\t * @access private\n\t * @type {Config}\n\t */\n\t_config: Config;\n\n\t/**\n\t * @access public\n\t * @desc create Main instance.\n\t * @param {!Config} config - unpublicized settings\n\t */\n\tconstructor(config: Config) {\n\t\tsuper();\n\t\tthis._config = config;\n\t}\n\n\t/**\n\t * @access public\n\t * @desc execute the main procedure.\n\t */\n\tmain(): void {\n\t\tconst alpha: Node = this.createElement(\"p\");\n\t\tconst beta: Node = this.createElement(\"p\");\n\t\tconst gamma: Node = this.createElement(\"p\");\n\n\t\tthis.body.appendChild(alpha);\n\t\tthis.body.appendChild(beta);\n\t\tthis.body.appendChild(gamma);\n\n\t\tthis.window.addEventListener(\"deviceorientation\", (e: any) => {\n\t\t\talpha.textContent = \"alpha: \" + e.alpha;\n\t\t\tbeta.textContent = \"beta: \" + e.beta;\n\t\t\tgamma.textContent = \"gamma: \" + e.gamma;\n\t\t});\n\t}\n}\n",
+    "content": "// @flow\nimport type { Config } from \"../types/Config.type\";\nimport DOMController from \"./DOMController.module\";\n\n/**\n * @access public\n * @extends {DOMController}\n * @desc the main class\n */\nexport default class Main extends DOMController {\n\t_config: Config;\n\n\t/**\n\t * @access public\n\t * @desc create Main instance.\n\t * @param {!Config} config - unpublicized settings\n\t */\n\tconstructor(config: Config) {\n\t\tsuper();\n\t\tthis._config = config;\n\t}\n\n\t/**\n\t * @access public\n\t * @desc execute the main procedure.\n\t */\n\tmain(): void {\n\t\tconst alpha: Node = this.createElement(\"p\");\n\t\tconst beta: Node = this.createElement(\"p\");\n\t\tconst gamma: Node = this.createElement(\"p\");\n\n\t\tthis.body.appendChild(alpha);\n\t\tthis.body.appendChild(beta);\n\t\tthis.body.appendChild(gamma);\n\n\t\tthis.window.addEventListener(\"deviceorientation\", (e: any) => {\n\t\t\talpha.textContent = \"alpha: \" + e.alpha;\n\t\t\tbeta.textContent = \"beta: \" + e.beta;\n\t\t\tgamma.textContent = \"gamma: \" + e.gamma;\n\t\t});\n\t}\n}\n",
     "static": true,
     "longname": "C:/Users/kodai/Documents/GitHub/Rider-S/src/js/modules/Main.module.js",
     "access": "public",
@@ -834,9 +833,9 @@
     "memberof": "js/modules/Main.module.js~Main",
     "static": false,
     "longname": "js/modules/Main.module.js~Main#_config",
-    "access": "private ",
-    "description": " ",
-    "lineNumber": 15,
+    "access": "private",
+    "description": "",
+    "lineNumber": 11,
     "type": {
       "nullable": null,
       "types": [
@@ -844,8 +843,7 @@
       ],
       "spread": false,
       "description": null
-    },
-    "ignore": true
+    }
   },
   {
     "__docId__": 67,
@@ -858,7 +856,7 @@
     "longname": "js/modules/Main.module.js~Main#constructor",
     "access": "public",
     "description": "create Main instance.",
-    "lineNumber": 22,
+    "lineNumber": 18,
     "params": [
       {
         "nullable": false,
@@ -883,7 +881,7 @@
     "longname": "js/modules/Main.module.js~Main#main",
     "access": "public  ",
     "description": "execute the main procedure.  ",
-    "lineNumber": 31,
+    "lineNumber": 27,
     "return": {
       "nullable": null,
       "types": [
@@ -898,171 +896,6 @@
   {
     "__docId__": 70,
     "kind": "file",
-    "name": "js/modules/XMLNode.module.js",
-    "content": "// @flow\n/**\n * @access public\n * @desc XML Node\n */\nexport default class XMLNode {\n\t/**\n\t * @access private\n\t * @desc child nodes\n\t */\n\t_children: XMLNode[];\n\n\t/**\n\t * @access public\n\t * @param {XMLNode[]} [children] - child nodes\n\t */\n\tconstructor(children?: XMLNode[]) {\n\t\tif (children !== undefined) this._children = children;\n\t\telse this._children = [];\n\t}\n}\n",
-    "static": true,
-    "longname": "C:/Users/kodai/Documents/GitHub/Rider-S/src/js/modules/XMLNode.module.js",
-    "access": "public",
-    "description": null,
-    "lineNumber": 1
-  },
-  {
-    "__docId__": 71,
-    "kind": "class",
-    "name": "XMLNode",
-    "memberof": "js/modules/XMLNode.module.js",
-    "static": true,
-    "longname": "js/modules/XMLNode.module.js~XMLNode",
-    "access": "public",
-    "export": true,
-    "importPath": "rider-s/js/modules/XMLNode.module.js",
-    "importStyle": "XMLNode",
-    "description": "XML Node",
-    "lineNumber": 6,
-    "interface": false
-  },
-  {
-    "__docId__": 72,
-    "kind": "member",
-    "name": "_children",
-    "memberof": "js/modules/XMLNode.module.js~XMLNode",
-    "static": false,
-    "longname": "js/modules/XMLNode.module.js~XMLNode#_children",
-    "access": "private ",
-    "description": "child nodes ",
-    "lineNumber": 11,
-    "type": {
-      "nullable": null,
-      "types": [
-        "array"
-      ],
-      "spread": false,
-      "description": null
-    },
-    "ignore": true
-  },
-  {
-    "__docId__": 73,
-    "kind": "constructor",
-    "name": "constructor",
-    "memberof": "js/modules/XMLNode.module.js~XMLNode",
-    "generator": false,
-    "async": false,
-    "static": false,
-    "longname": "js/modules/XMLNode.module.js~XMLNode#constructor",
-    "access": "public",
-    "description": "",
-    "lineNumber": 17,
-    "params": [
-      {
-        "nullable": null,
-        "types": [
-          "XMLNode[]"
-        ],
-        "spread": false,
-        "optional": true,
-        "name": "children",
-        "description": "child nodes"
-      }
-    ]
-  },
-  {
-    "__docId__": 76,
-    "kind": "file",
-    "name": "js/modules/XMLParser.module.js",
-    "content": "// @flow\nimport XMLNode from \"./XMLNode.module\";\n\n/**\n * @access public\n * @desc the class in charge of parsing XML string\n */\nexport default class XMLParser {\n\t/**\n\t * @access private\n\t * @type {string}\n\t * @desc XML string\n\t */\n\t_xml_str: string;\n\t\n\t/**\n\t * @access public\n\t * @param {string} xml_str - XML string \n\t */\n\tconstructor(xml_str: string) {\n\t\tthis._xml_str = xml_str;\n\t}\n\n\t/**\n\t * @access public\n\t * @desc parse the XML string\n\t * @return {XMLNode[]} - XML AST\n\t */\n\tparse(): XMLNode[] {\n\t\treturn [];\n\t}\n}\n",
-    "static": true,
-    "longname": "C:/Users/kodai/Documents/GitHub/Rider-S/src/js/modules/XMLParser.module.js",
-    "access": "public",
-    "description": null,
-    "lineNumber": 1
-  },
-  {
-    "__docId__": 77,
-    "kind": "class",
-    "name": "XMLParser",
-    "memberof": "js/modules/XMLParser.module.js",
-    "static": true,
-    "longname": "js/modules/XMLParser.module.js~XMLParser",
-    "access": "public",
-    "export": true,
-    "importPath": "rider-s/js/modules/XMLParser.module.js",
-    "importStyle": "XMLParser",
-    "description": "the class in charge of parsing XML string",
-    "lineNumber": 8,
-    "interface": false
-  },
-  {
-    "__docId__": 78,
-    "kind": "member",
-    "name": "_xml_str",
-    "memberof": "js/modules/XMLParser.module.js~XMLParser",
-    "static": false,
-    "longname": "js/modules/XMLParser.module.js~XMLParser#_xml_str",
-    "access": "private ",
-    "description": "XML string ",
-    "lineNumber": 14,
-    "type": {
-      "nullable": null,
-      "types": [
-        "string"
-      ],
-      "spread": false,
-      "description": null
-    },
-    "ignore": true
-  },
-  {
-    "__docId__": 79,
-    "kind": "constructor",
-    "name": "constructor",
-    "memberof": "js/modules/XMLParser.module.js~XMLParser",
-    "generator": false,
-    "async": false,
-    "static": false,
-    "longname": "js/modules/XMLParser.module.js~XMLParser#constructor",
-    "access": "public",
-    "description": "",
-    "lineNumber": 20,
-    "params": [
-      {
-        "nullable": null,
-        "types": [
-          "string"
-        ],
-        "spread": false,
-        "optional": false,
-        "name": "xml_str",
-        "description": "XML string"
-      }
-    ]
-  },
-  {
-    "__docId__": 81,
-    "kind": "method",
-    "name": "parse",
-    "memberof": "js/modules/XMLParser.module.js~XMLParser",
-    "generator": false,
-    "async": false,
-    "static": false,
-    "longname": "js/modules/XMLParser.module.js~XMLParser#parse",
-    "access": "public  ",
-    "description": "parse the XML string  ",
-    "lineNumber": 29,
-    "return": {
-      "nullable": null,
-      "types": [
-        "XMLNode[]"
-      ],
-      "spread": false,
-      "description": "XML AST"
-    },
-    "ignore": true,
-    "params": []
-  },
-  {
-    "__docId__": 82,
-    "kind": "file",
     "name": "js/types/Config.type.js",
     "content": "// @flow\n/**\n * @typedef {{API_KEY: !string, API_SECRET: !string}} Config\n * @desc unpublicized settings\n */\nexport type Config = {\n\tAPI_KEY: string,\n\tAPI_SECRET: string\n};\n",
     "static": true,
@@ -1072,7 +905,7 @@
     "lineNumber": 1
   },
   {
-    "__docId__": 83,
+    "__docId__": 71,
     "kind": "typedef",
     "name": "Config",
     "memberof": "js/types/Config.type.js",

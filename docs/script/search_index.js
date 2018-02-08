@@ -18,18 +18,6 @@ window.esdocSearchIndex = [
     "class"
   ],
   [
-    "rider-s/js/modules/xmlnode.module.js~xmlnode",
-    "class/js/modules/XMLNode.module.js~XMLNode.html",
-    "<span>XMLNode</span> <span class=\"search-result-import-path\">rider-s/js/modules/XMLNode.module.js</span>",
-    "class"
-  ],
-  [
-    "rider-s/js/modules/xmlparser.module.js~xmlparser",
-    "class/js/modules/XMLParser.module.js~XMLParser.html",
-    "<span>XMLParser</span> <span class=\"search-result-import-path\">rider-s/js/modules/XMLParser.module.js</span>",
-    "class"
-  ],
-  [
     "js/.external-ecmascript.js~array",
     "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array",
     "js/.external-ecmascript.js~Array",
@@ -336,6 +324,12 @@ window.esdocSearchIndex = [
     "file"
   ],
   [
+    "js/modules/io.module.js~io#_first",
+    "class/js/modules/IO.module.js~IO.html#instance-member-_first",
+    "js/modules/IO.module.js~IO#_first",
+    "member"
+  ],
+  [
     "js/modules/io.module.js~io#constructor",
     "class/js/modules/IO.module.js~IO.html#instance-constructor-constructor",
     "js/modules/IO.module.js~IO#constructor",
@@ -354,33 +348,15 @@ window.esdocSearchIndex = [
     "file"
   ],
   [
+    "js/modules/main.module.js~main#_config",
+    "class/js/modules/Main.module.js~Main.html#instance-member-_config",
+    "js/modules/Main.module.js~Main#_config",
+    "member"
+  ],
+  [
     "js/modules/main.module.js~main#constructor",
     "class/js/modules/Main.module.js~Main.html#instance-constructor-constructor",
     "js/modules/Main.module.js~Main#constructor",
-    "method"
-  ],
-  [
-    "js/modules/xmlnode.module.js",
-    "file/js/modules/XMLNode.module.js.html",
-    "js/modules/XMLNode.module.js",
-    "file"
-  ],
-  [
-    "js/modules/xmlnode.module.js~xmlnode#constructor",
-    "class/js/modules/XMLNode.module.js~XMLNode.html#instance-constructor-constructor",
-    "js/modules/XMLNode.module.js~XMLNode#constructor",
-    "method"
-  ],
-  [
-    "js/modules/xmlparser.module.js",
-    "file/js/modules/XMLParser.module.js.html",
-    "js/modules/XMLParser.module.js",
-    "file"
-  ],
-  [
-    "js/modules/xmlparser.module.js~xmlparser#constructor",
-    "class/js/modules/XMLParser.module.js~XMLParser.html#instance-constructor-constructor",
-    "js/modules/XMLParser.module.js~XMLParser#constructor",
     "method"
   ],
   [

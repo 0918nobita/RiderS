@@ -34,7 +34,10 @@
 <li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/js/modules/Main.module.js~Main.html">Main</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/js/modules/XMLNode.module.js~XMLNode.html">XMLNode</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/js/modules/XMLParser.module.js~XMLParser.html">XMLParser</a></span></span></li>
-<li data-ice="doc"><a data-ice="dirPath" class="nav-dir-path" href="identifiers.html#types">types</a><span data-ice="kind" class="kind-typedef">T</span><span data-ice="name"><span><a href="typedef/index.html#static-typedef-Config">Config</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-typedef">T</span><span data-ice="name"><span><a href="typedef/index.html#static-typedef-EOF">EOF</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-typedef">T</span><span data-ice="name"><span><a href="typedef/index.html#static-typedef-State">State</a></span></span></li>
+<li data-ice="doc"><a data-ice="dirPath" class="nav-dir-path" href="identifiers.html#types">types</a><span data-ice="kind" class="kind-typedef">T</span><span data-ice="name"><span><a href="typedef/index.html#static-typedef-Attribute">Attribute</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-typedef">T</span><span data-ice="name"><span><a href="typedef/index.html#static-typedef-Config">Config</a></span></span></li>
 </ul>
 </div>
 </nav>
@@ -44,16 +47,25 @@
 import XMLNode from &quot;./XMLNode.module&quot;;
 
 /**
+ * @access private
+ * @typedef {Tuple&lt;EOF, ?XMLNode&gt;} State
+ */
+type State = [EOF, ?XMLNode];
+
+/**
+ * @access private
+ * @typedef {boolean} EOF
+ */
+type EOF = boolean;
+
+/**
  * @access public
  * @desc the class in charge of parsing XML string
  */
 export default class XMLParser {
-	/**
-	 * @access private
-	 * @type {string}
-	 * @desc XML string
-	 */
 	_xml_str: string;
+
+	_progress: number;
 	
 	/**
 	 * @access public
@@ -61,6 +73,7 @@ export default class XMLParser {
 	 */
 	constructor(xml_str: string) {
 		this._xml_str = xml_str;
+		this._progress = -1;
 	}
 
 	/**
@@ -69,7 +82,32 @@ export default class XMLParser {
 	 * @return {XMLNode[]} - XML AST
 	 */
 	parse(): XMLNode[] {
+		let opened_tags: XMLNode[] = [];
 		return [];
+	}
+
+	/**
+	 * @access private
+	 */
+	_parseTag(): State {
+		this._skipWhiteSpaces();
+		const char: string = this._xml_str.charAt(this._progress);
+		return [false, new XMLNode(&quot;div&quot;)];
+	}
+
+	/**
+	 * @access private
+	 */
+	_skipWhiteSpaces(): State {
+		const whiteSpaces: string[] = [&quot; &quot;, &quot;\n&quot;, &quot;\t&quot;, &quot;\r\n&quot;];
+		while (true) {
+			let c: string = this._xml_str.charAt(++this._progress);
+			this._progress ++;
+			if (c === &quot;&quot;) return [true, null];
+			if (whiteSpaces.indexOf(c) === -1) break;
+		}
+		this._progress --;
+		return [false, null];
 	}
 }
 </code></pre>

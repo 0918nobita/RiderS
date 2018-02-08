@@ -7,11 +7,6 @@ import DOMController from "./DOMController.module";
  * @desc the class in charge of Input/Output
  */
 export default class IO extends DOMController {
-	/**
-	 * @access private
-	 * @type {?Node}
-	 * @desc the last added node
-	 */
 	_first : ?Node;
 
 	/**

@@ -34,29 +34,40 @@
 <li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/js/modules/Main.module.js~Main.html">Main</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/js/modules/XMLNode.module.js~XMLNode.html">XMLNode</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/js/modules/XMLParser.module.js~XMLParser.html">XMLParser</a></span></span></li>
-<li data-ice="doc"><a data-ice="dirPath" class="nav-dir-path" href="identifiers.html#types">types</a><span data-ice="kind" class="kind-typedef">T</span><span data-ice="name"><span><a href="typedef/index.html#static-typedef-Config">Config</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-typedef">T</span><span data-ice="name"><span><a href="typedef/index.html#static-typedef-EOF">EOF</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-typedef">T</span><span data-ice="name"><span><a href="typedef/index.html#static-typedef-State">State</a></span></span></li>
+<li data-ice="doc"><a data-ice="dirPath" class="nav-dir-path" href="identifiers.html#types">types</a><span data-ice="kind" class="kind-typedef">T</span><span data-ice="name"><span><a href="typedef/index.html#static-typedef-Attribute">Attribute</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-typedef">T</span><span data-ice="name"><span><a href="typedef/index.html#static-typedef-Config">Config</a></span></span></li>
 </ul>
 </div>
 </nav>
 
 <div class="content" data-ice="content"><h1 data-ice="title">js/modules/XMLNode.module.js</h1>
 <pre class="source-code line-number raw-source-code"><code class="prettyprint linenums" data-ice="content">// @flow
+import type { Attribute } from &quot;../types/Attribute.type&quot;;
+
 /**
  * @access public
  * @desc XML Node
  */
 export default class XMLNode {
-	/**
-	 * @access private
-	 * @desc child nodes
-	 */
+	name: string;
+
+	_attributes: Attribute[];
+
 	_children: XMLNode[];
 
 	/**
 	 * @access public
-	 * @param {XMLNode[]} [children] - child nodes
+	 * @desc create XMLNode instance.
+	 * @param {string} name - the name of this XML node
+	 * @param {Attribute[]} [attributes] - attributes of this XML node
+	 * @param {XMLNode[]} [children] - child nodes of this XML node
 	 */
-	constructor(children?: XMLNode[]) {
+	constructor(name: string, attributes?: Attribute[], children?: XMLNode[]) {
+		this.name = name;
+		if (attributes !== undefined) this._attributes = attributes;
+		else this._attributes = [];
 		if (children !== undefined) this._children = children;
 		else this._children = [];
 	}
