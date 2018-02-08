@@ -898,6 +898,141 @@
   {
     "__docId__": 70,
     "kind": "file",
+    "name": "js/modules/XMLNode.module.js",
+    "content": "// @flow\nexport default class XMLNode {\n\tconstructor() {}\n}\n",
+    "static": true,
+    "longname": "C:/Users/kodai/Documents/GitHub/Rider-S/src/js/modules/XMLNode.module.js",
+    "access": "public",
+    "description": null,
+    "lineNumber": 1
+  },
+  {
+    "__docId__": 71,
+    "kind": "class",
+    "name": "XMLNode",
+    "memberof": "js/modules/XMLNode.module.js",
+    "static": true,
+    "longname": "js/modules/XMLNode.module.js~XMLNode",
+    "access": "public",
+    "export": true,
+    "importPath": "rider-s/js/modules/XMLNode.module.js",
+    "importStyle": "XMLNode",
+    "description": null,
+    "lineNumber": 2,
+    "undocument": true,
+    "interface": false
+  },
+  {
+    "__docId__": 72,
+    "kind": "constructor",
+    "name": "constructor",
+    "memberof": "js/modules/XMLNode.module.js~XMLNode",
+    "generator": false,
+    "async": false,
+    "static": false,
+    "longname": "js/modules/XMLNode.module.js~XMLNode#constructor",
+    "access": "public",
+    "description": null,
+    "lineNumber": 3,
+    "undocument": true
+  },
+  {
+    "__docId__": 73,
+    "kind": "file",
+    "name": "js/modules/XMLParser.module.js",
+    "content": "// @flow\nimport XMLNode from \"./XMLNode.module\";\n\n/**\n * @access public\n * @desc the class in charge of parsing XML string\n */\nexport default class XMLParser {\n\t/**\n\t * @access private\n\t * @type {string}\n\t * @desc XML string\n\t */\n\t_xml_str: string;\n\t\n\t/**\n\t * @access public\n\t * @param {string} xml_str - XML string \n\t */\n\tconstructor(xml_str: string) {\n\t\tthis._xml_str = xml_str;\n\t}\n\n\t/**\n\t * @access public\n\t * @desc parse the XML string\n\t * @return {XMLNode[]} - XML AST\n\t */\n\tparse(): XMLNode[] {\n\t\treturn [];\n\t}\n}\n",
+    "static": true,
+    "longname": "C:/Users/kodai/Documents/GitHub/Rider-S/src/js/modules/XMLParser.module.js",
+    "access": "public",
+    "description": null,
+    "lineNumber": 1
+  },
+  {
+    "__docId__": 74,
+    "kind": "class",
+    "name": "XMLParser",
+    "memberof": "js/modules/XMLParser.module.js",
+    "static": true,
+    "longname": "js/modules/XMLParser.module.js~XMLParser",
+    "access": "public",
+    "export": true,
+    "importPath": "rider-s/js/modules/XMLParser.module.js",
+    "importStyle": "XMLParser",
+    "description": "the class in charge of parsing XML string",
+    "lineNumber": 8,
+    "interface": false
+  },
+  {
+    "__docId__": 75,
+    "kind": "member",
+    "name": "_xml_str",
+    "memberof": "js/modules/XMLParser.module.js~XMLParser",
+    "static": false,
+    "longname": "js/modules/XMLParser.module.js~XMLParser#_xml_str",
+    "access": "private ",
+    "description": "XML string ",
+    "lineNumber": 14,
+    "type": {
+      "nullable": null,
+      "types": [
+        "string"
+      ],
+      "spread": false,
+      "description": null
+    },
+    "ignore": true
+  },
+  {
+    "__docId__": 76,
+    "kind": "constructor",
+    "name": "constructor",
+    "memberof": "js/modules/XMLParser.module.js~XMLParser",
+    "generator": false,
+    "async": false,
+    "static": false,
+    "longname": "js/modules/XMLParser.module.js~XMLParser#constructor",
+    "access": "public",
+    "description": "",
+    "lineNumber": 20,
+    "params": [
+      {
+        "nullable": null,
+        "types": [
+          "string"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "xml_str",
+        "description": "XML string"
+      }
+    ]
+  },
+  {
+    "__docId__": 78,
+    "kind": "method",
+    "name": "parse",
+    "memberof": "js/modules/XMLParser.module.js~XMLParser",
+    "generator": false,
+    "async": false,
+    "static": false,
+    "longname": "js/modules/XMLParser.module.js~XMLParser#parse",
+    "access": "public  ",
+    "description": "parse the XML string  ",
+    "lineNumber": 29,
+    "return": {
+      "nullable": null,
+      "types": [
+        "XMLNode[]"
+      ],
+      "spread": false,
+      "description": "XML AST"
+    },
+    "ignore": true,
+    "params": []
+  },
+  {
+    "__docId__": 79,
+    "kind": "file",
     "name": "js/types/Config.type.js",
     "content": "// @flow\n/**\n * @typedef {{API_KEY: !string, API_SECRET: !string}} Config\n * @desc unpublicized settings\n */\nexport type Config = {\n\tAPI_KEY: string,\n\tAPI_SECRET: string\n};\n",
     "static": true,
@@ -907,7 +1042,7 @@
     "lineNumber": 1
   },
   {
-    "__docId__": 71,
+    "__docId__": 80,
     "kind": "typedef",
     "name": "Config",
     "memberof": "js/types/Config.type.js",
