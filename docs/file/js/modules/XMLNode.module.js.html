@@ -41,8 +41,25 @@
 
 <div class="content" data-ice="content"><h1 data-ice="title">js/modules/XMLNode.module.js</h1>
 <pre class="source-code line-number raw-source-code"><code class="prettyprint linenums" data-ice="content">// @flow
+/**
+ * @access public
+ * @desc XML Node
+ */
 export default class XMLNode {
-	constructor() {}
+	/**
+	 * @access private
+	 * @desc child nodes
+	 */
+	_children: XMLNode[];
+
+	/**
+	 * @access public
+	 * @param {XMLNode[]} [children] - child nodes
+	 */
+	constructor(children?: XMLNode[]) {
+		if (children !== undefined) this._children = children;
+		else this._children = [];
+	}
 }
 </code></pre>
 
