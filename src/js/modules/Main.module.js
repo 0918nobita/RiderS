@@ -1,5 +1,4 @@
 // @flow
-import type { Config } from "../types/Config.type";
 import DOMController from "./DOMController.module";
 
 /**
@@ -8,16 +7,14 @@ import DOMController from "./DOMController.module";
  * @desc the main class
  */
 export default class Main extends DOMController {
-	_config: Config;
 
 	/**
 	 * @access public
 	 * @desc create Main instance.
 	 * @param {!Config} config - unpublicized settings
 	 */
-	constructor(config: Config) {
+	constructor() {
 		super();
-		this._config = config;
 	}
 
 	/**
