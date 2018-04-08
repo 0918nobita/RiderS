@@ -37,6 +37,22 @@ module.exports = {
 					plugins: ['babel-plugin-transform-flow-strip-types']
 				}
 			}]
+		},{
+			test: /\.scss/,
+			use: [
+				'style-loader',
+				{
+					loader: 'css-loader',
+					options: {
+						url: true,
+						importLoaders: 2
+					}
+				},
+				'sass-loader'
+			]
+		},{
+			test: /\.(gif|png|jpg|eot|wof|woff|woff2|ttf|svg)$/,
+			loader: 'url-loader'
 		}]
 	},
 	plugins: [
