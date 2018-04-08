@@ -4,16 +4,11 @@ const path = require('path');
 const flowBabelWebpackPlugin = require('flow-babel-webpack-plugin');
 
 module.exports = {
-	// エントリーポイントの設定
 	entry: './src/js/app.js',
-	// 出力の設定
 	output: {
-		// 出力するファイル名
 		filename: 'bundle.js',
-		// 出力先の絶対パス
 		path: path.join(__dirname, 'public/js')
 	},
-	// ローダーの設定
 	module: {
 		rules: [{
 			enforce: 'pre',
