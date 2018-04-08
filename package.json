@@ -9,7 +9,7 @@
     "flow-typed": "./node_modules/.bin/flow-typed install",
     "debug": "./node_modules/.bin/webpack --mode development",
     "release": "./node_modules/.bin/webpack --mode production",
-    "watch": "./node_modules/.bin/webpack --watch",
+    "watch": "./node_modules/.bin/webpack --mode development --watch",
     "mocha": "./node_modules/.bin/mocha",
     "esdoc": "./node_modules/.bin/esdoc -c ./.esdoc.json",
     "test": "npm run mocha test/"
