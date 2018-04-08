@@ -11,7 +11,6 @@ export default class Main extends DOMController {
 	/**
 	 * @access public
 	 * @desc create Main instance.
-	 * @param {!Config} config - unpublicized settings
 	 */
 	constructor() {
 		super();

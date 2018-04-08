@@ -39,7 +39,6 @@
 
 <div class="content" data-ice="content"><h1 data-ice="title">js/modules/Main.module.js</h1>
 <pre class="source-code line-number raw-source-code"><code class="prettyprint linenums" data-ice="content">// @flow
-import type { Config } from &quot;../types/Config.type&quot;;
 import DOMController from &quot;./DOMController.module&quot;;
 
 /**
@@ -48,16 +47,13 @@ import DOMController from &quot;./DOMController.module&quot;;
  * @desc the main class
  */
 export default class Main extends DOMController {
-	_config: Config;
 
 	/**
 	 * @access public
 	 * @desc create Main instance.
-	 * @param {!Config} config - unpublicized settings
 	 */
-	constructor(config: Config) {
+	constructor() {
 		super();
-		this._config = config;
 	}
 
 	/**

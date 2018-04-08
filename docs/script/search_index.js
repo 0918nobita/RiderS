@@ -348,12 +348,6 @@ window.esdocSearchIndex = [
     "file"
   ],
   [
-    "js/modules/main.module.js~main#_config",
-    "class/js/modules/Main.module.js~Main.html#instance-member-_config",
-    "js/modules/Main.module.js~Main#_config",
-    "member"
-  ],
-  [
     "js/modules/main.module.js~main#constructor",
     "class/js/modules/Main.module.js~Main.html#instance-constructor-constructor",
     "js/modules/Main.module.js~Main#constructor",

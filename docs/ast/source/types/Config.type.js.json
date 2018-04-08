@@ -1,7 +1,7 @@
 {
   "type": "File",
   "start": 0,
-  "end": 173,
+  "end": 182,
   "loc": {
     "start": {
       "line": 1,
@@ -15,7 +15,7 @@
   "program": {
     "type": "Program",
     "start": 0,
-    "end": 173,
+    "end": 182,
     "loc": {
       "start": {
         "line": 1,
@@ -30,8 +30,8 @@
     "body": [
       {
         "type": "ExportNamedDeclaration",
-        "start": 109,
-        "end": 172,
+        "start": 114,
+        "end": 180,
         "loc": {
           "start": {
             "line": 6,
@@ -47,8 +47,8 @@
         "exportKind": "type",
         "declaration": {
           "type": "TypeAlias",
-          "start": 116,
-          "end": 172,
+          "start": 121,
+          "end": 180,
           "loc": {
             "start": {
               "line": 6,
@@ -61,8 +61,8 @@
           },
           "id": {
             "type": "Identifier",
-            "start": 121,
-            "end": 127,
+            "start": 126,
+            "end": 132,
             "loc": {
               "start": {
                 "line": 6,
@@ -80,8 +80,8 @@
           "typeParameters": null,
           "right": {
             "type": "ObjectTypeAnnotation",
-            "start": 130,
-            "end": 171,
+            "start": 135,
+            "end": 179,
             "loc": {
               "start": {
                 "line": 6,
@@ -96,8 +96,8 @@
             "properties": [
               {
                 "type": "ObjectTypeProperty",
-                "start": 133,
-                "end": 149,
+                "start": 139,
+                "end": 155,
                 "loc": {
                   "start": {
                     "line": 7,
@@ -110,8 +110,8 @@
                 },
                 "key": {
                   "type": "Identifier",
-                  "start": 133,
-                  "end": 140,
+                  "start": 139,
+                  "end": 146,
                   "loc": {
                     "start": {
                       "line": 7,
@@ -127,8 +127,8 @@
                 },
                 "value": {
                   "type": "StringTypeAnnotation",
-                  "start": 142,
-                  "end": 148,
+                  "start": 148,
+                  "end": 154,
                   "loc": {
                     "start": {
                       "line": 7,
@@ -146,8 +146,8 @@
               },
               {
                 "type": "ObjectTypeProperty",
-                "start": 151,
-                "end": 169,
+                "start": 158,
+                "end": 176,
                 "loc": {
                   "start": {
                     "line": 8,
@@ -160,8 +160,8 @@
                 },
                 "key": {
                   "type": "Identifier",
-                  "start": 151,
-                  "end": 161,
+                  "start": 158,
+                  "end": 168,
                   "loc": {
                     "start": {
                       "line": 8,
@@ -177,8 +177,8 @@
                 },
                 "value": {
                   "type": "StringTypeAnnotation",
-                  "start": 163,
-                  "end": 169,
+                  "start": 170,
+                  "end": 176,
                   "loc": {
                     "start": {
                       "line": 8,
@@ -217,9 +217,9 @@
             },
             {
               "type": "CommentBlock",
-              "value": "*\n * @typedef {{API_KEY: !string, API_SECRET: !string}} Config\n * @desc unpublicized settings\n ",
-              "start": 9,
-              "end": 108,
+              "value": "*\r\n * @typedef {{API_KEY: !string, API_SECRET: !string}} Config\r\n * @desc unpublicized settings\r\n ",
+              "start": 10,
+              "end": 112,
               "loc": {
                 "start": {
                   "line": 2,
@@ -253,9 +253,9 @@
           },
           {
             "type": "CommentBlock",
-            "value": "*\n * @typedef {{API_KEY: !string, API_SECRET: !string}} Config\n * @desc unpublicized settings\n ",
-            "start": 9,
-            "end": 108,
+            "value": "*\r\n * @typedef {{API_KEY: !string, API_SECRET: !string}} Config\r\n * @desc unpublicized settings\r\n ",
+            "start": 10,
+            "end": 112,
             "loc": {
               "start": {
                 "line": 2,
@@ -291,9 +291,9 @@
     },
     {
       "type": "CommentBlock",
-      "value": "*\n * @typedef {{API_KEY: !string, API_SECRET: !string}} Config\n * @desc unpublicized settings\n ",
-      "start": 9,
-      "end": 108,
+      "value": "*\r\n * @typedef {{API_KEY: !string, API_SECRET: !string}} Config\r\n * @desc unpublicized settings\r\n ",
+      "start": 10,
+      "end": 112,
       "loc": {
         "start": {
           "line": 2,
@@ -325,9 +325,9 @@
     },
     {
       "type": "CommentBlock",
-      "value": "*\n * @typedef {{API_KEY: !string, API_SECRET: !string}} Config\n * @desc unpublicized settings\n ",
-      "start": 9,
-      "end": 108,
+      "value": "*\r\n * @typedef {{API_KEY: !string, API_SECRET: !string}} Config\r\n * @desc unpublicized settings\r\n ",
+      "start": 10,
+      "end": 112,
       "loc": {
         "start": {
           "line": 2,
@@ -354,8 +354,8 @@
         "updateContext": null
       },
       "value": "export",
-      "start": 109,
-      "end": 115,
+      "start": 114,
+      "end": 120,
       "loc": {
         "start": {
           "line": 6,
@@ -380,8 +380,8 @@
         "binop": null
       },
       "value": "type",
-      "start": 116,
-      "end": 120,
+      "start": 121,
+      "end": 125,
       "loc": {
         "start": {
           "line": 6,
@@ -406,8 +406,8 @@
         "binop": null
       },
       "value": "Config",
-      "start": 121,
-      "end": 127,
+      "start": 126,
+      "end": 132,
       "loc": {
         "start": {
           "line": 6,
@@ -433,8 +433,8 @@
         "updateContext": null
       },
       "value": "=",
-      "start": 128,
-      "end": 129,
+      "start": 133,
+      "end": 134,
       "loc": {
         "start": {
           "line": 6,
@@ -458,8 +458,8 @@
         "postfix": false,
         "binop": null
       },
-      "start": 130,
-      "end": 131,
+      "start": 135,
+      "end": 136,
       "loc": {
         "start": {
           "line": 6,
@@ -484,8 +484,8 @@
         "binop": null
       },
       "value": "API_KEY",
-      "start": 133,
-      "end": 140,
+      "start": 139,
+      "end": 146,
       "loc": {
         "start": {
           "line": 7,
@@ -510,8 +510,8 @@
         "binop": null,
         "updateContext": null
       },
-      "start": 140,
-      "end": 141,
+      "start": 146,
+      "end": 147,
       "loc": {
         "start": {
           "line": 7,
@@ -536,8 +536,8 @@
         "binop": null
       },
       "value": "string",
-      "start": 142,
-      "end": 148,
+      "start": 148,
+      "end": 154,
       "loc": {
         "start": {
           "line": 7,
@@ -562,8 +562,8 @@
         "binop": null,
         "updateContext": null
       },
-      "start": 148,
-      "end": 149,
+      "start": 154,
+      "end": 155,
       "loc": {
         "start": {
           "line": 7,
@@ -588,8 +588,8 @@
         "binop": null
       },
       "value": "API_SECRET",
-      "start": 151,
-      "end": 161,
+      "start": 158,
+      "end": 168,
       "loc": {
         "start": {
           "line": 8,
@@ -614,8 +614,8 @@
         "binop": null,
         "updateContext": null
       },
-      "start": 161,
-      "end": 162,
+      "start": 168,
+      "end": 169,
       "loc": {
         "start": {
           "line": 8,
@@ -640,8 +640,8 @@
         "binop": null
       },
       "value": "string",
-      "start": 163,
-      "end": 169,
+      "start": 170,
+      "end": 176,
       "loc": {
         "start": {
           "line": 8,
@@ -665,8 +665,8 @@
         "postfix": false,
         "binop": null
       },
-      "start": 170,
-      "end": 171,
+      "start": 178,
+      "end": 179,
       "loc": {
         "start": {
           "line": 9,
@@ -691,8 +691,8 @@
         "binop": null,
         "updateContext": null
       },
-      "start": 171,
-      "end": 172,
+      "start": 179,
+      "end": 180,
       "loc": {
         "start": {
           "line": 9,
@@ -717,8 +717,8 @@
         "binop": null,
         "updateContext": null
       },
-      "start": 173,
-      "end": 173,
+      "start": 182,
+      "end": 182,
       "loc": {
         "start": {
           "line": 10,

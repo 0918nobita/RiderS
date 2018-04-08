@@ -567,9 +567,9 @@
     "__docId__": 48,
     "kind": "file",
     "name": "js/app.js",
-    "content": "// @flow\nimport Main from \"./modules/Main.module\";\nimport config from \"./config\";\n\nnew Main(config).main();\n",
+    "content": "// @flow\r\nimport Main from \"./modules/Main.module\";\r\n\r\nnew Main().main();\r\n",
     "static": true,
-    "longname": "C:/Users/kodai/Documents/GitHub/Rider-S/src/js/app.js",
+    "longname": "C:/Users/user/Documents/GitHub/Rider-S/src/js/app.js",
     "access": "public",
     "description": null,
     "lineNumber": 1
@@ -578,9 +578,9 @@
     "__docId__": 49,
     "kind": "file",
     "name": "js/modules/DOMController.module.js",
-    "content": "// @flow\n/**\n * @access public\n * @desc the utils in charge of editing the DOM\n */\nexport default class DOMController {\n\t/**\n\t * @access public\n\t * @type {!HTMLElement}\n\t * @desc document.body object\n\t */\n\tbody: HTMLElement;\n\n\t/**\n\t * @access public\n\t * @type {!EventTarget}\n\t * @desc window object\n\t */\n\twindow: EventTarget;\n\n\t/**\n\t * @access public\n\t * @desc create DOMController instance.\n\t * @throws {Error} throw error when required DOM element cannot be found.\n\t */\n\tconstructor() {\n\t\tif (document.body instanceof HTMLElement) this.body = document.body;\n\t\telse throw new Error(\"document.body cannnot be found.\");\n\t\tif (window instanceof EventTarget) this.window = window;\n\t\telse throw new Error(\"window object cannot be found.\");\n\t}\n\n\t/**\n\t * @access public\n\t * @desc create new DOM element.\n\t * @param {!string} tag_name - tag name\n\t * @return {!HTMLElement} - new DOM element\n\t * @throws {Error} throw error when failed to create new DOM element\n\t */\n\tcreateElement(tag_name: string): HTMLElement {\n\t\tconst elem: ?HTMLElement = document.createElement(tag_name);\n\t\tif (elem instanceof HTMLElement) return elem;\n\t\telse throw new Error(\"failed to create new DOM element.\");\n\t}\n}\n",
+    "content": "// @flow\r\n/**\r\n * @access public\r\n * @desc the utils in charge of editing the DOM\r\n */\r\nexport default class DOMController {\r\n\t/**\r\n\t * @access public\r\n\t * @type {!HTMLElement}\r\n\t * @desc document.body object\r\n\t */\r\n\tbody: HTMLElement;\r\n\r\n\t/**\r\n\t * @access public\r\n\t * @type {!EventTarget}\r\n\t * @desc window object\r\n\t */\r\n\twindow: EventTarget;\r\n\r\n\t/**\r\n\t * @access public\r\n\t * @desc create DOMController instance.\r\n\t * @throws {Error} throw error when required DOM element cannot be found.\r\n\t */\r\n\tconstructor() {\r\n\t\tif (document.body instanceof HTMLElement) this.body = document.body;\r\n\t\telse throw new Error(\"document.body cannnot be found.\");\r\n\t\tif (window instanceof EventTarget) this.window = window;\r\n\t\telse throw new Error(\"window object cannot be found.\");\r\n\t}\r\n\r\n\t/**\r\n\t * @access public\r\n\t * @desc create new DOM element.\r\n\t * @param {!string} tag_name - tag name\r\n\t * @return {!HTMLElement} - new DOM element\r\n\t * @throws {Error} throw error when failed to create new DOM element\r\n\t */\r\n\tcreateElement(tag_name: string): HTMLElement {\r\n\t\tconst elem: ?HTMLElement = document.createElement(tag_name);\r\n\t\tif (elem instanceof HTMLElement) return elem;\r\n\t\telse throw new Error(\"failed to create new DOM element.\");\r\n\t}\r\n}\r\n",
     "static": true,
-    "longname": "C:/Users/kodai/Documents/GitHub/Rider-S/src/js/modules/DOMController.module.js",
+    "longname": "C:/Users/user/Documents/GitHub/Rider-S/src/js/modules/DOMController.module.js",
     "access": "public",
     "description": null,
     "lineNumber": 1
@@ -707,9 +707,9 @@
     "__docId__": 57,
     "kind": "file",
     "name": "js/modules/IO.module.js",
-    "content": "// @flow\nimport DOMController from \"./DOMController.module\";\n\n/**\n * @access public\n * @extends {DOMController}\n * @desc the class in charge of Input/Output\n */\nexport default class IO extends DOMController {\n\t_first : ?Node;\n\n\t/**\n\t * @access public\n\t * @desc create IO instance.\n\t */\n\tconstructor() {\n\t\tsuper();\n\t\tthis._first = null;\n\t}\n\n\t/**\n\t * @desc output passed string.\n\t * @param {!string} str - the output string\n\t */\n\toutput(str : string): void {\n\t\tconst p : Node = this.createElement(\"p\");\n\t\t\n\t\tp.textContent = str;\n\t\t\n\t\tthis._first = (this._first != null) ?\n\t\t\tthis.body.insertBefore(p, this._first) :\n\t\t\tthis.body.appendChild(p);\n\t}\n}\n",
+    "content": "// @flow\r\nimport DOMController from \"./DOMController.module\";\r\n\r\n/**\r\n * @access public\r\n * @extends {DOMController}\r\n * @desc the class in charge of Input/Output\r\n */\r\nexport default class IO extends DOMController {\r\n\t_first : ?Node;\r\n\r\n\t/**\r\n\t * @access public\r\n\t * @desc create IO instance.\r\n\t */\r\n\tconstructor() {\r\n\t\tsuper();\r\n\t\tthis._first = null;\r\n\t}\r\n\r\n\t/**\r\n\t * @desc output passed string.\r\n\t * @param {!string} str - the output string\r\n\t */\r\n\toutput(str : string): void {\r\n\t\tconst p : Node = this.createElement(\"p\");\r\n\t\t\r\n\t\tp.textContent = str;\r\n\t\t\r\n\t\tthis._first = (this._first != null) ?\r\n\t\t\tthis.body.insertBefore(p, this._first) :\r\n\t\t\tthis.body.appendChild(p);\r\n\t}\r\n}\r\n",
     "static": true,
-    "longname": "C:/Users/kodai/Documents/GitHub/Rider-S/src/js/modules/IO.module.js",
+    "longname": "C:/Users/user/Documents/GitHub/Rider-S/src/js/modules/IO.module.js",
     "access": "public",
     "description": null,
     "lineNumber": 1
@@ -801,9 +801,9 @@
     "__docId__": 64,
     "kind": "file",
     "name": "js/modules/Main.module.js",
-    "content": "// @flow\nimport type { Config } from \"../types/Config.type\";\nimport DOMController from \"./DOMController.module\";\n\n/**\n * @access public\n * @extends {DOMController}\n * @desc the main class\n */\nexport default class Main extends DOMController {\n\t_config: Config;\n\n\t/**\n\t * @access public\n\t * @desc create Main instance.\n\t * @param {!Config} config - unpublicized settings\n\t */\n\tconstructor(config: Config) {\n\t\tsuper();\n\t\tthis._config = config;\n\t}\n\n\t/**\n\t * @access public\n\t * @desc execute the main procedure.\n\t */\n\tmain(): void {\n\t\tconst alpha: Node = this.createElement(\"p\");\n\t\tconst beta: Node = this.createElement(\"p\");\n\t\tconst gamma: Node = this.createElement(\"p\");\n\n\t\tthis.body.appendChild(alpha);\n\t\tthis.body.appendChild(beta);\n\t\tthis.body.appendChild(gamma);\n\n\t\tthis.window.addEventListener(\"deviceorientation\", (e: any) => {\n\t\t\talpha.textContent = \"alpha: \" + e.alpha;\n\t\t\tbeta.textContent = \"beta: \" + e.beta;\n\t\t\tgamma.textContent = \"gamma: \" + e.gamma;\n\t\t});\n\t}\n}\n",
+    "content": "// @flow\r\nimport DOMController from \"./DOMController.module\";\r\n\r\n/**\r\n * @access public\r\n * @extends {DOMController}\r\n * @desc the main class\r\n */\r\nexport default class Main extends DOMController {\r\n\r\n\t/**\r\n\t * @access public\r\n\t * @desc create Main instance.\r\n\t */\r\n\tconstructor() {\r\n\t\tsuper();\r\n\t}\r\n\r\n\t/**\r\n\t * @access public\r\n\t * @desc execute the main procedure.\r\n\t */\r\n\tmain(): void {\r\n\t\tconst alpha: Node = this.createElement(\"p\");\r\n\t\tconst beta: Node = this.createElement(\"p\");\r\n\t\tconst gamma: Node = this.createElement(\"p\");\r\n\r\n\t\tthis.body.appendChild(alpha);\r\n\t\tthis.body.appendChild(beta);\r\n\t\tthis.body.appendChild(gamma);\r\n\r\n\t\tthis.window.addEventListener(\"deviceorientation\", (e: any) => {\r\n\t\t\talpha.textContent = \"alpha: \" + e.alpha;\r\n\t\t\tbeta.textContent = \"beta: \" + e.beta;\r\n\t\t\tgamma.textContent = \"gamma: \" + e.gamma;\r\n\t\t});\r\n\t}\r\n}\r\n",
     "static": true,
-    "longname": "C:/Users/kodai/Documents/GitHub/Rider-S/src/js/modules/Main.module.js",
+    "longname": "C:/Users/user/Documents/GitHub/Rider-S/src/js/modules/Main.module.js",
     "access": "public",
     "description": null,
     "lineNumber": 1
@@ -820,7 +820,7 @@
     "importPath": "rider-s/js/modules/Main.module.js",
     "importStyle": "Main",
     "description": "the main class",
-    "lineNumber": 10,
+    "lineNumber": 9,
     "interface": false,
     "extends": [
       "DOMController"
@@ -828,25 +828,6 @@
   },
   {
     "__docId__": 66,
-    "kind": "member",
-    "name": "_config",
-    "memberof": "js/modules/Main.module.js~Main",
-    "static": false,
-    "longname": "js/modules/Main.module.js~Main#_config",
-    "access": "private",
-    "description": "",
-    "lineNumber": 11,
-    "type": {
-      "nullable": null,
-      "types": [
-        "Config"
-      ],
-      "spread": false,
-      "description": null
-    }
-  },
-  {
-    "__docId__": 67,
     "kind": "constructor",
     "name": "constructor",
     "memberof": "js/modules/Main.module.js~Main",
@@ -856,22 +837,10 @@
     "longname": "js/modules/Main.module.js~Main#constructor",
     "access": "public",
     "description": "create Main instance.",
-    "lineNumber": 18,
-    "params": [
-      {
-        "nullable": false,
-        "types": [
-          "Config"
-        ],
-        "spread": false,
-        "optional": false,
-        "name": "config",
-        "description": "unpublicized settings"
-      }
-    ]
+    "lineNumber": 15
   },
   {
-    "__docId__": 69,
+    "__docId__": 67,
     "kind": "method",
     "name": "main",
     "memberof": "js/modules/Main.module.js~Main",
@@ -881,7 +850,7 @@
     "longname": "js/modules/Main.module.js~Main#main",
     "access": "public  ",
     "description": "execute the main procedure.  ",
-    "lineNumber": 27,
+    "lineNumber": 23,
     "return": {
       "nullable": null,
       "types": [
@@ -894,18 +863,18 @@
     "params": []
   },
   {
-    "__docId__": 70,
+    "__docId__": 68,
     "kind": "file",
     "name": "js/types/Config.type.js",
-    "content": "// @flow\n/**\n * @typedef {{API_KEY: !string, API_SECRET: !string}} Config\n * @desc unpublicized settings\n */\nexport type Config = {\n\tAPI_KEY: string,\n\tAPI_SECRET: string\n};\n",
+    "content": "// @flow\r\n/**\r\n * @typedef {{API_KEY: !string, API_SECRET: !string}} Config\r\n * @desc unpublicized settings\r\n */\r\nexport type Config = {\r\n\tAPI_KEY: string,\r\n\tAPI_SECRET: string\r\n};\r\n",
     "static": true,
-    "longname": "C:/Users/kodai/Documents/GitHub/Rider-S/src/js/types/Config.type.js",
+    "longname": "C:/Users/user/Documents/GitHub/Rider-S/src/js/types/Config.type.js",
     "access": "public",
     "description": null,
     "lineNumber": 1
   },
   {
-    "__docId__": 71,
+    "__docId__": 69,
     "kind": "typedef",
     "name": "Config",
     "memberof": "js/types/Config.type.js",
@@ -924,16 +893,16 @@
   },
   {
     "kind": "index",
-    "content": "# Rider-S\r\n\r\n[![CircleCI](https://circleci.com/gh/0918nobita/Rider-S.svg?style=svg)](https://circleci.com/gh/0918nobita/Rider-S) [![apm](https://img.shields.io/apm/l/vim-mode.svg)](https://github.com/0918nobita/Rider-S)\r\n\r\n安全なサイクリングをサポートする AMP 対応 Web サービス\r\n\r\n- スマホで Rider-S の Web ページを表示して、ホルダー等でハンドルに固定して使う。\r\n- サイクリングを開始する前に、 Strava の My ルート作成機能等を使用して、移動経路をデータ化した GPX ファイルを用意してクラウドストレージに保存しておく。\r\n- Rider-S で「位置情報取得」と「クラウドストレージ連携」の設定を有効にして、クラウドストレージ上の GPX ファイルを指定して読み込ませる。\r\n- スマホの自動画面ロックの設定を解除して、時間経過で画面がロックされないようにしておく。\r\n- Rider-S は「読み込んだ GPX ファイルの情報」と「位置情報」と「ジャイロセンサの情報」を組み合わせて解析し、メイン画面中央に大きな矢印を表示して運転者に進行方向を知らせる。\r\n- メイン画面中央の矢印の下には、次に右折/左折するまでの移動距離が表示される。\r\n- ArcGIS の API を利用して、移動経路付近の交通事故多発地点を取得し、その地点に近づくとアラートと画面の点滅によって運転者に注意を促す。\r\n- UI は視界の悪い場所でもよく見える配色にする。\r\n",
-    "longname": "C:\\Users\\kodai\\Documents\\GitHub\\Rider-S\\README.md",
+    "content": "# Rider-S\r\n\r\n[![CircleCI](https://circleci.com/gh/0918nobita/Rider-S.svg?style=svg)](https://circleci.com/gh/0918nobita/Rider-S) [![apm](https://img.shields.io/apm/l/vim-mode.svg)](https://github.com/0918nobita/Rider-S)\r\n\r\n安全なサイクリングをサポートする AMP 対応 Web サービス\r\n\r\n- スマホで Rider-S の Web ページを表示して、ホルダー等でハンドルに固定して使う。\r\n- サイクリングを開始する前に、 Strava の My ルート作成機能等を使用して、移動経路をデータ化した GPX ファイルを用意してクラウドストレージに保存しておく。\r\n- Rider-S で「位置情報取得」と「クラウドストレージ連携」の設定を有効にして、クラウドストレージ上の GPX ファイルを指定して読み込ませる。\r\n- スマホの自動画面ロックの設定を解除して、時間経過で画面がロックされないようにしておく。\r\n- Rider-S は「読み込んだ GPX ファイルの情報」と「位置情報」と「ジャイロセンサの情報」を組み合わせて解析し、メイン画面中央に大きな矢印を表示して運転者に進行方向を知らせる。\r\n- メイン画面中央の矢印の下には、次に右折/左折するまでの移動距離が表示される。\r\n- ArcGIS の API を利用して、移動経路付近の交通事故多発地点を取得し、その地点に近づくとアラートと画面の点滅によって運転者に注意を促す。\r\n- UI は視界の悪い場所でもよく見える配色にする。\r\n- サーバーサイドには Express を採用\r\n- サーバー/クライアント間の通信には GraphQL を採用\r\n- Service Worker を使用してバックグラウンドでも動作する (必要であれば音声案内もする)\r\n- 音声には VOICEROID を使用する\r\n- ES6 + ESLint + Flow の開発効率が悪く、Elmに乗り換えることを検討中\r\n",
+    "longname": "C:\\Users\\user\\Documents\\GitHub\\Rider-S\\README.md",
     "name": "./README.md",
     "static": true,
     "access": "public"
   },
   {
     "kind": "packageJSON",
-    "content": "{\n  \"name\": \"rider-s\",\n  \"version\": \"1.0.0\",\n  \"description\": \"安全なサイクリングをサポートする AMP 対応 Web サービス\",\n  \"main\": \"index.js\",\n  \"scripts\": {\n    \"eslint\": \"./node_modules/.bin/eslint ./src/js/*.js ./src/js/modules/*.js\",\n    \"flow\": \"./node_modules/.bin/flow\",\n    \"flow-typed\": \"./node_modules/.bin/flow-typed install\",\n    \"debug\": \"./node_modules/.bin/webpack\",\n    \"release\": \"./node_modules/.bin/webpack --env.production\",\n    \"watch\": \"./node_modules/.bin/webpack --watch\",\n    \"mocha\": \"./node_modules/.bin/mocha\",\n    \"esdoc\": \"./node_modules/.bin/esdoc -c ./.esdoc.json\",\n    \"test\": \"npm run mocha test/\"\n  },\n  \"repository\": {\n    \"type\": \"git\",\n    \"url\": \"git+https://github.com/0918nobita/Rider-S.git\"\n  },\n  \"author\": \"0918nobita\",\n  \"license\": \"MIT\",\n  \"bugs\": {\n    \"url\": \"https://github.com/0918nobita/Rider-S/issues\"\n  },\n  \"homepage\": \"https://github.com/0918nobita/Rider-S#readme\",\n  \"devDependencies\": {\n    \"babel-core\": \"^6.26.0\",\n    \"babel-eslint\": \"^8.2.1\",\n    \"babel-loader\": \"^7.1.2\",\n    \"babel-plugin-transform-flow-strip-types\": \"^6.22.0\",\n    \"babel-preset-env\": \"^1.6.1\",\n    \"chai\": \"^4.1.2\",\n    \"esdoc\": \"^1.0.4\",\n    \"esdoc-accessor-plugin\": \"^1.0.0\",\n    \"esdoc-brand-plugin\": \"^1.0.0\",\n    \"esdoc-coverage-plugin\": \"^1.1.0\",\n    \"esdoc-external-ecmascript-plugin\": \"^1.0.0\",\n    \"esdoc-flow-type-plugin\": \"^1.0.1\",\n    \"esdoc-integrate-manual-plugin\": \"^1.0.0\",\n    \"esdoc-integrate-test-plugin\": \"^1.0.0\",\n    \"esdoc-lint-plugin\": \"^1.0.1\",\n    \"esdoc-publish-html-plugin\": \"^1.1.0\",\n    \"esdoc-standard-plugin\": \"^1.0.0\",\n    \"esdoc-type-inference-plugin\": \"^1.0.1\",\n    \"esdoc-undocumented-identifier-plugin\": \"^1.0.0\",\n    \"esdoc-unexported-identifier-plugin\": \"^1.0.0\",\n    \"eslint\": \"^4.17.0\",\n    \"eslint-loader\": \"^1.9.0\",\n    \"eslint-plugin-flowtype\": \"^2.42.0\",\n    \"flow-babel-webpack-plugin\": \"^1.1.1\",\n    \"flow-bin\": \"^0.64.0\",\n    \"flow-typed\": \"^2.3.0\",\n    \"mocha\": \"^5.0.0\",\n    \"uglifyjs-webpack-plugin\": \"^1.1.8\",\n    \"webpack\": \"^3.10.0\"\n  }\n}\n",
-    "longname": "C:\\Users\\kodai\\Documents\\GitHub\\Rider-S\\package.json",
+    "content": "{\r\n  \"name\": \"rider-s\",\r\n  \"version\": \"1.0.0\",\r\n  \"description\": \"安全なサイクリングをサポートする AMP 対応 Web サービス\",\r\n  \"main\": \"index.js\",\r\n  \"scripts\": {\r\n    \"eslint\": \"./node_modules/.bin/eslint ./src/js/*.js ./src/js/modules/*.js\",\r\n    \"flow\": \"./node_modules/.bin/flow\",\r\n    \"flow-typed\": \"./node_modules/.bin/flow-typed install\",\r\n    \"debug\": \"./node_modules/.bin/webpack\",\r\n    \"release\": \"./node_modules/.bin/webpack --env.production\",\r\n    \"watch\": \"./node_modules/.bin/webpack --watch\",\r\n    \"mocha\": \"./node_modules/.bin/mocha\",\r\n    \"esdoc\": \"./node_modules/.bin/esdoc -c ./.esdoc.json\",\r\n    \"test\": \"npm run mocha test/\"\r\n  },\r\n  \"repository\": {\r\n    \"type\": \"git\",\r\n    \"url\": \"git+https://github.com/0918nobita/Rider-S.git\"\r\n  },\r\n  \"author\": \"0918nobita\",\r\n  \"license\": \"MIT\",\r\n  \"bugs\": {\r\n    \"url\": \"https://github.com/0918nobita/Rider-S/issues\"\r\n  },\r\n  \"homepage\": \"https://github.com/0918nobita/Rider-S#readme\",\r\n  \"devDependencies\": {\r\n    \"babel-core\": \"^6.26.0\",\r\n    \"babel-eslint\": \"^8.2.1\",\r\n    \"babel-loader\": \"^7.1.2\",\r\n    \"babel-plugin-transform-flow-strip-types\": \"^6.22.0\",\r\n    \"babel-preset-env\": \"^1.6.1\",\r\n    \"chai\": \"^4.1.2\",\r\n    \"esdoc\": \"^1.0.4\",\r\n    \"esdoc-accessor-plugin\": \"^1.0.0\",\r\n    \"esdoc-brand-plugin\": \"^1.0.0\",\r\n    \"esdoc-coverage-plugin\": \"^1.1.0\",\r\n    \"esdoc-external-ecmascript-plugin\": \"^1.0.0\",\r\n    \"esdoc-flow-type-plugin\": \"^1.0.1\",\r\n    \"esdoc-integrate-manual-plugin\": \"^1.0.0\",\r\n    \"esdoc-integrate-test-plugin\": \"^1.0.0\",\r\n    \"esdoc-lint-plugin\": \"^1.0.1\",\r\n    \"esdoc-publish-html-plugin\": \"^1.1.0\",\r\n    \"esdoc-standard-plugin\": \"^1.0.0\",\r\n    \"esdoc-type-inference-plugin\": \"^1.0.1\",\r\n    \"esdoc-undocumented-identifier-plugin\": \"^1.0.0\",\r\n    \"esdoc-unexported-identifier-plugin\": \"^1.0.0\",\r\n    \"eslint\": \"^4.17.0\",\r\n    \"eslint-loader\": \"^1.9.0\",\r\n    \"eslint-plugin-flowtype\": \"^2.42.0\",\r\n    \"flow-babel-webpack-plugin\": \"^1.1.1\",\r\n    \"flow-bin\": \"^0.64.0\",\r\n    \"flow-typed\": \"^2.3.0\",\r\n    \"mocha\": \"^5.0.0\",\r\n    \"uglifyjs-webpack-plugin\": \"^1.1.8\",\r\n    \"webpack\": \"^3.10.0\"\r\n  },\r\n  \"dependencies\": {\r\n    \"express\": \"^4.16.2\"\r\n  }\r\n}\r\n",
+    "longname": "C:\\Users\\user\\Documents\\GitHub\\Rider-S\\package.json",
     "name": "package.json",
     "static": true,
     "access": "public"
