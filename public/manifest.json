@@ -1,0 +1,11 @@
+{
+    "name": "Rider-S PWA",
+    "short_name": "Rider-S",
+    "description": "安全なサイクリングをサポートする PWA",
+    "start_url": "/",
+    "display": "standalone",
+    "orientation": "portrait",
+    "background-color": "white",
+    "theme-color": "green",
+    "icons": []
+}
