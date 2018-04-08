@@ -13,7 +13,9 @@
 	"globals": {},
 	"rules": {
 		"semi": "error",
-		"no-console": "off"
+		"no-console": "off",
+		"flowtype/define-flow-type": 1,
+		"flowtype/use-flow-type": 1
 	},
 	"settings": {
 		"flowtype": {
