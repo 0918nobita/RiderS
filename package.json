@@ -9,7 +9,9 @@
     "flow-typed": "./node_modules/.bin/flow-typed install",
     "debug": "./node_modules/.bin/webpack --mode development",
     "release": "./node_modules/.bin/webpack --mode production",
-    "watch": "./node_modules/.bin/webpack --mode development --watch & ./node_modules/.bin/browser-sync start --config bs-config.js",
+    "start": "concurrently --kill-others \"npm run watch\" \"npm run browser-sync\"",
+    "watch": "./node_modules/.bin/webpack --mode development --watch",
+    "browser-sync": "./node_modules/.bin/browser-sync start --config bs-config.js",
     "mocha": "./node_modules/.bin/mocha",
     "esdoc": "./node_modules/.bin/esdoc -c ./.esdoc.json",
     "test": "npm run mocha test/"
