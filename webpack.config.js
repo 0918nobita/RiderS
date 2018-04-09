@@ -9,10 +9,6 @@ module.exports = {
 		filename: 'bundle.js',
 		path: path.join(__dirname, 'public/js')
 	},
-	ui {
-		port: 8080
-	},
-	browser: 'google chrome',
 	module: {
 		rules: [{
 			enforce: 'pre',
