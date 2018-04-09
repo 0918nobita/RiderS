@@ -17,17 +17,20 @@
     "ui": {
         "port": 3001
     },
-    "files": false,
+    "files": ["./public/index.html", "./public/js/*.js"],
     "watchEvents": [
         "change"
     ],
-    "watch": false,
+    "watch": true,
     "ignore": [],
     "single": false,
     "watchOptions": {
         "ignoreInitial": true
     },
-    "server": false,
+    "server": {
+        baseDir: "./public",
+        index: "index.html",
+    },
     "proxy": false,
     "port": 8080,
     "middleware": false,
