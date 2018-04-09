@@ -30,6 +30,7 @@
     "babel-loader": "^7.1.4",
     "babel-plugin-transform-flow-strip-types": "^6.22.0",
     "babel-preset-env": "^1.6.1",
+    "browser-sync": "^2.23.6",
     "chai": "^4.1.2",
     "css-loader": "^0.28.11",
     "esdoc": "^1.0.4",
