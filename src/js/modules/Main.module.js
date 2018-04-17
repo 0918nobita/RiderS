@@ -38,106 +38,18 @@ export default class Main extends DOMController {
 		});
 
 		class _Node {
-			edgesTo: Array<_Node>
-			edgesCost: Array<number>
-			done: boolean
-			cost: number
 			id: number
-			previousNode: ?_Node
-
 			constructor(id: number) {
-				this.edgesTo = [];
-				this.edgesCost = [];
-				this.done = false;
-				this.cost = -1;
 				this.id = id;
-				this.previousNode = null;
-			}
-			addNode(node: _Node, cost: number) {
-				this.edgesTo.push(node);
-				this.edgesCost.push(cost);
-				return this;
 			}
 		}
 
-		function createNodes() {
-			const node1: _Node = new _Node(1)  // start
-				, node2: _Node = new _Node(2)  // top
-				, node3: _Node = new _Node(3)  // center
-				, node4: _Node = new _Node(4)  // bottom-left
-				, node5: _Node = new _Node(5)  // bottom-right
-				, node6: _Node = new _Node(6); // goal
+		let nodes: Array<_Node> = [];
 
-			node1.addNode(node2, 5)
-				.addNode(node3, 4)
-				.addNode(node4, 2);
+		for (let i = 1; i <= 10; i++) nodes.push(new _Node(i));
 
-			node2.addNode(node1, 5)
-				.addNode(node6, 6)
-				.addNode(node3, 2);
+		console.log(nodes);
 
-			node3.addNode(node2, 2)
-				.addNode(node1, 4)
-				.addNode(node4, 3)
-				.addNode(node5, 2);
-
-			node4.addNode(node1, 2)
-				.addNode(node3, 3)
-				.addNode(node5, 6);
-
-			node5.addNode(node4, 6)
-				.addNode(node3, 2)
-				.addNode(node6, 4);
-
-			node6.addNode(node2, 6)
-				.addNode(node5, 4);
-
-			return [node1, node2, node3, node4, node5, node6];
-		}
-
-		const nodes = createNodes();
-		nodes[0].cost = 0;
-
-		while (true) {
-			let processNode: ?_Node = null;
-
-			for (let i = 0; i < nodes.length; i++) {
-				let node = nodes[i];
-
-				if (node.done || node.cost < 0) continue;
-			}
-
-			if (!processNode) break;
-
-			processNode.done = true;
-			
-			for (let i = 0; i < processNode.edgesTo.length; i++) {
-				let node = processNode.edgesTo[i];
-				let cost = processNode.cost + processNode.edgesCost[i];
-				let needsUpdate = (node.cost < 0) || (node.cost > cost);
-				
-				if (needsUpdate) {
-					node.cost = cost;
-					node.previousNode = processNode;
-				}
-			}
-
-			const goalNode = nodes[5];
-			let path = 'Goal -> ';
-			let currentNode = goalNode;
-			while (true) {
-				let nextNode = currentNode.previousNode;
-				if (!nextNode) {
-					path += ' Start';
-					break;
-				}
-				path += nextNode.id + ' -> ';
-				currentNode = nextNode;
-			}
-			
-			console.log(path);
-		}
-		
 		const task: Promise<void> = new Promise(
 			function(resolve: (Promise<void> | void) => void, reject: any => void) {
 				navigator.geolocation.getCurrentPosition(
