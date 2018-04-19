@@ -2,3 +2,5 @@
 node_modules/
 
 public/js/bundle.js
+
+launch_nvim-qt.bat
