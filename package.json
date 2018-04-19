@@ -60,12 +60,15 @@
     "sass-loader": "^6.0.7",
     "style-loader": "^0.20.3",
     "url-loader": "^1.0.1",
+    "vue-cli": "^2.9.3",
     "webpack": "^4.5.0",
-    "webpack-cli": "^2.0.14"
+    "webpack-cli": "^2.0.14",
+    "yarn": "^1.6.0"
   },
   "dependencies": {
     "express": "^4.16.3",
-    "npm": "^5.8.0"
+    "npm": "^5.8.0",
+    "vue": "^2.5.16"
   },
   "private": true
 }
