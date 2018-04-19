@@ -1,22 +1,19 @@
-# STATIC
+# Rider-S
 
-This directory contains your static files.
-Each file inside this directory is mapped to /.
+[![CircleCI](https://circleci.com/gh/0918nobita/Rider-S.svg?style=svg)](https://circleci.com/gh/0918nobita/Rider-S) [![apm](https://img.shields.io/apm/l/vim-mode.svg)](https://github.com/0918nobita/Rider-S)
 
-Example: /static/robots.txt is mapped as /robots.txt.
+安全なサイクリングをサポートする AMP 対応 Web サービス
 
-More information about the usage of this directory in the documentation:
-https://nuxtjs.org/guide/assets#static
-
-**This directory is not required, you can delete it if you don't want to use it.**
-
-このディレクトリは静的ファイルを含みます。  
-このディレクトリ内のそれぞれのファイルは、``./`` にマッピングされます。
-
-例：``/static/robots.txt`` は ``/robots.txt`` にマッピングされます。
-
-このディレクトリの使い方の詳細については、以下のドキュメントを参照してください。  
-https://nuxtjs.org/guide/assets#static
-
-**このディレクトリは必ず要求されるものではありません。もし使わないのなら削除して構いません。**
-
+- スマホで Rider-S の Web ページを表示して、ホルダー等でハンドルに固定して使う。
+- サイクリングを開始する前に、 Strava の My ルート作成機能等を使用して、移動経路をデータ化した GPX ファイルを用意してクラウドストレージに保存しておく。
+- Rider-S で「位置情報取得」と「クラウドストレージ連携」の設定を有効にして、クラウドストレージ上の GPX ファイルを指定して読み込ませる。
+- スマホの自動画面ロックの設定を解除して、時間経過で画面がロックされないようにしておく。
+- Rider-S は「読み込んだ GPX ファイルの情報」と「位置情報」と「ジャイロセンサの情報」を組み合わせて解析し、メイン画面中央に大きな矢印を表示して運転者に進行方向を知らせる。
+- メイン画面中央の矢印の下には、次に右折/左折するまでの移動距離が表示される。
+- ArcGIS の API を利用して、移動経路付近の交通事故多発地点を取得し、その地点に近づくとアラートと画面の点滅によって運転者に注意を促す。
+- UI は視界の悪い場所でもよく見える配色にする。
+- サーバーサイドには Express を採用
+- サーバー/クライアント間の通信には GraphQL を採用
+- Service Worker を使用してバックグラウンドでも動作する (必要であれば音声案内もする)
+- 音声には VOICEROID を使用する
+- ES6 + ESLint + Flow の開発効率が悪く、Elmに乗り換えることを検討中

@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <base data-ice="baseUrl" href="../../../">
+  <title data-ice="title">js/modules/XMLParser.module.js | rider-s</title>
+  <link type="text/css" rel="stylesheet" href="css/style.css">
+  <link type="text/css" rel="stylesheet" href="css/prettify-tomorrow.css">
+  <script src="script/prettify/prettify.js"></script>
+  <script src="script/manual.js"></script>
+<meta name="description" content="&#x5B89;&#x5168;&#x306A;&#x30B5;&#x30A4;&#x30AF;&#x30EA;&#x30F3;&#x30B0;&#x3092;&#x30B5;&#x30DD;&#x30FC;&#x30C8;&#x3059;&#x308B; AMP &#x5BFE;&#x5FDC; Web &#x30B5;&#x30FC;&#x30D3;&#x30B9;"><meta property="twitter:card" content="summary"><meta property="twitter:title" content="rider-s"><meta property="twitter:description" content="&#x5B89;&#x5168;&#x306A;&#x30B5;&#x30A4;&#x30AF;&#x30EA;&#x30F3;&#x30B0;&#x3092;&#x30B5;&#x30DD;&#x30FC;&#x30C8;&#x3059;&#x308B; AMP &#x5BFE;&#x5FDC; Web &#x30B5;&#x30FC;&#x30D3;&#x30B9;"></head>
+<body class="layout-container" data-ice="rootContainer">
+
+<header>
+  <a href="./">Home</a>
+  
+  <a href="identifiers.html">Reference</a>
+  <a href="source.html">Source</a>
+  
+  <div class="search-box">
+  <span>
+    <img src="./image/search.png">
+    <span class="search-input-edge"></span><input class="search-input"><span class="search-input-edge"></span>
+  </span>
+    <ul class="search-result"></ul>
+  </div>
+<a style="position:relative; top:3px;" href="https://github.com/0918nobita/Rider-S"><img width="20px" src="./image/github.png"></a></header>
+
+<nav class="navigation" data-ice="nav"><div>
+  <ul>
+    
+  <li data-ice="doc"><a data-ice="dirPath" class="nav-dir-path" href="identifiers.html#modules">modules</a><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/js/modules/DOMController.module.js~DOMController.html">DOMController</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/js/modules/IO.module.js~IO.html">IO</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/js/modules/Main.module.js~Main.html">Main</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/js/modules/XMLNode.module.js~XMLNode.html">XMLNode</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/js/modules/XMLParser.module.js~XMLParser.html">XMLParser</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-typedef">T</span><span data-ice="name"><span><a href="typedef/index.html#static-typedef-EOF">EOF</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-typedef">T</span><span data-ice="name"><span><a href="typedef/index.html#static-typedef-State">State</a></span></span></li>
+<li data-ice="doc"><a data-ice="dirPath" class="nav-dir-path" href="identifiers.html#types">types</a><span data-ice="kind" class="kind-typedef">T</span><span data-ice="name"><span><a href="typedef/index.html#static-typedef-Attribute">Attribute</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-typedef">T</span><span data-ice="name"><span><a href="typedef/index.html#static-typedef-Config">Config</a></span></span></li>
+</ul>
+</div>
+</nav>
+
+<div class="content" data-ice="content"><h1 data-ice="title">js/modules/XMLParser.module.js</h1>
+<pre class="source-code line-number raw-source-code"><code class="prettyprint linenums" data-ice="content">// @flow
+import XMLNode from &quot;./XMLNode.module&quot;;
+
+/**
+ * @access private
+ * @typedef {Tuple&lt;EOF, ?XMLNode&gt;} State
+ */
+type State = [EOF, ?XMLNode];
+
+/**
+ * @access private
+ * @typedef {boolean} EOF
+ */
+type EOF = boolean;
+
+/**
+ * @access public
+ * @desc the class in charge of parsing XML string
+ */
+export default class XMLParser {
+	_xml_str: string;
+
+	_progress: number;
+	
+	/**
+	 * @access public
+	 * @param {string} xml_str - XML string 
+	 */
+	constructor(xml_str: string) {
+		this._xml_str = xml_str;
+		this._progress = -1;
+	}
+
+	/**
+	 * @access public
+	 * @desc parse the XML string
+	 * @return {XMLNode[]} - XML AST
+	 */
+	parse(): XMLNode[] {
+		let opened_tags: XMLNode[] = [];
+		return [];
+	}
+
+	/**
+	 * @access private
+	 */
+	_parseTag(): State {
+		this._skipWhiteSpaces();
+		const char: string = this._xml_str.charAt(this._progress);
+		return [false, new XMLNode(&quot;div&quot;)];
+	}
+
+	/**
+	 * @access private
+	 */
+	_skipWhiteSpaces(): State {
+		const whiteSpaces: string[] = [&quot; &quot;, &quot;\n&quot;, &quot;\t&quot;, &quot;\r\n&quot;];
+		while (true) {
+			let c: string = this._xml_str.charAt(++this._progress);
+			this._progress ++;
+			if (c === &quot;&quot;) return [true, null];
+			if (whiteSpaces.indexOf(c) === -1) break;
+		}
+		this._progress --;
+		return [false, null];
+	}
+}
+</code></pre>
+
+</div>
+
+<footer class="footer">
+  Generated by <a href="https://esdoc.org">ESDoc<span data-ice="esdocVersion">(1.0.4)</span><img src="./image/esdoc-logo-mini-black.png"></a>
+</footer>
+
+<script src="script/search_index.js"></script>
+<script src="script/search.js"></script>
+<script src="script/pretty-print.js"></script>
+<script src="script/inherited-summary.js"></script>
+<script src="script/test-summary.js"></script>
+<script src="script/inner-link.js"></script>
+<script src="script/patch-for-local.js"></script>
+</body>
+</html>
