@@ -1,0 +1,26 @@
+{
+	"extends": ["eslint:recommended"],
+	"plugins": ["flowtype"],
+	"parser": "babel-eslint",
+	"parserOptions": {
+		"sourceType": "module"
+	},
+	"env": {
+		"browser": true,
+		"node": true,
+		"es6": true
+	},
+	"globals": {},
+	"rules": {
+		"semi": "error",
+		"no-console": "off",
+		"no-constant-condition": "off",
+		"flowtype/define-flow-type": 1,
+		"flowtype/use-flow-type": 1
+	},
+	"settings": {
+		"flowtype": {
+			"onlyFilesWithFlowAnnotation": true
+		}
+	}
+}
