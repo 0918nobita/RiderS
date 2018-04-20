@@ -1,4 +1,16 @@
 module.exports = {
+  modules: ['@nuxtjs/pwa'],
+  manifest: {
+    name: 'Rider-S',
+    short_name: 'Rider-S',
+    title: 'Rider-S',
+    'og:title': 'Rider-S',
+    description: 'description',
+    'og:description': 'description',
+    lang: 'ja',
+    theme_color: '#ffffff',
+    background_color: '#ffffff'
+  },
   /*
   ** Headers of the page
   */
