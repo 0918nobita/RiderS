@@ -1,6 +1,21 @@
 .idea/
 node_modules/
+vscode/
 
 public/js/bundle.js
 
+nuxt-sample/
+public/
+server/
+src/
+test/
+.esdoc.json
+.eslintrc.json
+.flowconfig
+bs-config.js
+dijkstra.md
 launch_nvim-qt.bat
+package-lock.json
+package.json
+webpack.config.js
+
