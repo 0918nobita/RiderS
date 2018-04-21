@@ -1,5 +1,5 @@
 module.exports = {
-  modules: ['@nuxtjs/pwa'],
+  modules: ['@nuxtjs/pwa','@nuxtjs/axios'],
   manifest: {
     name: 'Rider-S',
     short_name: 'Rider-S',

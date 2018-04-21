@@ -13,3 +13,5 @@ dist
 # Service Worker
 sw.*
 
+# API KEY
+assets/config.js

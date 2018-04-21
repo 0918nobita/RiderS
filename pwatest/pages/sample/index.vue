@@ -7,21 +7,33 @@
 </template>
 
 <script>
-export default {}
+import config from 'assets/config';
+import axios from 'axios';
 
-const task = new Promise((resolve) => {
-    navigator.geolocation.getCurrentPosition(
-        /*success*/ (position) => {
-            console.log('latitude: ' + position.coords.latitude);
-            console.log('longitude: ' + position.coords.longitude);
-            resolve();
-        },
-        /*error*/ (error) => {
-            console.log('位置情報の取得に失敗しました');
-            reject();
-        }
-    );
-});
+const GEOCODE_ENDPOINT = 'https://maps.googleapis.com/maps/api/geocode/json';
 
-task.then();
+async function main() {
+    const success = async (position) => {
+        await reverse_geocoding(position.coords.latitude, position.coords.longitude);
+    },
+    error = (e) => {
+            console.log('位置情報の取得に失敗しました。');
+    };
+
+    navigator.geolocation.getCurrentPosition(success, error);
+
+    async function reverse_geocoding(latitude, longitude) {
+        await axios.get(GEOCODE_ENDPOINT, {params: {
+            latlng: latitude + ', ' + longitude,
+            key: config.key,
+            language: 'ja',
+        }}).then(result => {
+            console.log(result.data.results[0].formatted_address);
+        });
+    }
+}
+
+main();
+
+export default {};
 </script>
