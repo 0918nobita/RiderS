@@ -17,7 +17,7 @@ async function main() {
         await reverse_geocoding(position.coords.latitude, position.coords.longitude);
     },
     error = (e) => {
-            console.log('位置情報の取得に失敗しました。');
+        console.log('位置情報の取得に失敗しました。');
     };
 
     navigator.geolocation.getCurrentPosition(success, error);
