@@ -5,6 +5,7 @@ vscode/
 public/js/bundle.js
 
 nuxt-sample/
+pwatest/
 public/
 server/
 src/
