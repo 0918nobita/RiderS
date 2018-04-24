@@ -1,6 +1,6 @@
 # Rider-S
 
-[![CircleCI](https://circleci.com/gh/0918nobita/Rider-S.svg?style=svg)](https://circleci.com/gh/0918nobita/Rider-S) [![apm](https://img.shields.io/apm/l/vim-mode.svg)](https://github.com/0918nobita/Rider-S)
+[![apm](https://img.shields.io/apm/l/vim-mode.svg)](https://github.com/0918nobita/Rider-S)
 
 安全なサイクリングをサポートする AMP 対応 Web サービス
 
