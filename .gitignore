@@ -1,6 +1,20 @@
-.idea/
-node_modules/
+# IntelliJ IDEA
+.idea
 
-public/js/bundle.js
+# dependencies
+node_modules
 
-launch_nvim-qt.bat
+# logs
+npm-debug.log
+
+# Nuxt build
+.nuxt
+
+# Nuxt generate
+dist
+
+# Service Worker
+sw.*
+
+# API KEY
+pwatest/assets/config.js
