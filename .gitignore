@@ -17,4 +17,4 @@ dist
 sw.*
 
 # API KEY
-pwatest/assets/config.js
+assets/config.js
