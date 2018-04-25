@@ -7,6 +7,7 @@
 </template>
 
 <script>
+import config from '~/assets/config';
 import axios from 'axios';
 
 const GEOCODE_ENDPOINT = 'https://maps.googleapis.com/maps/api/geocode/json';
