@@ -76,7 +76,7 @@ export default {
                         position: position,
                         map: map,
                         title: 'コ↑コ↓'
-                    })
+                    });
                 }
             }
 
