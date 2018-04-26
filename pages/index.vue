@@ -1,12 +1,15 @@
 <template>
   <section class="container">
     <div>
-      <p id="alpha"></p>
-      <p id="beta"></p>
-      <p id="gamma"></p>
-      <p id="latitude"></p>
-      <p id="longitude"></p>
-      <p id="address"></p>
+      <div id="console">
+        <p id="alpha"></p>
+        <p id="beta"></p>
+        <p id="gamma"></p>
+        <p id="latitude"></p>
+        <p id="longitude"></p>
+        <p id="address"></p>
+      </div>
+      <div id="map"></div>
     </div>
   </section>
 </template>
@@ -18,6 +21,11 @@ import axios from 'axios';
 const GEOCODE_ENDPOINT = 'https://maps.googleapis.com/maps/api/geocode/json';
 
 export default {
+    head: {
+        script: [
+            { src: 'https://maps.googleapis.com/maps/api/js?key=' + config.key }
+        ]
+    },
     mounted: function() {
         this.$nextTick(function() {
         	const alpha = document.getElementById('alpha'),
@@ -52,9 +60,23 @@ export default {
                         language: 'ja',
                     }}).then(result => {
                     	address.textContent = result.data.results[0].formatted_address;
+                        showMap(latitude, longitude);
                     }).catch(() => {
                         address.textContent = '番地、住所の取得に失敗しました。インターネット接続をご確認ください。';
                     });
+                }
+
+                async function showMap(latitude, longitude) {
+                    const position = {lat: latitude, lng: longitude};
+                    const map = new google.maps.Map(document.getElementById('map'), {
+                        zoom: 18,
+                        center: position
+                    });
+                    const marker = new google.maps.Marker({
+                        position: position,
+                        map: map,
+                        title: 'コ↑コ↓'
+                    })
                 }
             }
 
@@ -64,5 +86,24 @@ export default {
 };
 </script>
 
-<style>
+<style scoped lang="sass">
+html, body
+    padding: 0;
+    margin: 0;
+    width: 100vw;
+    height: 100vh;
+
+#console
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 1;
+
+#map
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    z-index: 0;
 </style>
