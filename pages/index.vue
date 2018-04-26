@@ -40,7 +40,7 @@ export default {
                     await reverse_geocoding(position.coords.latitude, position.coords.longitude);
                 },
                 error = (e) => {
-                    address.textContent = '位置情報の取得に失敗しました。';
+                    address.textContent = '緯度、経度の取得に失敗しました。';
                 };
 
                 navigator.geolocation.getCurrentPosition(success, error);
@@ -52,6 +52,8 @@ export default {
                         language: 'ja',
                     }}).then(result => {
                     	address.textContent = result.data.results[0].formatted_address;
+                    }).catch(() => {
+                        address.textContent = '番地、住所の取得に失敗しました。インターネット接続をご確認ください。';
                     });
                 }
             }
