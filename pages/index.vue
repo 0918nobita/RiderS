@@ -88,6 +88,18 @@ export default {
                         map: map,
                         title: 'コ↑コ↓'
                     });
+                    const coordinates = [
+                        new google.maps.LatLng(34.97985540888427, 135.96275437115062),
+                        new google.maps.LatLng(34.98017567359328, 135.96473609566365),
+                    ];
+                    const polyline = new google.maps.Polyline({
+                        path: coordinates,
+                        geodesic: true,
+                        strokeColor: '#ff0000',
+                        strokeOpacity: 1.0,
+                        strokeWeight: 2,
+                        map: map
+                    });
                 }
             }
 
