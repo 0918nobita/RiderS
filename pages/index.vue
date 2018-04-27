@@ -8,7 +8,7 @@
         <p id="latitude"></p>
         <p id="longitude"></p>
         <p id="address"></p>
-        <p>起動回数: {{count}} 回</p>
+        <p>起動回数: {{count}} 回 &lt;&lt; <button v-on:click="$store.dispatch('counter/updateCounter')">増加</button></p>
       </div>
       <div id="map"></div>
     </div>
@@ -29,7 +29,6 @@ export default {
     },
     computed: {
         count () {
-            this.$store.commit('counter/add');
             return this.$store.state.counter.count;
         }
     },
