@@ -1,6 +1,7 @@
 <template>
   <section class="container">
     <div>
+      <topBar/>
       <div id="console">
         <p id="alpha"></p>
         <p id="beta"></p>
@@ -16,6 +17,7 @@
 </template>
 
 <script>
+import TopBar from '~/components/TopBar.vue'
 import config from '~/assets/config';
 import axios from 'axios';
 
@@ -26,6 +28,9 @@ export default {
         script: [
             { src: 'https://maps.googleapis.com/maps/api/js?key=' + config.key }
         ]
+    },
+    components: {
+        TopBar
     },
     computed: {
         count () {
@@ -101,7 +106,7 @@ html, body
 
 #console
     position: absolute;
-    top: 0;
+    top: 50px;
     left: 0;
     z-index: 1;
 
