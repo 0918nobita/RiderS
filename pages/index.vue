@@ -8,6 +8,7 @@
         <p id="latitude"></p>
         <p id="longitude"></p>
         <p id="address"></p>
+        <p>起動回数: {{count}} 回</p>
       </div>
       <div id="map"></div>
     </div>
@@ -25,6 +26,12 @@ export default {
         script: [
             { src: 'https://maps.googleapis.com/maps/api/js?key=' + config.key }
         ]
+    },
+    computed: {
+        count () {
+            this.$store.commit('counter/add');
+            return this.$store.state.counter.count;
+        }
     },
     mounted: function() {
         this.$nextTick(function() {
