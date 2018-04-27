@@ -1,5 +1,5 @@
 module.exports = {
-  modules: ['@nuxtjs/pwa','@nuxtjs/axios'],
+  modules: ['@nuxtjs/pwa','@nuxtjs/axios',],
   manifest: {
     name: 'Rider-S',
     short_name: 'Rider-S',
@@ -9,7 +9,7 @@ module.exports = {
     'og:description': 'description',
     lang: 'ja',
     theme_color: '#ffffff',
-    background_color: '#ffffff'
+    background_color: '#ffffff',
   },
   /*
   ** Headers of the page
@@ -17,18 +17,18 @@ module.exports = {
   head: {
     title: 'Rider-S',
     meta: [
-      { charset: 'utf-8' },
-      { name: 'viewport', content: 'width=device-width, initial-scale=1' },
-      { hid: 'description', name: 'description', content: 'Nuxt.js project' }
+      { charset: 'utf-8', },
+      { name: 'viewport', content: 'width=device-width, initial-scale=1', },
+      { hid: 'description', name: 'description', content: 'Nuxt.js project', },
     ],
     link: [
-      { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }
+      { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico', },
     ]
   },
   /*
   ** Customize the progress bar color
   */
-  loading: { color: '#3B8070' },
+  loading: { color: '#3B8070', },
   /*
   ** Build configuration
   */
@@ -46,5 +46,5 @@ module.exports = {
         })
       }
     }
-  }
+  },
 }
