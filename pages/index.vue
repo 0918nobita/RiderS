@@ -9,7 +9,7 @@
         <p id="latitude"></p>
         <p id="longitude"></p>
         <p id="address"></p>
-        <p>起動回数: {{count}} 回 &lt;&lt; <button v-on:click="$store.dispatch('counter/updateCounter')">増加</button></p>
+        <p>起動回数: {{count}} 回 <!-- &lt;&lt; <button v-on:click="$store.dispatch('counter/updateCounter')">増加</button>--></p>
       </div>
       <div id="map"></div>
     </div>
@@ -38,6 +38,8 @@ export default {
         }
     },
     mounted: function() {
+        this.$store.dispatch('counter/updateCounter');
+
         this.$nextTick(function() {
         	const alpha = document.getElementById('alpha'),
         		beta = document.getElementById('beta'),
