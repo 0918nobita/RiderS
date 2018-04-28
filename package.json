@@ -15,9 +15,11 @@
   "dependencies": {
     "@nuxtjs/axios": "^5.3.1",
     "@nuxtjs/pwa": "^2.0.8",
+    "ajv": "^6.4.0",
     "axios": "^0.18.0",
     "npm": "^6.0.0",
-    "nuxt": "^1.4.0"
+    "nuxt": "^1.4.0",
+    "vuex-persistedstate": "^2.5.2"
   },
   "devDependencies": {
     "babel-eslint": "^8.2.3",
