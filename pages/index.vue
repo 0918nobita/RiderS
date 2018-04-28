@@ -17,7 +17,7 @@
 </template>
 
 <script>
-import TopBar from '~/components/TopBar.vue'
+import TopBar from '~/components/TopBar.vue';
 import config from '~/assets/config';
 import axios from 'axios';
 
