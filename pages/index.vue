@@ -3,9 +3,9 @@
     <div>
       <topBar/>
       <div id="console">
-        <p id="alpha"></p>
+        <!-- <p id="alpha"></p>
         <p id="beta"></p>
-        <p id="gamma"></p>
+        <p id="gamma"></p> -->
         <p id="latitude"></p>
         <p id="longitude"></p>
         <p id="address"></p>
@@ -41,18 +41,18 @@ export default {
         this.$store.dispatch('counter/updateCounter');
 
         this.$nextTick(function() {
-        	const alpha = document.getElementById('alpha'),
+        	const /* alpha = document.getElementById('alpha'),
         		beta = document.getElementById('beta'),
-        		gamma = document.getElementById('gamma'),
+        		gamma = document.getElementById('gamma'), */
         		latitude = document.getElementById('latitude'),
         		longitude = document.getElementById('longitude'),
         		address = document.getElementById('address');
 
-        	window.addEventListener('deviceorientation', (e) => {
+        	/* window.addEventListener('deviceorientation', (e) => {
         		alpha.textContent = 'alpha: ' + e.alpha;
         		beta.textContent = 'beta: ' + e.beta;
         		gamma.textContent = 'gamma: ' + e.gamma;
-        	});
+        	}); */
 
             async function main() {
                 const success = async (position) => {
