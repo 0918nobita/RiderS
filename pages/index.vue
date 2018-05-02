@@ -4,7 +4,7 @@
       <topBar/>
       <div id="map"></div>
       <div id="output">
-          <textarea></textarea>
+          <textarea id="textarea"></textarea>
       </div>
     </div>
   </section>
@@ -30,19 +30,19 @@ export default {
         this.$store.dispatch('counter/updateCounter');
 
         this.$nextTick(function() {
-        	const output = document.getElementById('output');
+        	const textarea = document.getElementById('textarea');
             
-            output.value += '起動回数: ' + this.$store.state.counter.count + ' 回¥n';
+            textarea.value += '起動回数: ' + this.$store.state.counter.count + ' 回\n';
 
             async function main() {
                 const success = async (position) => {
-                	output.value += '緯度: ' + position.coords.latitude + '¥n';
-                	output.value += '経度: ' + position.coords.longitude + '¥n';
+                	textarea.value += '緯度: ' + position.coords.latitude + '\n';
+                	textarea.value += '経度: ' + position.coords.longitude + '\n';
                     await reverse_geocoding(position.coords.latitude, position.coords.longitude);
                 },
                 error = (e) => {
                     address.textContent = '緯度、経度の取得に失敗しました。';
-                    output.value += '緯度、軽度の取得に失敗しました。¥n';
+                    textarea.value += '緯度、軽度の取得に失敗しました。\n';
                 };
 
                 navigator.geolocation.getCurrentPosition(success, error);
@@ -53,11 +53,11 @@ export default {
                         key: config.google,
                         language: 'ja',
                     }}).then(result => {
-                    	output.value += result.data.results[0].formatted_address + '¥n';
+                    	textarea.value += result.data.results[0].formatted_address + '\n';
                         showMap(latitude, longitude);
                     }).catch(() => {
                         address.textContent = '番地、住所の取得に失敗しました。インターネット接続をご確認ください。';
-                        output.value += '番地、住所の取得に失敗しました。インターネット接続をご確認ください。¥n';
+                        textarea.value += '番地、住所の取得に失敗しました。インターネット接続をご確認ください。\n';
                     });
                 }
 
@@ -93,10 +93,10 @@ export default {
                             access_token: config.strava
                     }}).then(result => {
                         console.log(result);
-                        output.value += result + '¥n';
+                        textarea.value += result + '\n';
                     }).catch(() => {
-                        console.log("Strava との連携に失敗しました");
-                        output.value += result + '¥n';
+                        console.log("Strava との連携に失敗しました。");
+                        textarea.value += 'Strava との連携に失敗しました。\n';
                     });
                 }
             }
