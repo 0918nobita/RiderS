@@ -84,20 +84,10 @@ export default {
                         strokeWeight: 2,
                         map: map
                     });
-                    strava();
+                    strava_cooperation();
                 }
 
-                async function strava() {
-                    await axios.get("https://www.strava.com/api/v3/activities/", {params: {
-                            id: "1484749096",
-                            access_token: config.strava
-                    }}).then(result => {
-                        console.log(result);
-                        textarea.value += result + '\n';
-                    }).catch(() => {
-                        console.log("Strava との連携に失敗しました。");
-                        textarea.value += 'Strava との連携に失敗しました。\n';
-                    });
+                async function strava_cooperation() {
                 }
             }
 
