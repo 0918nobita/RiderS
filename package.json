@@ -19,6 +19,7 @@
     "axios": "^0.18.0",
     "npm": "^6.0.0",
     "nuxt": "^1.4.0",
+    "strava-v3": "^1.14.0",
     "vuex-persistedstate": "^2.5.2"
   },
   "devDependencies": {
