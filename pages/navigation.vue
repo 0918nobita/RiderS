@@ -4,7 +4,7 @@
       <topBar/>
       <div id="map"></div>
       <div id="output">
-          <textarea id="textarea"></textarea>
+          <textarea id="textarea" readonly></textarea>
       </div>
     </div>
   </section>
@@ -103,12 +103,12 @@ export default {
 
             async function strava() {
               if (localStorage.getItem('strava') !== null) {
-                await axios.get('http://www.strava.com/oauth/token', {params: {
+                await axios.post('http://www.strava.com/oauth/token', {params: {
                   client_id: config.strava.clinet_id,
                   client_secret: config.strava.client_secret,
                   code: localStorage.getItem('strava')
                 }}).then(result => {
-                  console.log(result);
+                  textarea.value += result + '\n';
                 });
               } else {
                 location.href = 'http://www.strava.com/oauth/authorize?' +
