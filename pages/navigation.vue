@@ -36,13 +36,13 @@ export default {
 
       speechSynthesis.onvoiceschanged = function() {
         const voices = speechSynthesis.getVoices().filter((item) => {
-          return (item.lang === 'en-US');
+          return (item.lang === 'ja-JP');
         });
 
         if (voices.length > 0 && localStorage.getItem('strava') !== null) {
           const synthes = new SpeechSynthesisUtterance();
           synthes.voice = voices[0];
-          synthes.text = 'Riders application startup complete.';
+          synthes.text = 'ライダーズ、起動しました';
           speechSynthesis.speak(synthes);
         }
       };
