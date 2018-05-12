@@ -56,7 +56,6 @@ export default {
             await reverse_geocoding(position.coords.latitude, position.coords.longitude);
           },
           error = (e) => {
-            address.textContent = '緯度、経度の取得に失敗しました。';
             textarea.value += '緯度、軽度の取得に失敗しました。\n';
           };
 
@@ -71,7 +70,6 @@ export default {
               textarea.value += result.data.results[0].formatted_address + '\n';
               showMap(latitude, longitude);
             }).catch(() => {
-              address.textContent = '番地、住所の取得に失敗しました。インターネット接続をご確認ください。';
               textarea.value += '番地、住所の取得に失敗しました。インターネット接続をご確認ください。\n';
             });
           }
