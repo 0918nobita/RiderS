@@ -101,13 +101,17 @@ export default {
 
             async function strava() {
               if (localStorage.getItem('strava') !== null) {
-                await axios.post('http://www.strava.com/oauth/token', {params: {
-                  client_id: config.strava.clinet_id,
-                  client_secret: config.strava.client_secret,
-                  code: localStorage.getItem('strava')
-                }}).then(result => {
-                  textarea.value += result + '\n';
-                });
+                const params = new URLSearchParams();
+                params.append('client_id', config.strava.client_id);
+                params.append('client_secret', config.strava.client_secret);
+                params.append('code', localStorage.getItem('strava'));
+                await axios.post('https://www.strava.com/oauth/token', params)
+                  .then(response => {
+                    console.log(response);
+                  })
+                  .catch(error => {
+                    console.log(error);
+                  });
               } else {
                 location.href = 'http://www.strava.com/oauth/authorize?' +
                   'client_id=' + config.strava.client_id +
