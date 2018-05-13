@@ -1,0 +1,17 @@
+[トップページ]
+Startボタン
+Powered by Strava
+--
+Startボタンを押す
+==> navigation
+
+[navigation]
+地図
+現在地の住所
+--
+(Stravaのアクセストークンが未取得)
+=={Strava API v3}=> strava_oauth
+
+[strava_oauth]
+「Redirecting...」
+==> navigation
