@@ -6,8 +6,13 @@ Startボタンを押す
 ==> navigation
 
 [navigation]
+RiderS
 地図
-現在地の住所
+起動回数
+緯度
+経度
+住所
+郵便番号
 --
 (Stravaのアクセストークンが未取得)
 =={Strava API v3}=> strava_oauth
