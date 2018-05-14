@@ -2,13 +2,34 @@
   <section class="container">
     <div>
       <div id="title">Rider-S</div>
-      <div id="content">Powered by Strava</div>
+      <div id="content">
+        <p>{{message}}</p>
+        <p>Powered by Strava</p>
+      </div>
       <router-link to="/navigation" id="start_button">Start</router-link>
     </div>
   </section>
 </template>
 
 <script>
+export default {
+  data () {
+    return {
+      message: ""
+    };
+  },
+  mounted () {
+    let message = 'Error';
+    if (localStorage.getItem('strava_code') === null) {
+      message = 'コードを取得できていません';
+    } else if (localStorage.getItem('strava_access_token') === null) {
+      message = 'アクセストークンを取得できました';
+    } else {
+      message = 'Success';
+    }
+    this.$data.message = message;
+  }
+};
 </script>
 
 <style lang="scss">

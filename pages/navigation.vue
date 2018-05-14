@@ -108,7 +108,7 @@ export default {
                 params.append('code', localStorage.getItem('strava_code'));
                 await axios.post('https://www.strava.com/oauth/token', params)
                   .then(response => {
-                    console.log(response);
+                    localStorage.setItem('strava_access_token', response.data.access_token);
                   })
                   .catch(error => {
                     console.log(error);
