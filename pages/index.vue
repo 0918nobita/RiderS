@@ -2,6 +2,7 @@
   <section class="container">
     <div>
       <div id="title">Rider-S</div>
+      <div id="content">Powered by Strava</div>
       <router-link to="/navigation" id="start_button">Start</router-link>
     </div>
   </section>
