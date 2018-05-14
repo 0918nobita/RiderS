@@ -9,7 +9,7 @@ import config from '~/assets/config';
 
 export default {
   mounted() {
-    localStorage.setItem('strava', this.$route.query.code);
+    localStorage.setItem('strava_code', this.$route.query.code);
     location.href = config.url + '/navigation';
   }
 };

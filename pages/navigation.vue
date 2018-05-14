@@ -100,11 +100,12 @@ export default {
             }
 
             async function strava() {
-              if (localStorage.getItem('strava') !== null) {
+              if (localStorage.getItem('strava_code') !== null) {
+                if (localStorage.getItem('strava_access_token') !== null) return;
                 const params = new URLSearchParams();
                 params.append('client_id', config.strava.client_id);
                 params.append('client_secret', config.strava.client_secret);
-                params.append('code', localStorage.getItem('strava'));
+                params.append('code', localStorage.getItem('strava_code'));
                 await axios.post('https://www.strava.com/oauth/token', params)
                   .then(response => {
                     console.log(response);
