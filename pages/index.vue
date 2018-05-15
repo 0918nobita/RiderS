@@ -3,31 +3,54 @@
     <div>
       <div id="title">Rider-S</div>
       <div id="content">
-        <p>{{message}}</p>
+        <p>{{ message }}</p>
         <p>Powered by Strava</p>
       </div>
-      <router-link to="/navigation" id="start_button">Start</router-link>
+      <transition name="strava">
+        <iframe v-if="showIframe" :src="src"></iframe>
+      </transition>
+      <router-link to="/navigation" id="start_button" v-if="showButton">Start</router-link>
     </div>
   </section>
 </template>
 
 <script>
+import config from '~/assets/config';
+
 export default {
   data () {
     return {
-      message: ""
+      message: '',
+      showIframe: false,
+      src: '',
+      showButton: false
     };
   },
   mounted () {
-    let message = 'Error';
-    if (localStorage.getItem('strava_code') === null) {
-      message = 'コードを取得できていません';
-    } else if (localStorage.getItem('strava_access_token') === null) {
-      message = 'アクセストークンを取得できました';
-    } else {
-      message = 'Success';
-    }
-    this.$data.message = message;
+    this.$nextTick(function() {
+      window.addEventListener('storage', event => {
+        if (event.oldValue !== null || event.newValue === null ||
+          localStorage.getItem('strava_code') === null ||
+          localStorage.getItem('strava_access_token') === null) return;
+
+        this.$data.showIframe = false;
+        this.$data.message = 'Success';
+        this.$data.showButton = true;
+      }, false);
+      
+      let message = 'Error';
+      if (localStorage.getItem('strava_code') === null) {
+        message = 'コードを取得できていません';
+        this.$data.showIframe = true;
+        this.$data.src = config.url + '/strava_settings';
+      } else if (localStorage.getItem('strava_access_token') === null) {
+        message = 'アクセストークンを取得できていません';
+      } else {
+        message = 'Success';
+        this.$data.showButton = true;
+      }
+      this.$data.message = message;
+    });
   }
 };
 </script>
@@ -47,5 +70,21 @@ export default {
   border-radius: 50%;
   left: calc(50% - 50px / 2);
   bottom: 20px;
+}
+
+.strava-enter {
+  position: absolute;
+  top: 30px;
+  left: 30px;
+  right: 30px;
+  bottom: 30px;
+}
+
+.strava-enter-to {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  right: 10px;
+  bottom: 10px;
 }
 </style>

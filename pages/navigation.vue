@@ -4,7 +4,7 @@
       <topBar/>
       <div id="map"></div>
       <div id="output">
-          <textarea id="textarea" readonly></textarea>
+        <textarea id="textarea" readonly></textarea>
       </div>
     </div>
   </section>
@@ -47,84 +47,57 @@ export default {
         }
       };
 
-      async function main() {
-          strava();
-         
-          const success = async (position) => {
-            textarea.value += '緯度: ' + position.coords.latitude + '\n';
-            textarea.value += '経度: ' + position.coords.longitude + '\n';
-            await reverse_geocoding(position.coords.latitude, position.coords.longitude);
-          },
-          error = (e) => {
-            textarea.value += '緯度、軽度の取得に失敗しました。\n';
-          };
+      const success = async (position) => {
+        textarea.value += '緯度: ' + position.coords.latitude + '\n';
+        textarea.value += '経度: ' + position.coords.longitude + '\n';
+        await reverse_geocoding(position.coords.latitude, position.coords.longitude);
+      };
+      
+      const error = (e) => {
+        textarea.value += '緯度、軽度の取得に失敗しました。\n';
+      };
 
-          navigator.geolocation.getCurrentPosition(success, error);
+      navigator.geolocation.getCurrentPosition(success, error);
 
-          async function reverse_geocoding(latitude, longitude) {
-            await axios.get(GEOCODE_ENDPOINT, {params: {
-              latlng: latitude + ', ' + longitude,
-              key: config.google,
-              language: 'ja',
-            }}).then(result => {
-              textarea.value += result.data.results[0].formatted_address + '\n';
-              showMap(latitude, longitude);
-            }).catch(() => {
-              textarea.value += '番地、住所の取得に失敗しました。インターネット接続をご確認ください。\n';
-            });
-          }
-
-          async function showMap(latitude, longitude) {
-            const position = {lat: latitude, lng: longitude};
-            const map = new google.maps.Map(document.getElementById('map'), {
-              zoom: 18,
-              center: position
-            });
-            const marker = new google.maps.Marker({
-              position: position,
-              map: map,
-                title: 'コ↑コ↓'
-              });
-              const coordinates = [
-                new google.maps.LatLng(34.97985540888427, 135.96275437115062),
-                new google.maps.LatLng(34.98017567359328, 135.96473609566365),
-              ];
-              const polyline = new google.maps.Polyline({
-                path: coordinates,
-                geodesic: true,
-                strokeColor: '#ff0000',
-                strokeOpacity: 1.0,
-                strokeWeight: 2,
-                map: map
-              });
-            }
-
-            async function strava() {
-              if (localStorage.getItem('strava_code') !== null) {
-                if (localStorage.getItem('strava_access_token') !== null) return;
-                const params = new URLSearchParams();
-                params.append('client_id', config.strava.client_id);
-                params.append('client_secret', config.strava.client_secret);
-                params.append('code', localStorage.getItem('strava_code'));
-                await axios.post('https://www.strava.com/oauth/token', params)
-                  .then(response => {
-                    localStorage.setItem('strava_access_token', response.data.access_token);
-                  })
-                  .catch(error => {
-                    console.log(error);
-                  });
-              } else {
-                location.href = 'http://www.strava.com/oauth/authorize?' +
-                  'client_id=' + config.strava.client_id +
-                  '&redirect_uri=' + config.strava.redirect_uri +
-                  '&response_type=code&scope=public';
-              }
-            }
-          }
-
-          main();
+      async function reverse_geocoding(latitude, longitude) {
+        await axios.get(GEOCODE_ENDPOINT, {params: {
+          latlng: latitude + ', ' + longitude,
+          key: config.google,
+          language: 'ja',
+        }}).then(result => {
+          textarea.value += result.data.results[0].formatted_address + '\n';
+          showMap(latitude, longitude);
+        }).catch(() => {
+          textarea.value += '番地、住所の取得に失敗しました。インターネット接続をご確認ください。\n';
         });
-    },
+      }
+
+      async function showMap(latitude, longitude) {
+        const position = {lat: latitude, lng: longitude};
+        const map = new google.maps.Map(document.getElementById('map'), {
+          zoom: 18,
+          center: position
+        });
+        const marker = new google.maps.Marker({
+          position: position,
+          map: map,
+          title: 'コ↑コ↓'
+        });
+        const coordinates = [
+          new google.maps.LatLng(34.97985540888427, 135.96275437115062),
+          new google.maps.LatLng(34.98017567359328, 135.96473609566365),
+        ];
+        const polyline = new google.maps.Polyline({
+          path: coordinates,
+          geodesic: true,
+          strokeColor: '#ff0000',
+          strokeOpacity: 1.0,
+          strokeWeight: 2,
+          map: map
+        });
+      }
+    });
+  },
 };
 </script>
 
