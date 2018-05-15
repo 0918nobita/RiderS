@@ -30,6 +30,8 @@ export default {
           .catch(error => {
             console.log(error);
           });
+      } else {
+        window.close();
       }
     });
   }

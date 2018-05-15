@@ -6,7 +6,6 @@
         <p>{{ message }}</p>
         <p>Powered by Strava</p>
       </div>
-      <iframe id="strava_iframe" v-if="showIframe" :src="src"></iframe>
       <router-link to="/navigation" id="start_button" v-if="showButton">Start</router-link>
     </div>
   </section>
@@ -19,28 +18,15 @@ export default {
   data () {
     return {
       message: '',
-      showIframe: false,
-      src: '',
       showButton: false
     };
   },
   mounted () {
     this.$nextTick(function() {
-      window.addEventListener('storage', event => {
-        if (event.oldValue !== null || event.newValue === null ||
-          localStorage.getItem('strava_code') === null ||
-          localStorage.getItem('strava_access_token') === null) return;
-
-        this.$data.showIframe = false;
-        this.$data.message = 'Success';
-        this.$data.showButton = true;
-      }, false);
-      
       let message = 'Error';
       if (localStorage.getItem('strava_code') === null) {
         message = 'コードを取得できていません';
-        this.$data.showIframe = true;
-        this.$data.src = config.url + '/strava_settings';
+        window.open(config.url + '/strava_settings', 'Strava連携');
       } else if (localStorage.getItem('strava_access_token') === null) {
         message = 'アクセストークンを取得できていません';
       } else {
@@ -68,13 +54,5 @@ export default {
   border-radius: 50%;
   left: calc(50% - 50px / 2);
   bottom: 20px;
-}
-
-#strava_iframe {
-  position: absolute;
-  top: 30px;
-  left: 30px;
-  right: 30px;
-  bottom: 30px;
 }
 </style>
