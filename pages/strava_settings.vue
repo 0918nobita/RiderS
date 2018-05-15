@@ -1,6 +1,6 @@
 <template>
   <div>
-    <p>Redirecting...</p>
+    <p>Redirecting..</p>
   </div>
 </template>
 

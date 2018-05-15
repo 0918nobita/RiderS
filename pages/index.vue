@@ -6,9 +6,7 @@
         <p>{{ message }}</p>
         <p>Powered by Strava</p>
       </div>
-      <transition name="strava">
-        <iframe v-if="showIframe" :src="src"></iframe>
-      </transition>
+      <iframe id="strava_iframe" v-if="showIframe" :src="src"></iframe>
       <router-link to="/navigation" id="start_button" v-if="showButton">Start</router-link>
     </div>
   </section>
@@ -72,19 +70,11 @@ export default {
   bottom: 20px;
 }
 
-.strava-enter {
+#strava_iframe {
   position: absolute;
   top: 30px;
   left: 30px;
   right: 30px;
   bottom: 30px;
-}
-
-.strava-enter-to {
-  position: absolute;
-  top: 10px;
-  left: 10px;
-  right: 10px;
-  bottom: 10px;
 }
 </style>
