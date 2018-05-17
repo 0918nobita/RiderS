@@ -1,7 +1,6 @@
 <template>
   <section class="container">
     <div>
-      <topBar/>
       <div id="map"></div>
       <div id="output">
         <textarea id="textarea" readonly></textarea>
@@ -11,9 +10,8 @@
 </template>
 
 <script>
-import TopBar from '~/components/TopBar.vue';
-import config from '~/assets/config';
 import axios from 'axios';
+import config from '~/assets/config';
 
 const GEOCODE_ENDPOINT = 'https://maps.googleapis.com/maps/api/geocode/json';
 
@@ -22,9 +20,6 @@ export default {
     script: [
       { src: 'https://maps.googleapis.com/maps/api/js?key=' + config.google }
     ]
-  },
-  components: {
-    TopBar
   },
   mounted: function() {
     this.$store.dispatch('counter/updateCounter');

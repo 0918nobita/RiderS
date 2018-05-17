@@ -1,7 +1,7 @@
 <template>
   <section class="container">
     <div>
-      <div id="title">Rider-S</div>
+      <topBar/>
       <div id="content">
         <p>{{ message }}</p>
         <p>Powered by Strava</p>
@@ -14,6 +14,7 @@
 <script>
 import axios from 'axios';
 import config from '~/assets/config';
+import TopBar from '~/components/TopBar.vue';
 
 export default {
   data () {
@@ -21,6 +22,9 @@ export default {
       message: '',
       showButton: false
     };
+  },
+  components: {
+    TopBar
   },
   mounted () {
     this.$nextTick(function() {
