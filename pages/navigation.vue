@@ -31,7 +31,7 @@ export default {
 
     this.$nextTick(function() {
       const textarea = document.getElementById('textarea');
-            
+
       textarea.value += '起動回数: ' + this.$store.state.counter.count + ' 回\n';
 
       speechSynthesis.onvoiceschanged = function() {
