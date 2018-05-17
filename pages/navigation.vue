@@ -13,7 +13,8 @@
 import axios from 'axios';
 import config from '~/assets/config';
 
-const GEOCODE_ENDPOINT = 'https://maps.googleapis.com/maps/api/geocode/json';
+const GEOCODE_ENDPOINT   = 'https://maps.googleapis.com/maps/api/geocode/json',
+      DIRECTION_ENDPOINT = 'https://maps.googleapis.com/maps/api/directions/json';
 
 export default {
   head: {
@@ -22,12 +23,8 @@ export default {
     ]
   },
   mounted: function() {
-    this.$store.dispatch('counter/updateCounter');
-
     this.$nextTick(function() {
       const textarea = document.getElementById('textarea');
-
-      textarea.value += '起動回数: ' + this.$store.state.counter.count + ' 回\n';
 
       speechSynthesis.onvoiceschanged = function() {
         const voices = speechSynthesis.getVoices().filter((item) => {
@@ -89,6 +86,14 @@ export default {
           strokeOpacity: 1.0,
           strokeWeight: 2,
           map: map
+        });
+        await axios.get(DIRECTION_ENDPOINT, {params: {
+          place_id: 'ChIJ685WIFYViEgRHlHvBbiD5nE',
+          destination: 'place_id:ChIJA01I-8YVhkgRGJb0fW4UX7Y'
+        }}).then(result => { 
+          console.log(result);
+        }).catch(() => {
+          console.log('ルート探索に失敗しました');
         });
       }
     });
