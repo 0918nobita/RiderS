@@ -14,7 +14,8 @@
 
 <script>
 import config from '~/assets/config';
-import firebase from 'firebase/app';
+const firebase = require('firebase');
+require('firebase/firestore');
 
 export default {
   data () {
@@ -29,9 +30,10 @@ export default {
   },
   mounted: function() {
     this.$nextTick(() => {
-      firebase.initializeApp(config);
+      firebase.initializeApp(config.firebase);
 
-      const db = firebase.firebase();
+      const db = firebase.firestore();
+      db.settings({ timestampsInSnapshots: true });
 
       const watchID = navigator.geolocation.watchPosition(position => {
         this.$data.latitude = position.coords.latitude;
@@ -41,7 +43,7 @@ export default {
         this.$data.distance = distance(this.$data.latitude, this.$data.longitude, 34.980178, 135.964737);
       });
 
-      document.getElementById('record').addEventListener(() => {
+      document.getElementById('record').addEventListener('click', () => {
         db.collection('point').add({
           latitude: this.$data.latitude,
           longitude: this.$data.longitude,
