@@ -56,9 +56,11 @@ export default {
           key: config.google,
           language: 'ja',
         }}).then(result => {
+          console.log(result.data);
           textarea.value += result.data.results[0].formatted_address + '\n';
           showMap(latitude, longitude);
-        }).catch(() => {
+        }).catch(err => {
+          console.log(err);
           textarea.value += '番地、住所の取得に失敗しました。インターネット接続をご確認ください。\n';
         });
       }
