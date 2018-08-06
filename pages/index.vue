@@ -3,7 +3,7 @@
     <div>
       <topBar/>
       <div id="content">
-        <p>{{ message }}</p>
+        <!--<p>{{ message }}</p>-->
         <p>Powered by Strava</p>
       </div>
       <router-link to="/navigation" id="start_button" v-if="showButton">Start</router-link>
@@ -19,8 +19,8 @@ import TopBar from '~/components/TopBar.vue';
 export default {
   data () {
     return {
-      message: '',
-      showButton: false
+      /**message: '',*/
+      showButton: /* false */ true
     };
   },
   components: {
@@ -28,7 +28,7 @@ export default {
   },
   mounted () {
     this.$nextTick(function() {
-      let message = 'Error';
+      /*let message = 'Error';
       if (localStorage.getItem('strava_code') === null) {
         message = 'コードを取得できていません';
         location.href = 'http://www.strava.com/oauth/authorize?' +
@@ -53,7 +53,7 @@ export default {
         message = 'Success';
         this.$data.showButton = true;
       }
-      this.$data.message = message;
+      this.$data.message = message;*/
     });
   }
 };

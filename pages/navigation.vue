@@ -39,17 +39,16 @@ export default {
         }
       };
 
-      const success = async (position) => {
-        textarea.value += '緯度: ' + position.coords.latitude + '\n';
-        textarea.value += '経度: ' + position.coords.longitude + '\n';
-        await reverse_geocoding(position.coords.latitude, position.coords.longitude);
-      };
-      
-      const error = (e) => {
-        textarea.value += '緯度、軽度の取得に失敗しました。\n';
-      };
-
-      navigator.geolocation.getCurrentPosition(success, error);
+      navigator.geolocation.getCurrentPosition(
+        /* Success */ async (position) => {
+          textarea.value += '緯度: ' + position.coords.latitude + '\n';
+          textarea.value += '経度: ' + position.coords.longitude + '\n';
+          await reverse_geocoding(position.coords.latitude, position.coords.longitude);
+        },
+        /* Failed */ e => {
+          textarea.value += '緯度、軽度の取得に失敗しました。\n';
+        }
+      );
 
       async function reverse_geocoding(latitude, longitude) {
         await axios.get(GEOCODE_ENDPOINT, {params: {
