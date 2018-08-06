@@ -15,19 +15,19 @@
   "dependencies": {
     "@nuxtjs/axios": "^5.3.1",
     "@nuxtjs/pwa": "^2.0.8",
-    "ajv": "^6.4.0",
+    "ajv": "^6.5.2",
     "axios": "^0.18.0",
-    "npm": "^6.0.0",
-    "nuxt": "^1.4.0",
+    "npm": "^6.3.0",
+    "nuxt": "^1.4.2",
     "strava-v3": "^1.14.0"
   },
   "devDependencies": {
-    "babel-eslint": "^8.2.3",
+    "babel-eslint": "^8.2.6",
     "eslint": "^4.19.1",
     "eslint-friendly-formatter": "^4.0.1",
-    "eslint-loader": "^2.0.0",
-    "eslint-plugin-vue": "^4.5.0",
-    "node-sass": "^4.9.0",
-    "sass-loader": "^7.0.1"
+    "eslint-loader": "^2.1.0",
+    "eslint-plugin-vue": "^4.7.1",
+    "node-sass": "^4.9.2",
+    "sass-loader": "^7.1.0"
   }
 }
