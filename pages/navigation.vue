@@ -66,19 +66,23 @@ export default {
 
       async function showMap(latitude, longitude) {
         const position = {lat: latitude, lng: longitude};
+        
         const map = new google.maps.Map(document.getElementById('map'), {
           zoom: 18,
           center: position
         });
+
         const marker = new google.maps.Marker({
           position: position,
           map: map,
           title: 'コ↑コ↓'
         });
+
         const coordinates = [
           new google.maps.LatLng(34.97985540888427, 135.96275437115062),
           new google.maps.LatLng(34.98017567359328, 135.96473609566365),
         ];
+
         const polyline = new google.maps.Polyline({
           path: coordinates,
           geodesic: true,
@@ -87,6 +91,7 @@ export default {
           strokeWeight: 2,
           map: map
         });
+        
         await axios.get(DIRECTION_ENDPOINT, {params: {
           place_id: 'ChIJ685WIFYViEgRHlHvBbiD5nE',
           destination: 'place_id:ChIJA01I-8YVhkgRGJb0fW4UX7Y'
