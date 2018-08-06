@@ -6,7 +6,7 @@
         <!--<p>{{ message }}</p>-->
         <p>Powered by Strava</p>
       </div>
-      <router-link to="/navigation" id="start_button" v-if="showButton">Start</router-link>
+      <router-link to="/report" id="start_button" v-if="showButton">Start</router-link>
     </div>
   </section>
 </template>
